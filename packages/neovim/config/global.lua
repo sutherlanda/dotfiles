@@ -10,8 +10,11 @@ vim.opt.foldenable = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.cmd([[colorscheme dracula]])
-vim.g.dracula_colorterm = 0
+vim.g.gruvbox_italic = 1
+vim.g.gruvbox_underline = 1
+vim.g.gruvbox_undercurl = 1
+vim.g.gruvbox_contrast_dark = 'hard'
+vim.cmd([[colorscheme gruvbox]])
 vim.g.rooter_patterns = {'.git', '.git/', 'shell.sh', 'shell.nix'}
 vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax enable')
@@ -25,7 +28,7 @@ vim.cmd([[
 require'lualine'.setup({
   options = {
     icons_enabled = false,
-    theme = 'dracula'
+    theme = 'gruvbox'
   },
   sections = {
     lualine_c = {

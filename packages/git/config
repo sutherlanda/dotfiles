@@ -1,0 +1,14 @@
+[core]
+  excludesfile = SUBSTITUTE_GITIGNORE
+[user]
+  name = Andrew Sutherland
+  email = sutherlanda@gmail.com
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+[push]
+  default = simple
+[url "git@github.com:"]
+  insteadOf = https://github.com/

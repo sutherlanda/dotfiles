@@ -1,0 +1,10 @@
+result
+result-*
+*.swp
+tags
+.vscode
+*.DS_Store
+*.tmp
+*.tmp.*
+tmp/
+.env

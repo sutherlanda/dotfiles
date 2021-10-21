@@ -15,9 +15,7 @@ let
           vim-sensible
           The_NERD_tree
           The_NERD_Commenter
-          gruvbox-community
-          nord-vim
-          dracula-vim
+          gruvbox
           surround
           lualine-nvim
           nvim-web-devicons
@@ -47,10 +45,9 @@ let
   '';
 in
   pkgs.symlinkJoin {
-    name = "nvim";
+    name = "neovim";
     paths = [
       neovimWrapper
-      pkgs.fzf
       pkgs.ag
       pkgs.jq
       pkgs.nodejs

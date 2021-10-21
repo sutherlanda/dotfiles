@@ -8,6 +8,7 @@ let
       neovim
       ranger
       tmux
+      git
 
       # Unmodified packages
       pkgs.file
@@ -28,6 +29,7 @@ let
   neovim = import ./packages/neovim { inherit pkgs; };
   ranger = import ./packages/ranger { inherit pkgs; };
   tmux = import ./packages/tmux { inherit pkgs; };
+  git = import ./packages/git { inherit pkgs; };
 
 in
   if pkgs.lib.inNixShell
