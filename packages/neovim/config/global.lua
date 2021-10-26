@@ -62,7 +62,7 @@ vim.cmd([[
 ]])
 
 -- Run ctags on save
-vim.cmd('autocmd BufWritePost * call system("which ctags &> /dev/null && ctags -R . || exit 0")')
+--vim.cmd('autocmd BufWritePost * call system("which ctags &> /dev/null && ctags -R . || exit 0")')
 vim.cmd('set wildignore+=*.so,*.swp,*.zip,*.hi,*.o,*/node_modules/*,*/dist/*,*/.dist/*,*/build/*,*/.build/*,*/Godeps/*,*/elm-stuff/*,*/.gem/*,*/.git/*,*/tmp/*')
 
 -- Set up global key bindings.
@@ -70,7 +70,7 @@ vim.cmd('let mapleader=","')
 local opts = { noremap = true, silent = true }
 
 -- Set file types
-vim.cmd('autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl')
+--vim.cmd('autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl')
 
 -- Misc helpers
 vim.api.nvim_set_keymap('n', '<leader>f', ':set filetype=', { noremap = true })                        -- set filetype helper

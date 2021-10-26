@@ -4,25 +4,28 @@ rec {
   home.packages = with pkgs; [
     bash
     curl
+    fira-code
     keychain
+    meslo-lgs-nf
     mosh
     nix-zsh-completions
     ranger
     tmux
     tree
     zsh
-    meslo-lgs-nf
-    fira-code
   ];
 
   programs.zsh = {
     enable = true;
     enableCompletion = false;
     initExtraFirst = ''
-      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-      export FZF_BASE=${pkgs.fzf}/share/fzf/
+      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+      export FZF_BASE=${pkgs.fzf}/share/fzf
       export EDITOR=vim
       export VISUAL=vim
+      export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
+      export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
+      export PATH=$HOME/.nix-profile/bin:$PATH
       plugins=(git fzf)
       HISTFILESIZE=500000
       HISTSIZE=500000

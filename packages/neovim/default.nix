@@ -28,6 +28,7 @@ let
               tree-sitter-nix
               tree-sitter-rust
               tree-sitter-lua
+              tree-sitter-bash
             ]
           ))
           completion-nvim

@@ -34,6 +34,7 @@
               ./modules/cli.nix
               ./modules/neovim.nix
               ./modules/git.nix
+              ./modules/scripts.nix
             ];
           };
         };
@@ -48,6 +49,7 @@
               ./modules/cli.nix
               ./modules/neovim.nix
               ./modules/git.nix
+              ./modules/scripts.nix
             ];
           };
         };
