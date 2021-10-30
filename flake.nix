@@ -23,7 +23,7 @@
 
     {
       homeConfigurations = {
-        linux-desktop = home-manager.lib.homeManagerConfiguration {
+        debian = home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           stateVersion = "21.11";
           homeDirectory = "/home/andrew";
@@ -38,7 +38,7 @@
             ];
           };
         };
-        macbook-pro = home-manager.lib.homeManagerConfiguration {
+        darwin = home-manager.lib.homeManagerConfiguration {
           system = "x86_64-darwin";
           stateVersion = "21.11";
           homeDirectory = "/Users/andrewsutherland";
@@ -53,8 +53,24 @@
             ];
           };
         };
+        nixos = home-manager.lib.homeManagerConfiguration {
+          system = "x86_64-linux";
+          stateVersion = "21.11";
+          homeDirectory = "/home/andrew";
+          username = "andrew";
+          configuration = { pkgs, config, ... }: {
+            nixpkgs = nixpkgsConfig;
+            imports = [
+              ./modules/cli.nix
+              ./modules/neovim.nix
+              ./modules/git.nix
+              ./modules/scripts.nix
+            ];
+          };
+        };
       };
-      macbook-pro = self.homeConfigurations.macbook-pro.activationPackage;
-      linux-desktop = self.homeConfigurations.linux-desktop.activationPackage;
+      darwin = self.homeConfigurations.darwin.activationPackage;
+      debian = self.homeConfigurations.debian.activationPackage;
+      nixos = self.homeConfigurations.nixos.activationPackage;
     };
 }
