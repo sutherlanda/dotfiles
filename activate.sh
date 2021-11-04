@@ -1,7 +1,8 @@
 #!/bin/bash
 
 case "$1" in
-  "darwin") nix run .#darwin;;
+  "darwin-intel") nix run .#darwin-intel;;
+  "darwin-m1") nix run .#darwin-m1;;
   "debian") nix run .#debian;;
   "nixos") nix run .#nixos;;
   *)

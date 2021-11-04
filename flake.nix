@@ -44,8 +44,23 @@
             ];
           };
         };
-        darwin = home-manager.lib.homeManagerConfiguration {
+        darwin-intel = home-manager.lib.homeManagerConfiguration {
           system = "x86_64-darwin";
+          stateVersion = "21.11";
+          homeDirectory = "/Users/andrewsutherland";
+          username = "andrewsutherland";
+          configuration = { pkgs, config, ... }: {
+            nixpkgs = nixpkgsConfig;
+            imports = [
+              ./modules/cli.nix
+              ./programs/neovim
+              ./modules/git.nix
+              ./modules/scripts.nix
+            ];
+          };
+        };
+        darwin-m1 = home-manager.lib.homeManagerConfiguration {
+          system = "aarch64-darwin";
           stateVersion = "21.11";
           homeDirectory = "/Users/andrewsutherland";
           username = "andrewsutherland";
@@ -75,7 +90,8 @@
           };
         };
       };
-      darwin = self.homeConfigurations.darwin.activationPackage;
+      darwin-intel = self.homeConfigurations.darwin-intel.activationPackage;
+      darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
       debian = self.homeConfigurations.debian.activationPackage;
       nixos = self.homeConfigurations.nixos.activationPackage;
     };
