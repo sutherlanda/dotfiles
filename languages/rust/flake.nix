@@ -11,13 +11,13 @@
     let
       pkgs = nixpkgs.legacyPackages.${system};
       shell = pkgs.mkShell {
-        buildInputs = with pkgs; [ rustc cargo rustfmt rust-analyzer ];
+        buildInputs = with pkgs; [ rustc cargo rustfmt ];
       };
     in {
       packages = {
         shell = shell;
       };
 
-      devShell = shell; 
+      devShell = shell;
     });
 }

@@ -48,11 +48,11 @@ require'lualine'.setup({
 })
 
 -- Tree-sitter config
-require'nvim-treesitter.configs'.setup {
-   ensure_installed = { rust, haskell, nix, lua },
-   highlight = { enable = true },
-   incremental_selection = { enable = true }
-}
+--require'nvim-treesitter.configs'.setup {
+   --ensure_installed = { rust, haskell, nix, lua },
+   --highlight = { enable = true },
+   --incremental_selection = { enable = true }
+--}
 
 -- Silver-search with grep
 vim.cmd([[

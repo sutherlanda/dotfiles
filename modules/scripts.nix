@@ -1,30 +1,31 @@
 { config, pkgs, ...}:
 
 let
-  rustEnv = dev { name = "rust-env"; envPath = ../packages/rust; };
 
-  dev = { name, envPath }: pkgs.writeShellScriptBin name ''
-    if [ $# -ne 1 ]; then
-      echo "usage: ${name} session";
+  dev = pkgs.writeShellScriptBin "dev-shell" ''
+    if [ "$#" -lt "1" ]; then
+      echo "usage: dev-shell session [flakePath]";
       exit 1
     fi
 
-    session=$1
+    SESSION=$1
+    FLAKEPATH=$(realpath ''${2:-"."})
 
     # Check if there is an existing session
-    tmux has-session -t $session 2> /dev/null
+    tmux has-session -t $SESSION 2> /dev/null
 
     # Create a new session if one was not found
     if [ $? != 0 ]
     then
-      tmux new-session -s $session -n ranger -d "nix develop ${envPath}# -c ranger"
-      tmux new-window -t $session -n shell "nix develop ${envPath}# -c $SHELL"
-      tmux select-window -t $session:1
+      tmux new-session -s $SESSION -n ranger -d "nix develop $FLAKEPATH -c ranger"
+      tmux new-window -t $SESSION -n shell "nix develop $FLAKEPATH -c $SHELL"
+      tmux send-keys -t $SESSION:2 'clear' C-m
+      tmux select-window -t $SESSION:1
     fi
 
-    tmux attach-session -t $session
+    tmux attach-session -t $SESSION
   '';
 in
   {
-    home.packages = [ rustEnv ];
+    home.packages = [ dev ];
   }

@@ -3,16 +3,22 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=7b77cca268d1c0de2c22c13baf19654a47abe562";
 
     # System management
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
+
+      overlays = [ inputs.neovim-nightly-overlay.overlay ];
+
       nixpkgsConfig = {
+        overlays = overlays;
         config = {
           allowUnfree = true;
           allowUnsupportedSystem = true;
@@ -32,7 +38,7 @@
             nixpkgs = nixpkgsConfig;
             imports = [
               ./modules/cli.nix
-              ./modules/neovim.nix
+              ./programs/neovim
               ./modules/git.nix
               ./modules/scripts.nix
             ];
@@ -47,7 +53,7 @@
             nixpkgs = nixpkgsConfig;
             imports = [
               ./modules/cli.nix
-              ./modules/neovim.nix
+              ./programs/neovim
               ./modules/git.nix
               ./modules/scripts.nix
             ];
@@ -62,7 +68,7 @@
             nixpkgs = nixpkgsConfig;
             imports = [
               ./modules/cli.nix
-              ./modules/neovim.nix
+              ./programs/neovim
               ./modules/git.nix
               ./modules/scripts.nix
             ];

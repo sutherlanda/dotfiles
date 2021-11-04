@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-rec {
+{
   home.packages = with pkgs; [
     bash
     curl
@@ -13,6 +13,7 @@ rec {
     tmux
     tree
     zsh
+    coreutils
   ];
 
   programs.zsh = {
@@ -21,8 +22,8 @@ rec {
     initExtraFirst = ''
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       export FZF_BASE=${pkgs.fzf}/share/fzf
-      export EDITOR=vim
-      export VISUAL=vim
+      export EDITOR=nvim
+      export VISUAL=nvim
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export PATH=$HOME/.nix-profile/bin:$PATH
@@ -46,5 +47,5 @@ rec {
   };
 
   home.file.".tmux.conf".source = ../config/tmux/tmux.conf;
-  xdg.configFile."ranger/rifle.conf".source = ../config/ranger/rifle.conf;
+  home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
 }
