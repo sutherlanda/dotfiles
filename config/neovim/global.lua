@@ -19,15 +19,11 @@ vim.g.rooter_patterns = {'.git', '.git/', 'shell.sh', 'shell.nix'}
 vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
-vim.cmd([[
-  set completeopt=menuone,noinsert,noselect
-  set shortmess+=c
-]])
 
 -- Lualine
 require'lualine'.setup({
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'gruvbox'
   },
   sections = {
@@ -46,13 +42,6 @@ require'lualine'.setup({
     }
   }
 })
-
--- Tree-sitter config
---require'nvim-treesitter.configs'.setup {
-   --ensure_installed = { rust, haskell, nix, lua },
-   --highlight = { enable = true },
-   --incremental_selection = { enable = true }
---}
 
 -- Silver-search with grep
 vim.cmd([[

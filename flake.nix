@@ -9,16 +9,16 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
 
-      overlays = [ inputs.neovim-nightly-overlay.overlay ];
+      #overlays = [ inputs.neovim-nightly-overlay.overlay ];
 
       nixpkgsConfig = {
-        overlays = overlays;
+        #overlays = overlays;
         config = {
           allowUnfree = true;
           allowUnsupportedSystem = true;

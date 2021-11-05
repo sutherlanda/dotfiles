@@ -7,7 +7,6 @@ in
 
 {
   home.packages = with pkgs; [
-    neovim-nightly
     ag
     jq
     nodejs
@@ -19,6 +18,7 @@ in
     nodePackages.pyright
     nodePackages.typescript-language-server
   ];
+
   programs.neovim = {
     enable = true;
     extraConfig = ''
@@ -31,7 +31,7 @@ in
       vim-sensible
       The_NERD_tree
       The_NERD_Commenter
-      gruvbox
+      gruvbox-community
       surround
       lualine-nvim
       nvim-web-devicons
@@ -39,7 +39,10 @@ in
       fzf-vim
       vim-nix
       nvim-lspconfig
-      completion-nvim
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp_luasnip
+      luasnip
       vim-rooter
       lsp_extensions-nvim
       vim-glsl

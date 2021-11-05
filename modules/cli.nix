@@ -27,6 +27,8 @@
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export PATH=$HOME/.nix-profile/bin:$PATH
+      export TERM=screen-256color
+      export NVIM_TUI_ENABLE_TRUE_COLOR=1
       plugins=(git fzf)
       HISTFILESIZE=500000
       HISTSIZE=500000
