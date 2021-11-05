@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     bash
+    coreutils
     curl
     fira-code
     keychain
@@ -13,7 +14,6 @@
     tmux
     tree
     zsh
-    coreutils
   ];
 
   programs.zsh = {

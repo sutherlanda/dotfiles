@@ -13,6 +13,7 @@ in
     nodejs
     rnix-lsp
     rust-analyzer
+    rustfmt
     shellcheck
     stylua
     nodePackages.pyright

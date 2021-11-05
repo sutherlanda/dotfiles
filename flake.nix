@@ -71,6 +71,7 @@
               ./programs/neovim
               ./modules/git.nix
               ./modules/scripts.nix
+              ./modules/rust.nix
             ];
           };
         };
