@@ -13,16 +13,10 @@ local on_attach = function(client, bufnr)
   -- Customize diagnostic handling.
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
+        virtual_text = false,
         underline = true,
-        update_in_insert = false
       }
     )
-
-  -- Inlay hints
-  --vim.cmd([[
-    --autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
-  --]])
 
   -- Customize the LSP diagnostic gutter signs
   local signs = { Error = ">>", Warning = ">", Hint = "*", Information = ">" }
@@ -30,6 +24,15 @@ local on_attach = function(client, bufnr)
     local name = "LspDiagnosticsSign" .. type
     vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
   end
+
+  -- Setup LSP Saga
+  --local saga = require('lspsaga')
+  --saga.init_lsp_saga({
+    --use_saga_diagnostic_sign = false,
+    --code_action_prompt = {
+      --enable = false
+    --},
+  --})
 
   -- Format on save.
   vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
@@ -163,24 +166,13 @@ cmp.setup {
 -- Load language servers and override on_attach.
 local nvim_lsp = require('lspconfig')
 
-nvim_lsp.rust_analyzer.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      assist = {
-        importGranularity = "module",
-        importPrefix = "by_self",
-      },
-      cargo = {
-        loadOutDirsFromCheck = true,
-      },
-      procMacro = {
-        enable = true,
-      },
-    }
-  },
-  flags = {
-    debounce_text_changes = 150,
-  },
+-- Setup rust-tools
+local rtOpts = {
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
 }
+
+require('rust-tools').setup(rtOpts)
+

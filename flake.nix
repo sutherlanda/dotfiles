@@ -9,17 +9,24 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # Neovim
+    neovim-flake = {
+      url = "path:/Users/andrewsutherland/projects/home/flakes/neovim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    # Other
+    flake-utils.url = "github:numtide/flake-utils";
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, ... }:
     let
 
-      #overlays = [ inputs.neovim-nightly-overlay.overlay ];
-
-      nixpkgsConfig = {
-        #overlays = overlays;
+      pkgs = system: {  
+        overlays = [ neovim-flake.overlay.${system} ];
         config = {
+          allowBroken = true;
           allowUnfree = true;
           allowUnsupportedSystem = true;
         };
@@ -29,71 +36,51 @@
 
     {
       homeConfigurations = {
-        debian = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-          stateVersion = "21.11";
-          homeDirectory = "/home/andrew";
-          username = "andrew";
-          configuration = { pkgs, config, ...}: {
-            nixpkgs = nixpkgsConfig;
-            imports = [
-              ./modules/cli.nix
-              ./programs/neovim
-              ./modules/git.nix
-              ./modules/scripts.nix
-            ];
-          };
-        };
-        darwin-intel = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-darwin";
-          stateVersion = "21.11";
-          homeDirectory = "/Users/andrewsutherland";
-          username = "andrewsutherland";
-          configuration = { pkgs, config, ... }: {
-            nixpkgs = nixpkgsConfig;
-            imports = [
-              ./modules/cli.nix
-              ./programs/neovim
-              ./modules/git.nix
-              ./modules/scripts.nix
-            ];
-          };
-        };
-        darwin-m1 = home-manager.lib.homeManagerConfiguration {
-          system = "aarch64-darwin";
-          stateVersion = "21.11";
-          homeDirectory = "/Users/andrewsutherland";
-          username = "andrewsutherland";
-          configuration = { pkgs, config, ... }: {
-            nixpkgs = nixpkgsConfig;
-            imports = [
-              ./modules/cli.nix
-              ./programs/neovim
-              ./modules/git.nix
-              ./modules/scripts.nix
-              ./modules/rust.nix
-            ];
-          };
-        };
-        nixos = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-          stateVersion = "21.11";
-          homeDirectory = "/home/andrew";
-          username = "andrew";
-          configuration = { pkgs, config, ... }: {
-            nixpkgs = nixpkgsConfig;
-            imports = [
-              ./modules/cli.nix
-              ./programs/neovim
-              ./modules/git.nix
-              ./modules/scripts.nix
-            ];
-          };
-        };
+        debian = 
+	  let
+	    system = "x86_64-linux";
+	    pkgConfig = pkgs system;
+	  in
+	    home-manager.lib.homeManagerConfiguration {
+	      inherit system;
+              stateVersion = "21.11";
+              homeDirectory = "/home/andrew";
+              username = "andrew";
+              configuration = { config, ...}: {
+                nixpkgs = pkgConfig;
+                imports = [
+                  ./modules/cli.nix
+                  ./modules/git.nix
+                  ./modules/scripts.nix
+                  ./modules/rust.nix
+                  ./modules/editing.nix
+                ];
+              };
+            };
+        darwin-m1 = 
+	  let
+	    system = "aarch64-darwin";
+	    pkgConfig = pkgs system;
+	  in
+	    home-manager.lib.homeManagerConfiguration {
+	      inherit system;
+              stateVersion = "21.11";
+              homeDirectory = "/Users/andrewsutherland";
+              username = "andrewsutherland";
+              configuration = { pkgs, config, ... }: {
+                nixpkgs = pkgConfig; 
+                home.packages = [ pkgs.neovim ];
+                imports = [
+                  ./modules/cli.nix
+                  ./modules/git.nix
+                  ./modules/scripts.nix
+                  ./modules/rust.nix
+                  ./modules/editing.nix
+                ];
+              };
+            };
       };
-      darwin-intel = self.homeConfigurations.darwin-intel.activationPackage;
       darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
       debian = self.homeConfigurations.debian.activationPackage;
-      nixos = self.homeConfigurations.nixos.activationPackage;
     };
 }

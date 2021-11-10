@@ -27,8 +27,9 @@
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export PATH=$HOME/.nix-profile/bin:$PATH
-      export TERM=screen-256color
+      export TERM=xterm-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
+      export XDG_CONFIG_HOME=$HOME/.config
       plugins=(git fzf)
       HISTFILESIZE=500000
       HISTSIZE=500000
@@ -45,6 +46,12 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
       ZSH_THEME="powerlevel10k/powerlevel10k"
+
+      alias t-start='sudo systemctl start transmission-daemon.service start'
+      alias t-stop='sudo systemctl stop transmission-daemon.service stop'
+      alias t-list='transmission-remote -n 'transmission:transmission' -l'
+      alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
+      alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
     '';
   };
 

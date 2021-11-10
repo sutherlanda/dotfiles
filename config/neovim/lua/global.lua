@@ -10,11 +10,8 @@ vim.opt.foldenable = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.g.gruvbox_italic = 1
-vim.g.gruvbox_underline = 1
-vim.g.gruvbox_undercurl = 1
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.cmd([[colorscheme gruvbox]])
+vim.g.tokyonight_style = 'night'
+vim.cmd([[colorscheme tokyonight]])
 vim.g.rooter_patterns = {'.git', '.git/', 'shell.sh', 'shell.nix'}
 vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax enable')
@@ -24,7 +21,7 @@ vim.cmd('filetype plugin indent on')
 require'lualine'.setup({
   options = {
     icons_enabled = true,
-    theme = 'gruvbox'
+    theme = 'tokyonight'
   },
   sections = {
     lualine_c = {
@@ -59,7 +56,7 @@ vim.cmd('let mapleader=","')
 local opts = { noremap = true, silent = true }
 
 -- Set file types
---vim.cmd('autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl')
+vim.cmd('autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl')
 
 -- Misc helpers
 vim.api.nvim_set_keymap('n', '<leader>f', ':set filetype=', { noremap = true })                        -- set filetype helper
@@ -72,9 +69,9 @@ vim.api.nvim_set_keymap('n', '<leader>j', '<cmd>%!jq<CR>', opts)                
 vim.api.nvim_set_keymap('n', '<leader>pc', '<cmd>pclose<CR>', opts)                          -- close preview window
 
 -- Search
-vim.api.nvim_set_keymap('', '<C-p>', '<cmd>Files<CR>', opts)         -- File search
-vim.api.nvim_set_keymap('', '<C-\\>', '<cmd>Ag<CR>', opts)           -- Ag search
-vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Buffers<CR>', opts)  -- Show buffers
+vim.api.nvim_set_keymap('', '<C-p>', '<cmd>Telescope find_files<CR>', opts)
+vim.api.nvim_set_keymap('', '<C-\\>', '<cmd>Telescope live_grep<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
 
 -- NERDTree
 vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>NERDTreeFocus<CR>', opts)        -- NERDTree focus/open
