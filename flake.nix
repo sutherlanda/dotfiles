@@ -11,7 +11,7 @@
 
     # Neovim
     neovim-flake = {
-      url = "path:/Users/andrewsutherland/projects/home/flakes/neovim";
+      url = "path:./flakes/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
