@@ -3,7 +3,7 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = "github:nixos/nixpkgs?rev=7b77cca268d1c0de2c22c13baf19654a47abe562";
+    nixpkgs.url = "github:nixos/nixpkgs";
 
     # System management
     home-manager.url = "github:nix-community/home-manager";
@@ -19,11 +19,11 @@
     # Other
     flake-utils.url = "github:numtide/flake-utils";
   };
-  
+
   outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, ... }:
     let
 
-      pkgs = system: {  
+      pkgs = system: {
         overlays = [ neovim-flake.overlay.${system} ];
         config = {
           allowBroken = true;
@@ -36,49 +36,48 @@
 
     {
       homeConfigurations = {
-        debian = 
-	  let
-	    system = "x86_64-linux";
-	    pkgConfig = pkgs system;
-	  in
-	    home-manager.lib.homeManagerConfiguration {
-	      inherit system;
-              stateVersion = "21.11";
-              homeDirectory = "/home/andrew";
-              username = "andrew";
-              configuration = { config, ...}: {
-                nixpkgs = pkgConfig;
-                imports = [
-                  ./modules/cli.nix
-                  ./modules/git.nix
-                  ./modules/scripts.nix
-                  ./modules/rust.nix
-                  ./modules/editing.nix
-                ];
-              };
+        debian =
+          let
+            system = "x86_64-linux";
+            pkgConfig = pkgs system;
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit system;
+            stateVersion = "21.11";
+            homeDirectory = "/home/andrew";
+            username = "andrew";
+            configuration = { config, ... }: {
+              nixpkgs = pkgConfig;
+              imports = [
+                ./modules/cli.nix
+                ./modules/git.nix
+                ./modules/scripts.nix
+                ./modules/rust.nix
+                ./modules/editing.nix
+              ];
             };
-        darwin-m1 = 
-	  let
-	    system = "aarch64-darwin";
-	    pkgConfig = pkgs system;
-	  in
-	    home-manager.lib.homeManagerConfiguration {
-	      inherit system;
-              stateVersion = "21.11";
-              homeDirectory = "/Users/andrewsutherland";
-              username = "andrewsutherland";
-              configuration = { pkgs, config, ... }: {
-                nixpkgs = pkgConfig; 
-                home.packages = [ pkgs.neovim ];
-                imports = [
-                  ./modules/cli.nix
-                  ./modules/git.nix
-                  ./modules/scripts.nix
-                  ./modules/rust.nix
-                  ./modules/editing.nix
-                ];
-              };
+          };
+        darwin-m1 =
+          let
+            system = "aarch64-darwin";
+            pkgConfig = pkgs system;
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit system;
+            stateVersion = "21.11";
+            homeDirectory = "/Users/andrewsutherland";
+            username = "andrewsutherland";
+            configuration = { pkgs, config, ... }: {
+              nixpkgs = pkgConfig;
+              imports = [
+                ./modules/cli.nix
+                ./modules/git.nix
+                ./modules/scripts.nix
+                ./modules/rust.nix
+                ./modules/editing.nix
+              ];
             };
+          };
       };
       darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
       debian = self.homeConfigurations.debian.activationPackage;

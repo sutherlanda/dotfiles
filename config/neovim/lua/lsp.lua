@@ -19,20 +19,11 @@ local on_attach = function(client, bufnr)
     )
 
   -- Customize the LSP diagnostic gutter signs
-  local signs = { Error = ">>", Warning = ">", Hint = "*", Information = ">" }
+  local signs = { Error = ">>", Warn = ">", Hint = "*", Info = "*" }
   for type, icon in pairs(signs) do
-    local name = "LspDiagnosticsSign" .. type
+    local name = "DiagnosticSign" .. type
     vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
   end
-
-  -- Setup LSP Saga
-  --local saga = require('lspsaga')
-  --saga.init_lsp_saga({
-    --use_saga_diagnostic_sign = false,
-    --code_action_prompt = {
-      --enable = false
-    --},
-  --})
 
   -- Format on save.
   vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
@@ -174,5 +165,25 @@ local rtOpts = {
   }
 }
 
-require('rust-tools').setup(rtOpts)
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+nvim_lsp.rnix.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+nvim_lsp.bashls.setup({
+  on_attach = on_attach,
+  capabilities = capablities
+})
+
+nvim_lsp.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capablities
+})
+
+--require('rust-tools').setup(rtOpts)
 

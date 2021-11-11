@@ -1,16 +1,18 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
+    neovim
     ag
     jq
     nodejs
     shellcheck
-    stylua
     nodePackages.pyright
     nodePackages.typescript-language-server
+    nodePackages.bash-language-server
     ripgrep
     fd
     tree-sitter
+    rnix-lsp
   ];
 
   home.file.".config/nvim/init.vim".source = ../config/neovim/init.vim;
