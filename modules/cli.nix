@@ -12,6 +12,8 @@
     ranger
     tmux
     tree
+    docker
+    docker-compose
   ];
 
   programs.zsh = {
