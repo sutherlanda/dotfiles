@@ -9,11 +9,9 @@
     keychain
     meslo-lgs-nf
     mosh
-    nix-zsh-completions
     ranger
     tmux
     tree
-    zsh
   ];
 
   programs.zsh = {
