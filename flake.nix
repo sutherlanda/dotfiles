@@ -16,15 +16,22 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    # Mosh
+    mosh-flake = {
+      url = "path:./flakes/mosh";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     # Other
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, mosh-flake, ... }:
     let
 
       pkgs = system: {
-        overlays = [ neovim-flake.overlay.${system} ];
+        overlays = [ neovim-flake.overlay.${system} mosh-flake.overlay.${system} ];
         config = {
           allowBroken = true;
           allowUnfree = true;

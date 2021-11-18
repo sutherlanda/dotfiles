@@ -102,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1637088670,
-        "narHash": "sha256-d49wUICXl1iItqvk0lbMwjpUbro86mBrV6876C+SLcA=",
+        "lastModified": 1637188941,
+        "narHash": "sha256-4aA5iNVhSDbKjsPeG4n0SvfPQ3sd9ve23b05bVztSq4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5559ef002306dde0093f3d329725259cada9ed41",
+        "rev": "d85bf67c48f5c64ca39d3d48375e742e16933f4f",
         "type": "github"
       },
       "original": {
@@ -118,11 +118,11 @@
     "lualine-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1637031388,
-        "narHash": "sha256-gaxM7UWHDSg8aU+69xWPU1VlMvFW/bZrJNkLSWh1yxI=",
+        "lastModified": 1637204783,
+        "narHash": "sha256-icNyggUdgCSdpeWjRF6E77fDyXWX4VsXQOMKyCcK/8s=",
         "owner": "nvim-lualine",
         "repo": "lualine.nvim",
-        "rev": "7b608cb5731087b157bd509103b1d82d8984cba4",
+        "rev": "44e09a0a9925472f92b297634ac43b9d085c7d19",
         "type": "github"
       },
       "original": {
@@ -134,16 +134,52 @@
     "luasnip": {
       "flake": false,
       "locked": {
-        "lastModified": 1637098034,
-        "narHash": "sha256-1EunlGR81DXr9cirrQOpOAbY6v9uAKMQ0nE71NBANnw=",
+        "lastModified": 1637190605,
+        "narHash": "sha256-/igENgj3s/yE8zQ3UObl8wMfAwMgHdTc1lEXS3ehK1Q=",
         "owner": "L3MON4D3",
         "repo": "LuaSnip",
-        "rev": "6e10a30178240182781955ce062618c8d793a37b",
+        "rev": "f400b978b1dbca96e9e190b7009c415c09b8924c",
         "type": "github"
       },
       "original": {
         "owner": "L3MON4D3",
         "repo": "LuaSnip",
+        "type": "github"
+      }
+    },
+    "mosh-flake": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "mosh-src": "mosh-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-aN9sP5rm3FxVbUyTvsJihhCOF64ZyKkQtuUpDOYUlmY=",
+        "path": "./flakes/mosh",
+        "type": "path"
+      },
+      "original": {
+        "path": "./flakes/mosh",
+        "type": "path"
+      }
+    },
+    "mosh-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636044370,
+        "narHash": "sha256-RUJRqeVG00q3cwbdFGosDIb9v/nt1xf85YBwo6jvLmM=",
+        "owner": "mobile-shell",
+        "repo": "mosh",
+        "rev": "6b2ffa904d8d294657be641780adcd8dfc859bc3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mobile-shell",
+        "repo": "mosh",
         "type": "github"
       }
     },
@@ -250,11 +286,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1637185106,
-        "narHash": "sha256-qRdKO+grUKrvING82ORg7ghmZBWiY8nonHKDIhlFJss=",
+        "lastModified": 1637218689,
+        "narHash": "sha256-P8mo8ZVS+xfxdYcoOCAAxPQ2MnEbFaXAea/qAFfoQ60=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "43f0be9a0919feeb329ef022327aa153a2c192ff",
+        "rev": "c89cf3325bca7a43608f9649f79f49e954345f69",
         "type": "github"
       },
       "original": {
@@ -331,6 +367,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "mosh-flake": "mosh-flake",
         "neovim-flake": "neovim-flake",
         "nixpkgs": "nixpkgs"
       }
