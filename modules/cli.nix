@@ -57,4 +57,5 @@
 
   home.file.".tmux.conf".source = ../config/tmux/tmux.conf;
   home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
+  home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
 }
