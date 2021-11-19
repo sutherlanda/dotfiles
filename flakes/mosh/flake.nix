@@ -36,7 +36,8 @@
               make prefix=$out install
             '';
             postInstall = ''
-              wrapProgram $out/bin/mosh --prefix PERL5LIB : $PERL5LIB
+              wrapProgram $out/bin/mosh --prefix PERL5LIB : $PERL5LIB;
+              wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${glibcLocales}/lib/locale/locale-archive;
             '';
           };
         };
