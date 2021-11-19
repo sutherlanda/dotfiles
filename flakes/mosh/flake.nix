@@ -31,7 +31,9 @@
             configurePhase = ''
               ./autogen.sh
               ./configure
-              substituteInPlace ./Makefile --replace /usr/local $out
+            '';
+            installPhase = ''
+              make prefix=$out install
             '';
           };
         };
