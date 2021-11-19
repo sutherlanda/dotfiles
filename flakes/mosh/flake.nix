@@ -15,7 +15,8 @@
       let
         mosh-overlay = final: prev: with nixpkgs.legacyPackages.${system}; {
           mosh = final.stdenv.mkDerivation rec {
-            name = "mosh";
+            pname = "mosh";
+            version = "1.3.2";
             src = mosh-src;
             nativeBuildInputs = [ autoreconfHook pkg-config makeWrapper ];
             buildInputs = [
@@ -27,6 +28,11 @@
             ]
             ++ (with perlPackages; [ perl IOTty ])
             ++ lib.optional final.stdenv.isLinux libutempter;
+            configurePhase = ''
+              ./autogen.sh
+              ./configure
+              substituteInPlace ./Makefile --replace /usr/local $out
+            '';
           };
         };
         pkgs = import nixpkgs { inherit system; overlays = [ mosh-overlay ]; };

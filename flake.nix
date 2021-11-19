@@ -31,7 +31,10 @@
     let
 
       pkgs = system: {
-        overlays = [ neovim-flake.overlay.${system} mosh-flake.overlay.${system} ];
+        overlays = [
+          neovim-flake.overlay.${system}
+          mosh-flake.overlay.${system}
+        ];
         config = {
           allowBroken = true;
           allowUnfree = true;

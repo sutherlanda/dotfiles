@@ -158,7 +158,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-aN9sP5rm3FxVbUyTvsJihhCOF64ZyKkQtuUpDOYUlmY=",
+        "narHash": "sha256-PDDQffcQiFbYdQYZ4aZloPlXSzf3rKQ6UbcmAahBAgQ=",
         "path": "./flakes/mosh",
         "type": "path"
       },
