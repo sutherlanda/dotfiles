@@ -27,6 +27,7 @@
       },
       "original": {
         "owner": "mobile-shell",
+        "ref": "master",
         "repo": "mosh",
         "type": "github"
       }
