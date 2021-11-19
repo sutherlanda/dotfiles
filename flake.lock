@@ -158,7 +158,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-uBvhuq0ibd1ChLD2AAlEWlz+MoJQrG9NRmVxKfULXzc=",
+        "narHash": "sha256-k+qjA71nZ4wBA1/vhmng7zjIByWgtNeoeqvritBT1HM=",
         "path": "./flakes/mosh",
         "type": "path"
       },
@@ -179,6 +179,7 @@
       },
       "original": {
         "owner": "mobile-shell",
+        "ref": "master",
         "repo": "mosh",
         "type": "github"
       }

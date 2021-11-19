@@ -7,7 +7,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Mosh
-    mosh-src = { url = "github:mobile-shell/mosh"; flake = false; };
+    mosh-src = { url = "github:mobile-shell/mosh?ref=master"; flake = false; };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, mosh-src, ... }:
@@ -34,6 +34,9 @@
             '';
             installPhase = ''
               make prefix=$out install
+            '';
+            postInstall = ''
+              wrapProgram $out/bin/mosh --prefix PERL5LIB : $PERL5LIB
             '';
           };
         };
