@@ -28,15 +28,18 @@
             ]
             ++ (with perlPackages; [ perl IOTty ])
             ++ lib.optional final.stdenv.isLinux libutempter;
+
             configurePhase = ''
-              ./autogen.sh
-              ./configure
+              ./autogen.sh;
+              ./configure;
             '';
-            installPhase = ''
+
+            installPhase = '' 
               make prefix=$out install;
-              wrapProgram $out/bin/mosh --prefix PERL5LIB : $PERL5LIB --set LOCALE_ARCHIVE ${glibcLocales}/lib/locale/locale-archive;
-              wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${glibcLocales}/lib/locale/locale-archive;
-            '';
+              wrapProgram $out/bin/mosh --prefix PERL5LIB : $PERL5LIB; 
+            ''
+            + final.lib.strings.optionalString (glibcLocales != null)
+              "wrapProgram $out/bin/mosh-server --set LOCALE_ARCHIVE ${glibcLocales}/lib/locale/locale-archive;";
           };
         };
         pkgs = import nixpkgs { inherit system; overlays = [ mosh-overlay ]; };
