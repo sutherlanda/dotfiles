@@ -52,6 +52,8 @@
       alias t-list='transmission-remote -n 'transmission:transmission' -l'
       alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
       alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
+
+      alias myip='curl https://ipinfo.io/ip'
     '';
   };
 
