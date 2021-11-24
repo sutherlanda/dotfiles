@@ -1,13 +1,12 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 let
 
-  dev = pkgs.writeShellScriptBin "dev" (builtins.readFile ../scripts/dev.sh);
-  devFromFlake = pkgs.writeShellScriptBin "dev-from-flake" (builtins.readFile ../scripts/dev-from-flake.sh);
+  dev = pkgs.writeShellScriptBin "dev-shell" (builtins.readFile ../scripts/dev-shell.sh);
   devList = pkgs.writeShellScriptBin "dev-ls" "tmux ls";
 
 in
 
-  {
-    home.packages = [ dev devFromFlake devList ];
-  }
+{
+  home.packages = [ dev devList ];
+}
