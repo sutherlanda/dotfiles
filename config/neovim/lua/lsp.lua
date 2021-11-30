@@ -157,14 +157,6 @@ cmp.setup {
 -- Load language servers and override on_attach.
 local nvim_lsp = require('lspconfig')
 
--- Setup rust-tools
-local rtOpts = {
-  server = {
-    on_attach = on_attach,
-    capabilities = capabilities
-  }
-}
-
 nvim_lsp.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities
@@ -177,13 +169,20 @@ nvim_lsp.rnix.setup({
 
 nvim_lsp.bashls.setup({
   on_attach = on_attach,
-  capabilities = capablities
+  capabilities = capabilities
 })
 
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
-  capabilities = capablities
+  capabilities = capabilities
 })
 
---require('rust-tools').setup(rtOpts)
+nvim_lsp.pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
 
+nvim_lsp.eslint.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})

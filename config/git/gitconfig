@@ -11,3 +11,4 @@
   last = log -1 HEAD
 [push]
   default = simple
+  

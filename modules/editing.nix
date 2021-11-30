@@ -9,6 +9,8 @@
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
+    nodePackages.eslint
+    nodePackages.vscode-langservers-extracted
     ripgrep
     fd
     tree-sitter
