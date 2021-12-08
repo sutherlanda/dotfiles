@@ -1,0 +1,60 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1638122382,
+        "narHash": "sha256-sQzZzAbvKEqN9s0bzWuYmRaA03v40gaJ4+iL1LXjaeI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "74f7e4319258e287b0f9cb95426c9853b282730b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1638847994,
+        "narHash": "sha256-Yr/nG6ZpFWjJ7xWPUtfj6L3dPuaY5D4WGYKuYA8qTTY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fe3e7ef66c3b774fd194ae275ce1ac9cb71b13e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "prettierd-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638799924,
+        "narHash": "sha256-pU200LJwc9t+/EX4Yx+ZIflXS7uXDSgs0W0iIdSdbV4=",
+        "owner": "fsouza",
+        "repo": "prettierd",
+        "rev": "39c73feaf879ef0541cd570d2af85d3ed8bf6c8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fsouza",
+        "repo": "prettierd",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "prettierd-src": "prettierd-src"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

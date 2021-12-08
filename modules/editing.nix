@@ -9,12 +9,13 @@
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
-    nodePackages.eslint
-    nodePackages.vscode-langservers-extracted
+    nodePackages.eslint_d
+    nodePackages.node2nix
     ripgrep
     fd
     tree-sitter
     rnix-lsp
+    prettierd
   ];
 
   home.file.".config/nvim/init.vim".source = ../config/neovim/init.vim;

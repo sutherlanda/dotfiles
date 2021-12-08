@@ -173,16 +173,32 @@ nvim_lsp.bashls.setup({
 })
 
 nvim_lsp.tsserver.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+
+    local ts_utils = require('nvim-lsp-ts-utils')
+    ts_utils.setup({
+      eslint_bin = "eslint_d",
+      eslint_enable_diagnostics = true,
+      eslint_enable_code_actions = true,
+      enable_formatting = true,
+      formatter = "prettierd"
+    })
+    ts_utils.setup_client(client)
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities
 })
+
+local null_ls = require('null-ls')
+local sources = {
+  null_ls.builtins.formatting.prettierd,
+}
+null_ls.config({ sources = sources })
+nvim_lsp["null-ls"].setup({ on_attach = on_attach })
 
 nvim_lsp.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
-})
-
-nvim_lsp.eslint.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })

@@ -15,6 +15,7 @@
     docker
     docker-compose
     gnused
+    openshift
   ];
 
   programs.direnv = {
