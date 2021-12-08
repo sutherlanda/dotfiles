@@ -158,12 +158,12 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-ewQoK2hVrzlN3LjSKQnXXJO0xIqxujAASccptEIOE9Y=",
-        "path": "./flakes/mosh",
+        "narHash": "sha256-HT6qJuj+f+RQJ7DoW4KamugLFrATWKpkxGRE4S61DPk=",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/mosh",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/mosh",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/mosh",
         "type": "path"
       }
     },
@@ -219,12 +219,12 @@
         "vim-surround": "vim-surround"
       },
       "locked": {
-        "narHash": "sha256-4PO8UaYbiZcttmjuEbVEi0GcCrUFX9FwLCVI/z++bpA=",
-        "path": "./flakes/neovim",
+        "narHash": "sha256-Q/7S3WpJi4DSAR5M0LGEHm/k24KusaTDLJ77OwPqMd4=",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/neovim",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/neovim",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/neovim",
         "type": "path"
       }
     },
@@ -409,12 +409,12 @@
         "prettierd-src": "prettierd-src"
       },
       "locked": {
-        "narHash": "sha256-AspE6Wn2xSuRGCIw7Qeian+zUhqbo8DyZNPRbkHhy9c=",
-        "path": "./flakes/prettierd",
+        "narHash": "sha256-f71xJ9iVIGBVWavVyeCQpNW/C3L0YcRwh2EVESITl44=",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/prettierd",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/prettierd",
+        "path": "/nix/store/ssiiq1p3cq7xc8ha2yp30089bs7z4pqm-source/flakes/prettierd",
         "type": "path"
       }
     },
