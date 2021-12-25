@@ -11,21 +11,21 @@
 
     # Neovim
     neovim-flake = {
-      url = "./flakes/neovim";
+      url = "path:./flakes/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Mosh
     mosh-flake = {
-      url = "./flakes/mosh";
+      url = "path:./flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Prettierd
     prettierd-flake = {
-      url = "./flakes/prettierd";
+      url = "path:./flakes/prettierd";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

@@ -10,7 +10,9 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.eslint_d
+    nodePackages.eslint
     nodePackages.node2nix
+    nodePackages.prettier
     ripgrep
     fd
     tree-sitter

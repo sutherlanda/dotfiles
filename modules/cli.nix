@@ -33,7 +33,7 @@
       export VISUAL=nvim
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-      export PATH=$HOME/.nix-profile/bin:$PATH
+      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
       export TERM=xterm-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
@@ -47,6 +47,7 @@
       autoload -U compinit && compinit
       unsetopt menu_complete
       setopt completealiases
+      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       source $ZSH/oh-my-zsh.sh
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

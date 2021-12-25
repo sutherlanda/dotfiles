@@ -28,7 +28,7 @@ require'lualine'.setup({
       {
         'filename',
         file_status = true,
-        full_path = true
+        path = 2
       },
     },
     lualine_y = {

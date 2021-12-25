@@ -57,9 +57,9 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [
-            neovim-nightly.overlay
-          ];
+          #overlays = [
+          #neovim-nightly.overlay
+          #];
         };
 
         buildPlugin = name: pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -95,7 +95,7 @@
           "plenary"
         ];
 
-        neovim = pkgs.wrapNeovim pkgs.neovim {
+        neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
           vimAlias = true;
           configure = {
             customRC = "source ~/.config/nvim/init.vim"; # Not ideal but if this isn't set, config is not sourced.
