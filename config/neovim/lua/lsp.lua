@@ -162,6 +162,12 @@ nvim_lsp.rust_analyzer.setup({
   capabilities = capabilities
 })
 
+nvim_lsp.hls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "haskell-language-server-wrapper", "--lsp" }
+})
+
 nvim_lsp.rnix.setup({
   on_attach = on_attach,
   capabilities = capabilities
