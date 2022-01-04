@@ -201,8 +201,11 @@ local null_ls = require('null-ls')
 local sources = {
   null_ls.builtins.formatting.prettierd,
 }
-null_ls.config({ sources = sources })
-nvim_lsp["null-ls"].setup({ on_attach = on_attach })
+
+nvim_lsp["null-ls"].setup({
+  on_attach = on_attach,
+  source = source
+})
 
 nvim_lsp.pyright.setup({
   on_attach = on_attach,
