@@ -18,9 +18,6 @@
     tree-sitter
     rnix-lsp
     prettierd
-    cabal2nix
-    cabal-install
-    nix-prefetch-git
   ];
 
   home.file.".config/nvim/init.vim".source = ../config/neovim/init.vim;

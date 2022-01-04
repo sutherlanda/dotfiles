@@ -47,7 +47,6 @@
       autoload -U compinit && compinit
       unsetopt menu_complete
       setopt completealiases
-      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       source $ZSH/oh-my-zsh.sh
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -57,8 +56,8 @@
 
       eval "$(direnv hook zsh)"
 
-      alias t-start='sudo systemctl start transmission-daemon.service start'
-      alias t-stop='sudo systemctl stop transmission-daemon.service stop'
+      alias t-start='sudo systemctl start transmission-daemon.service'
+      alias t-stop='sudo systemctl stop transmission-daemon.service'
       alias t-list='transmission-remote -n 'transmission:transmission' -l'
       alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
       alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
