@@ -434,7 +434,7 @@
         "prettierd-src": "prettierd-src"
       },
       "locked": {
-        "narHash": "sha256-64GFTk3Ef3hX4ebRNGPZZ/mH1tFjXlA+cHMqu26xbBw=",
+        "narHash": "sha256-f71xJ9iVIGBVWavVyeCQpNW/C3L0YcRwh2EVESITl44=",
         "path": "/Users/andrew/projects/dotfiles/flakes/prettierd",
         "type": "path"
       },
@@ -446,11 +446,11 @@
     "prettierd-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1641219912,
-        "narHash": "sha256-+Xh4EKmCGK4PkmX5NsrwRbtQ6N7XW4FBhx3Ou8MYQ0M=",
+        "lastModified": 1641393493,
+        "narHash": "sha256-p3H2ilITzVpCKdQCdADStAVTAMUpyeqhBvEm3PxuNOw=",
         "owner": "fsouza",
         "repo": "prettierd",
-        "rev": "f799eeee9f6a8a312c1c4e2512b28832266097f0",
+        "rev": "6fd365ca6f2a94dd7b2daacf82b0659fe9326206",
         "type": "github"
       },
       "original": {
