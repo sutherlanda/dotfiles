@@ -12,8 +12,6 @@
     ranger
     tmux
     tree
-    docker
-    docker-compose
     gnused
     google-cloud-sdk
     kubectl
@@ -36,7 +34,6 @@
       export VISUAL=nvim
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.npm-global/bin:$PATH
       export TERM=xterm-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
@@ -74,4 +71,7 @@
   home.file.".tmux.conf".source = ../config/tmux/tmux.conf;
   home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
+  home.file.".zshenv".text = ''
+    export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+  '';
 }

@@ -197,14 +197,11 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities
 })
 
-local null_ls = require('null-ls')
-local sources = {
-  null_ls.builtins.formatting.prettierd,
-}
-
-nvim_lsp["null-ls"].setup({
+require('null-ls').setup({
   on_attach = on_attach,
-  source = source
+  sources = {
+    require('null-ls').builtins.formatting.prettierd
+  }
 })
 
 nvim_lsp.pyright.setup({

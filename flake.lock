@@ -174,11 +174,11 @@
       },
       "locked": {
         "narHash": "sha256-HT6qJuj+f+RQJ7DoW4KamugLFrATWKpkxGRE4S61DPk=",
-        "path": "./flakes/mosh",
+        "path": "/Users/andrew/projects/dotfiles/flakes/mosh",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/mosh",
+        "path": "/Users/andrew/projects/dotfiles/flakes/mosh",
         "type": "path"
       }
     },
@@ -235,11 +235,11 @@
       },
       "locked": {
         "narHash": "sha256-S95mtsSGc2a+nQz4GGkNukoiIeN2EJqCmnyAjPP0I1M=",
-        "path": "./flakes/neovim",
+        "path": "/Users/andrew/projects/dotfiles/flakes/neovim",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/neovim",
+        "path": "/Users/andrew/projects/dotfiles/flakes/neovim",
         "type": "path"
       }
     },
@@ -298,11 +298,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1641230035,
-        "narHash": "sha256-hFyqihERaTbLxCOlugy/rpp22VLtLh8SPRnA2uu3F/8=",
+        "lastModified": 1641710811,
+        "narHash": "sha256-yVJ+CtwWZY8BnkNIJ/ue5a28yrRM6CkDF1LvmGmqqwM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "78cd22c1b8604de423546cd49bfe264b786eca13",
+        "rev": "0ecf7d414811f831060cf55707c374d54fbb1dec",
         "type": "github"
       },
       "original": {
@@ -434,12 +434,12 @@
         "prettierd-src": "prettierd-src"
       },
       "locked": {
-        "narHash": "sha256-f71xJ9iVIGBVWavVyeCQpNW/C3L0YcRwh2EVESITl44=",
-        "path": "./flakes/prettierd",
+        "narHash": "sha256-64GFTk3Ef3hX4ebRNGPZZ/mH1tFjXlA+cHMqu26xbBw=",
+        "path": "/Users/andrew/projects/dotfiles/flakes/prettierd",
         "type": "path"
       },
       "original": {
-        "path": "./flakes/prettierd",
+        "path": "/Users/andrew/projects/dotfiles/flakes/prettierd",
         "type": "path"
       }
     },

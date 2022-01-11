@@ -11,21 +11,21 @@
 
     # Neovim
     neovim-flake = {
-      url = "path:./flakes/neovim";
+      url = "path:/Users/andrew/projects/dotfiles/flakes/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Mosh
     mosh-flake = {
-      url = "path:./flakes/mosh";
+      url = "path:/Users/andrew/projects/dotfiles/flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Prettierd
     prettierd-flake = {
-      url = "path:./flakes/prettierd";
+      url = "path:/Users/andrew/projects/dotfiles/flakes/prettierd";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -83,8 +83,8 @@
           home-manager.lib.homeManagerConfiguration {
             inherit system;
             stateVersion = "21.11";
-            homeDirectory = "/Users/andrewsutherland";
-            username = "andrewsutherland";
+            homeDirectory = "/Users/andrew";
+            username = "andrew";
             configuration = { pkgs, config, ... }: {
               nixpkgs = pkgConfig;
               imports = [
