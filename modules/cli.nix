@@ -15,7 +15,10 @@
     docker
     docker-compose
     gnused
-    openshift
+    google-cloud-sdk
+    kubectl
+    kubectx
+    k9s
   ];
 
   programs.direnv = {
@@ -33,7 +36,7 @@
       export VISUAL=nvim
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+      export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$HOME/.npm-global/bin:$PATH
       export TERM=xterm-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
@@ -63,6 +66,8 @@
       alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
 
       alias myip='curl https://ipinfo.io/ip'
+
+      source $HOME/zesty.zsh
     '';
   };
 

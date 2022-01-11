@@ -3,6 +3,8 @@
 [user]
   name = Andrew Sutherland
   email = sutherlanda@gmail.com
+[includeIf "gitdir:~/zesty/"]
+  path = ~/.config/git/zesty/config
 [alias]
   co = checkout
   br = branch
