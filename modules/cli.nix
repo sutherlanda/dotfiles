@@ -64,7 +64,9 @@
 
       alias myip='curl https://ipinfo.io/ip'
 
-      source $HOME/zesty.zsh
+      if [ -f $HOME/zesty.zsh ]; then
+        source $HOME/zesty.zsh
+      fi
     '';
   };
 
