@@ -3,7 +3,7 @@
 [user]
   name = Andrew Sutherland
   email = sutherlanda@gmail.com
-[includeIf "gitdir:~/zesty/"]
+[includeIf "gitdir:~/projects/zesty/"]
   path = ~/.config/git/zesty/config
 [alias]
   co = checkout
