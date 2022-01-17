@@ -6,5 +6,4 @@
   ];
 
   xdg.configFile."git/config".source = ../config/git/gitconfig;
-  xdg.configFile."git/zesty/config".source = ../config/git/zesty/gitconfig;
 }
