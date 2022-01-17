@@ -11,21 +11,21 @@
 
     # Neovim
     neovim-flake = {
-      url = "path:/Users/andrew/projects/dotfiles/flakes/neovim";
+      url = "github:sutherlanda/flakes?dir=neovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Mosh
     mosh-flake = {
-      url = "path:/Users/andrew/projects/dotfiles/flakes/mosh";
+      url = "github:sutherlanda/flakes?dir=mosh";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     # Prettierd
     prettierd-flake = {
-      url = "path:/Users/andrew/projects/dotfiles/flakes/prettierd";
+      url = "github:sutherlanda/flakes?dir=prettierd";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

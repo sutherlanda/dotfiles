@@ -173,13 +173,19 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-HT6qJuj+f+RQJ7DoW4KamugLFrATWKpkxGRE4S61DPk=",
-        "path": "/Users/andrew/projects/dotfiles/flakes/mosh",
-        "type": "path"
+        "dir": "mosh",
+        "lastModified": 1642388939,
+        "narHash": "sha256-3nX8DRvAt1Fn4y3wPwTcITMjVuXo1eb89aFexZDkPDs=",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "rev": "4d5ecbb244b48bf35eb7ea941c493960ff530795",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/andrew/projects/dotfiles/flakes/mosh",
-        "type": "path"
+        "dir": "mosh",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "type": "github"
       }
     },
     "mosh-src": {
@@ -234,13 +240,19 @@
         "vim-surround": "vim-surround"
       },
       "locked": {
-        "narHash": "sha256-S95mtsSGc2a+nQz4GGkNukoiIeN2EJqCmnyAjPP0I1M=",
-        "path": "/Users/andrew/projects/dotfiles/flakes/neovim",
-        "type": "path"
+        "dir": "neovim",
+        "lastModified": 1642388939,
+        "narHash": "sha256-3nX8DRvAt1Fn4y3wPwTcITMjVuXo1eb89aFexZDkPDs=",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "rev": "4d5ecbb244b48bf35eb7ea941c493960ff530795",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/andrew/projects/dotfiles/flakes/neovim",
-        "type": "path"
+        "dir": "neovim",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "type": "github"
       }
     },
     "neovim-nightly": {
@@ -434,13 +446,19 @@
         "prettierd-src": "prettierd-src"
       },
       "locked": {
-        "narHash": "sha256-64GFTk3Ef3hX4ebRNGPZZ/mH1tFjXlA+cHMqu26xbBw=",
-        "path": "/Users/andrew/projects/dotfiles/flakes/prettierd",
-        "type": "path"
+        "dir": "prettierd",
+        "lastModified": 1642388939,
+        "narHash": "sha256-3nX8DRvAt1Fn4y3wPwTcITMjVuXo1eb89aFexZDkPDs=",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "rev": "4d5ecbb244b48bf35eb7ea941c493960ff530795",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/andrew/projects/dotfiles/flakes/prettierd",
-        "type": "path"
+        "dir": "prettierd",
+        "owner": "sutherlanda",
+        "repo": "flakes",
+        "type": "github"
       }
     },
     "prettierd-src": {
