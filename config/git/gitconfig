@@ -9,6 +9,11 @@
   ci = commit
   st = status
   last = log -1 HEAD
+  setworkemail = "config user.email 'andrew.sutherland@zesty.ai'"
+  setpersonalemail = "config user.email 'sutherlanda@gmail.com'"
+  changeremotehost = !sh -c \"git remote -v | grep '$1.*fetch' | sed s/..fetch.// | sed s/$1/$2/ | xargs git remote set-url\"
+  switchwork = !sh -c \"git changeremotehost github.com github_zesty && git setworkemail\"
+  switchpersonal = !sh -c \"git changeremotehost github_zesty && git setpersonalemail\"
 [push]
   default = simple
   
