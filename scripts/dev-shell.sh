@@ -14,8 +14,7 @@ tmux has-session -t $SESSION 2> /dev/null
 if [ $? != 0 ]
 then
   tmux new-session -s $SESSION -n ranger -d "ranger"
-  tmux new-window -t $SESSION -n shell 
-  tmux send-keys -t $SESSION:2 'clear' C-m
+  tmux new-window -t $SESSION -n shell -d "direnv exec . $SHELL"
   tmux select-window -t $SESSION:1
 fi
 

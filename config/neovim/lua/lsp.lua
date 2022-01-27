@@ -40,15 +40,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>an', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
   -- Diagnostics
-  buf_set_keymap('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.goto_next({enable_popup=false})<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.diagnostic.goto_prev({enable_popup=false})<CR>', opts)
-  buf_set_keymap('n', '<leader>ak', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>', opts)
+  buf_set_keymap('n', '<C-j>', '<cmd>lua vim.diagnostic.goto_next({enable_popup=false})<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.diagnostic.goto_prev({enable_popup=false})<CR>', opts)
+  buf_set_keymap('n', '<leader>ak', '<cmd>lua vim.diagnostic.show_line_diagnostics({focusable=false})<CR>', opts)
 
   -- Diagnostics in preview window
   buf_set_keymap('n', '<leader>ad', '<cmd>lua PrintDiagnostics()<CR>', opts)
 
   -- Location list
-  buf_set_keymap('n', '<leader>lo', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>lo', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<leader>lc', '<cmd>lclose<CR>', opts)
   buf_set_keymap('n', '<leader>lp', '<cmd>lprevious<CR>', opts)
   buf_set_keymap('n', '<leader>ln', '<cmd>lnext<CR>', opts)
