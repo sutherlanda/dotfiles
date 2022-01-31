@@ -11,37 +11,37 @@
 
     # Neovim
     neovim-flake = {
-      url = "github:sutherlanda/flakes?dir=neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+    url = "github:sutherlanda/flakes?dir=neovim";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.flake-utils.follows = "flake-utils";
     };
 
     # Mosh
-    mosh-flake = {
-      url = "github:sutherlanda/flakes?dir=mosh";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+        mosh-flake = {
+    url = "github:sutherlanda/flakes?dir=mosh";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.flake-utils.follows = "flake-utils";
     };
 
     # Prettierd
     prettierd-flake = {
-      url = "github:sutherlanda/flakes?dir=prettierd";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+    url = "github:sutherlanda/flakes?dir=prettierd";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.flake-utils.follows = "flake-utils";
     };
 
     # Other
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, mosh-flake, prettierd-flake, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, prettierd-flake, ... }:
     let
 
       pkgs = system: {
         overlays = [
-          neovim-flake.overlay.${system}
-          mosh-flake.overlay.${system}
-          prettierd-flake.overlay.${system}
+        neovim-flake.overlay.${system}
+        mosh-flake.overlay.${system}
+        prettierd-flake.overlay.${system}
         ];
         config = {
           allowBroken = true;

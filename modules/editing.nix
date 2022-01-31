@@ -4,7 +4,6 @@
     neovim
     ag
     jq
-    shellcheck
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
