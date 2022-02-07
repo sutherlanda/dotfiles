@@ -56,6 +56,8 @@
 
       eval "$(direnv hook zsh)"
 
+      eval "$(ssh-agent -s)" > /dev/null
+
       alias t-start='sudo systemctl start transmission-daemon.service'
       alias t-stop='sudo systemctl stop transmission-daemon.service'
       alias t-list='transmission-remote -n 'transmission:transmission' -l'
