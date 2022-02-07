@@ -17,6 +17,7 @@
     kubectl
     kubectx
     k9s
+    keychain
   ];
 
   programs.direnv = {
@@ -56,7 +57,8 @@
 
       eval "$(direnv hook zsh)"
 
-      eval "$(ssh-agent -s)" > /dev/null
+      eval "$(keychain --eval id_rsa_github_personal -q --noask)"
+      eval "$(keychain --eval id_rsa_github_zesty -q --noask)"
 
       alias t-start='sudo systemctl start transmission-daemon.service'
       alias t-stop='sudo systemctl stop transmission-daemon.service'
