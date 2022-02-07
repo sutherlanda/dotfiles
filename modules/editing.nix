@@ -16,8 +16,6 @@
     prettierd
   ];
 
-  home.file.".config/nvim/init.vim".source = ../config/neovim/init.vim;
-  home.file.".config/nvim/lua".source = ../config/neovim/lua;
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
   xdg.configFile."nvim/parser/lua.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
   xdg.configFile."nvim/parser/rust.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-rust}/parser";
