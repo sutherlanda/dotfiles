@@ -15,6 +15,7 @@
     tree-sitter
     rnix-lsp
     prettierd
+    gopls
   ];
 
   home.file.".config/nvim/init.vim".source = ../config/neovim/init.vim;

@@ -33,6 +33,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>ag', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>aG', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 
+  -- Find all references
+  buf_set_keymap('n', '<leader>ar', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
   -- Hover
   buf_set_keymap('n', '<leader>ah', '<cmd>lua vim.lsp.buf.hover({focusable=false})<CR>', opts)
 
@@ -205,6 +208,11 @@ require('null-ls').setup({
 })
 
 nvim_lsp.pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
+nvim_lsp.gopls.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
