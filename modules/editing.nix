@@ -4,6 +4,7 @@
     neovim
     ag
     jq
+    yarn
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
@@ -13,8 +14,8 @@
     fd
     tree-sitter
     rnix-lsp
-    prettierd
     gopls
+    prettierd # From node-modules-flake
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
