@@ -66,11 +66,11 @@
     },
     "flake-utils": {
       "locked": {
-        "lastModified": 1642700792,
-        "narHash": "sha256-XqHrk7hFb+zBvRg6Ghl+AZDq03ov6OshJLiSWOoX5es=",
+        "lastModified": 1644229661,
+        "narHash": "sha256-1YdnJAsNy69bpcjuoKdOYQX0YxZBiCYZo4Twxerqv7k=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "846b2ae0fc4cc943637d3d1def4454213e203cba",
+        "rev": "3cecb5b042f7f209c56ffd8371b2711a290ec797",
         "type": "github"
       },
       "original": {
@@ -149,11 +149,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1643567433,
-        "narHash": "sha256-tyFgodcZRlt0ZshbgyLf4m/Sd/ys9p0AHfeVZQ50WKU=",
+        "lastModified": 1644706973,
+        "narHash": "sha256-xOyxrhc5V79u0ZNmnPmJbY3ngtp43dNISEmrb8Ie6wQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "95d39e13a4a7a818c87f2701b59820d3ac0e674c",
+        "rev": "7c2ae0bdd20ddcaafe41ef669226a1df67f8aa06",
         "type": "github"
       },
       "original": {
@@ -206,11 +206,11 @@
       },
       "locked": {
         "dir": "mosh",
-        "lastModified": 1643604910,
-        "narHash": "sha256-8Zy1CwiDH5MejbEl5MbNxEJpK98x7kmLSO0se2KTX4M=",
+        "lastModified": 1644723972,
+        "narHash": "sha256-UzuMwGJISUEYeTz/c3awnvkvWCAnyXBt1k9AcaJThQA=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "7abdda0294ce6c1ec2f2285fb837b893f95d518b",
+        "rev": "2c13a38318dced4d848060c128c0c85d2a830d79",
         "type": "github"
       },
       "original": {
@@ -361,11 +361,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1643606455,
-        "narHash": "sha256-7U0XAedlVHES2ckBfmushfkYwQCq0rJeuhPIzQ5HyTQ=",
+        "lastModified": 1644792444,
+        "narHash": "sha256-BT7t8PmywiYgL0TVu2csAB+hOvVD96KKOOsjMaGI82s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3fc57567860e9d06441ab3b4bb72849b9a4c7aea",
+        "rev": "375ec7465f4578885128d70041246c697ec8ab03",
         "type": "github"
       },
       "original": {
@@ -385,11 +385,11 @@
       },
       "locked": {
         "dir": "node_modules",
-        "lastModified": 1644703465,
-        "narHash": "sha256-rHrJ1QsQwM7jL/rSC9m2KelEv4aAlVuf56SrJ+XjJvY=",
+        "lastModified": 1644723972,
+        "narHash": "sha256-UzuMwGJISUEYeTz/c3awnvkvWCAnyXBt1k9AcaJThQA=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "7affb241390f18306c6abc48753961c5ff936ce1",
+        "rev": "2c13a38318dced4d848060c128c0c85d2a830d79",
         "type": "github"
       },
       "original": {
