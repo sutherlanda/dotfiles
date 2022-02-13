@@ -71,7 +71,7 @@
                 ./modules/git.nix
                 ./modules/scripts.nix
                 ./modules/rust.nix
-                ./modules/editing.nix
+                ./modules/dev.nix
               ];
             };
           };
@@ -92,7 +92,7 @@
                 ./modules/git.nix
                 ./modules/scripts.nix
                 ./modules/rust.nix
-                ./modules/editing.nix
+                ./modules/dev.nix
               ];
             };
           };

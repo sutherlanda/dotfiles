@@ -38,6 +38,7 @@
       export TERM=xterm-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
+      export PGDATA=$HOME/pgdata
       plugins=(git fzf)
       HISTFILESIZE=500000
       HISTSIZE=500000
@@ -66,6 +67,9 @@
       alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
       alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
 
+      alias pg-start='pg_ctl -D $HOME/pgdata -l logfile start'
+      alias pg-stop='pg_ctl stop'
+
       alias myip='curl https://ipinfo.io/ip'
 
       if [ -f $HOME/zesty.zsh ]; then
@@ -79,5 +83,8 @@
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
   home.file.".zshenv".text = ''
     export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+  '';
+  home.file.".config/nvim/init.vim".text = ''
+    \'\'Placeholder for init.vim
   '';
 }
