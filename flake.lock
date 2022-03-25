@@ -267,6 +267,7 @@
         "telescope-fzy-native": "telescope-fzy-native",
         "toggleterm": "toggleterm",
         "tokyonight-nvim": "tokyonight-nvim",
+        "vim-editorconfig": "vim-editorconfig",
         "vim-glsl": "vim-glsl",
         "vim-nix": "vim-nix",
         "vim-rooter": "vim-rooter",
@@ -276,11 +277,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1644723972,
-        "narHash": "sha256-UzuMwGJISUEYeTz/c3awnvkvWCAnyXBt1k9AcaJThQA=",
+        "lastModified": 1648231648,
+        "narHash": "sha256-30fEPFyuCin539EbrpQAuG+RWFsoyxCG0N/LeFxvywU=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "2c13a38318dced4d848060c128c0c85d2a830d79",
+        "rev": "b6ce0f187cafc0530569b3ce8536ba3e7493977a",
         "type": "github"
       },
       "original": {
@@ -345,11 +346,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1644525281,
-        "narHash": "sha256-D3VuWLdnLmAXIkooWAtbTGSQI9Fc1lkvAr94wTxhnTU=",
+        "lastModified": 1648069223,
+        "narHash": "sha256-BXzQV8p/RR440EB9qY0ULYfTH0zSW1stjUCYeP4SF+E=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "48d63e924a2666baf37f4f14a18f19347fbd54a2",
+        "rev": "1d08ea2bd83abef174fb43cbfb8a856b8ef2ce26",
         "type": "github"
       },
       "original": {
@@ -566,6 +567,22 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
+    "vim-editorconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642820146,
+        "narHash": "sha256-qFLXqhV+ZVhxoq+QoxWSDUrg8W/+qChJuCd4hSJqy28=",
+        "owner": "editorconfig",
+        "repo": "editorconfig-vim",
+        "rev": "a8e3e66deefb6122f476c27cee505aaae93f7109",
+        "type": "github"
+      },
+      "original": {
+        "owner": "editorconfig",
+        "repo": "editorconfig-vim",
         "type": "github"
       }
     },
