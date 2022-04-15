@@ -18,6 +18,9 @@
     gopls
     prettierd # From node-modules-flake
     postgresql
+    google-cloud-sdk
+    minikube
+    gopls
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";

@@ -13,13 +13,9 @@
     tmux
     tree
     gnused
-    google-cloud-sdk
     kubectl
     kubectx
     k9s
-    minikube
-    keychain
-    gopls
   ];
 
   programs.direnv = {
