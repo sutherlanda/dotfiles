@@ -17,6 +17,7 @@
     kubectl
     kubectx
     k9s
+    minikube
     keychain
     gopls
   ];
