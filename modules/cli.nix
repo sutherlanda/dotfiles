@@ -82,15 +82,5 @@
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
   home.file.".zshenv".text = ''
     export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
-      function nvimvenv {
-        if [[ -e "$VIRTUAL_ENV" && -f "$VIRTUAL_ENV/bin/activate" ]]; then
-          source "$VIRTUAL_ENV/bin/activate"
-          command nvim $@
-        else
-          command nvim $@
-        fi
-      }
-
-      alias nvim=nvimvenv
   '';
 }

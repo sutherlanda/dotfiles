@@ -36,18 +36,13 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, node-modules-flake, ... }:
     let
-
-      pkgs = system: {
+      pkgs = system: import nixpkgs {
         overlays = [
           neovim-flake.overlay.${system}
           mosh-flake.overlay.${system}
           node-modules-flake.overlay.${system}
         ];
-        config = {
-          allowBroken = true;
-          allowUnfree = true;
-          allowUnsupportedSystem = true;
-        };
+	inherit system;
       };
 
     in
@@ -82,7 +77,7 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-	    pkgs = nixpkgs.legacyPackages.${system};
+	    pkgs = pkgConfig;
 	    modules = [
                 ./modules/cli.nix
                 ./modules/git.nix

@@ -279,11 +279,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1657824377,
-        "narHash": "sha256-+vDAZ6YEP7bmKYzHezVRPEnlCWahdNWCMRx4OWoUtkU=",
+        "lastModified": 1657835829,
+        "narHash": "sha256-SkLTUW+YmvVJvbKEKsebHAs3+aOceTP3VzlgsagJ/dQ=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "4285d92344eeef8dc937b3c28a2102ff4eef10a3",
+        "rev": "bb47dc276e2283fad3ef2c55c79821d3a89c737f",
         "type": "github"
       },
       "original": {
