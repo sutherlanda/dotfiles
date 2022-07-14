@@ -16,7 +16,7 @@
     tree-sitter
     rnix-lsp
     gopls
-    #prettierd # From node-modules-flake
+    prettierd # From node-modules-flake
     postgresql
     google-cloud-sdk
     minikube
