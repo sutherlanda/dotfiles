@@ -16,6 +16,7 @@
     kubectl
     kubectx
     k9s
+    cloud-sql-proxy
   ];
 
   programs.direnv = {
@@ -91,8 +92,5 @@
       }
 
       alias nvim=nvimvenv
-  '';
-  home.file.".config/nvim/init.vim".text = ''
-    \'\'Placeholder for init.vim
   '';
 }

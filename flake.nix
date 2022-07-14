@@ -60,20 +60,21 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-            inherit system;
-            stateVersion = "21.11";
-            homeDirectory = "/home/andrew";
-            username = "andrew";
-            configuration = { config, ... }: {
-              nixpkgs = pkgConfig;
-              imports = [
+	    pkgs = nixpkgs.legacyPackages.${system};
+	    modules = [
                 ./modules/cli.nix
                 ./modules/git.nix
                 ./modules/scripts.nix
                 ./modules/rust.nix
                 ./modules/dev.nix
-              ];
-            };
+		{
+		  home = {
+		    username = "andrew";
+		    homeDirectory = "/home/andrew";
+		    stateVersion = "22.11";
+		  };
+		}
+	    ];
           };
         darwin-m1 =
           let
@@ -81,20 +82,21 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-            inherit system;
-            stateVersion = "21.11";
-            homeDirectory = "/Users/andrew";
-            username = "andrew";
-            configuration = { pkgs, config, ... }: {
-              nixpkgs = pkgConfig;
-              imports = [
+	    pkgs = nixpkgs.legacyPackages.${system};
+	    modules = [
                 ./modules/cli.nix
                 ./modules/git.nix
                 ./modules/scripts.nix
                 ./modules/rust.nix
                 ./modules/dev.nix
-              ];
-            };
+		{
+		  home = {
+		    username = "andrew";
+		    homeDirectory = "/Users/andrew";
+		    stateVersion = "22.11";
+		  };
+		}
+	    ];
           };
       };
       darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
