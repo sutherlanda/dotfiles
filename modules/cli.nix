@@ -78,6 +78,8 @@
   };
 
   home.file.".tmux.conf".source = ../config/tmux/tmux.conf;
+  home.file.".config/tmux/themes/tokyonight.conf".source = ../config/tmux/themes/tokyonight.conf;
+  home.file.".config/tmux/themes/nightfox.conf".source = ../config/tmux/themes/nightfox.conf;
   home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
   home.file.".zshenv".text = ''

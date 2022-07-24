@@ -273,6 +273,7 @@
         "luasnip": "luasnip",
         "nerd-commenter": "nerd-commenter",
         "nerd-tree": "nerd-tree",
+        "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -284,7 +285,6 @@
         "plenary": "plenary",
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
-        "toggleterm": "toggleterm",
         "tokyonight-nvim": "tokyonight-nvim",
         "vim-editorconfig": "vim-editorconfig",
         "vim-glsl": "vim-glsl",
@@ -296,11 +296,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1657852738,
-        "narHash": "sha256-H09jtV7IuiAK/X2TKD9Jfl+pR2TLFPBWOBQVrMfl6lw=",
+        "lastModified": 1658633022,
+        "narHash": "sha256-+QFrYx+pLjYZZx6soq8o8Np+b5BJcy5x5uUDvRCapqQ=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "48118317fe5bdf49121b431e472ca2f64e6b1044",
+        "rev": "c4c93c43506b0ab30fdc03bd8e4c57e053a10162",
         "type": "github"
       },
       "original": {
@@ -339,6 +339,22 @@
       "original": {
         "owner": "preservim",
         "repo": "nerdtree",
+        "type": "github"
+      }
+    },
+    "nightfox-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1658293583,
+        "narHash": "sha256-DJ3cKDtCO9C0HGeK5Mt2hLm5SS/hQnP6/aKGffZMUc0=",
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
+        "rev": "f8e1a09781a165ed002f52cfdc7c85bf7539a863",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EdenEast",
+        "repo": "nightfox.nvim",
         "type": "github"
       }
     },
@@ -517,22 +533,6 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-fzy-native.nvim",
-        "type": "github"
-      }
-    },
-    "toggleterm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1657612731,
-        "narHash": "sha256-f2bLpRKO5lo0U9i9v4Vbk8BBghK6i0t5YmMRJaABEAg=",
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
-        "rev": "8e6f938ed8eec7f988dc07aec2af148ad57c6d95",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
         "type": "github"
       }
     },
