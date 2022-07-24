@@ -303,9 +303,9 @@
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
         "tokyonight-nvim": "tokyonight-nvim",
-        "vim-editorconfig": "vim-editorconfig",
         "vim-glsl": "vim-glsl",
         "vim-nix": "vim-nix",
+        "vim-python-virtualenv": "vim-python-virtualenv",
         "vim-rooter": "vim-rooter",
         "vim-rzip": "vim-rzip",
         "vim-sensible": "vim-sensible",
@@ -313,11 +313,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1658683699,
-        "narHash": "sha256-qpq3YDlHKq+H6xuNySYeEHIDUIAniu2qO07C/P+ADFg=",
+        "lastModified": 1658687234,
+        "narHash": "sha256-dARiAJJtivuam+gzfbwoHYYNMnDbPvoQ4c+7j9JDqto=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "8bffe10e927f3d02753ddd8eddb1477f3493cabf",
+        "rev": "f40f1f8815b8cc4a471f1571af15c5438940deb5",
         "type": "github"
       },
       "original": {
@@ -584,22 +584,6 @@
         "type": "github"
       }
     },
-    "vim-editorconfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1655690768,
-        "narHash": "sha256-xm4dYnx9b8JE4jgReyWh+ZvTW1FFpupi3iqdU/j6vKo=",
-        "owner": "editorconfig",
-        "repo": "editorconfig-vim",
-        "rev": "d354117b72b3b43b75a29b8e816c0f91af10efe9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "editorconfig",
-        "repo": "editorconfig-vim",
-        "type": "github"
-      }
-    },
     "vim-glsl": {
       "flake": false,
       "locked": {
@@ -629,6 +613,22 @@
       "original": {
         "owner": "LnL7",
         "repo": "vim-nix",
+        "type": "github"
+      }
+    },
+    "vim-python-virtualenv": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1640412467,
+        "narHash": "sha256-UGVU+m7sDSDG/U3vBH9s4VY6f9ArQfgaE4Zl5fzyi7E=",
+        "owner": "sansyrox",
+        "repo": "vim-python-virtualenv",
+        "rev": "82730c6060be1ac3ac9bcbd3690704c1b5236329",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sansyrox",
+        "repo": "vim-python-virtualenv",
         "type": "github"
       }
     },
