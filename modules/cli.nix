@@ -34,7 +34,7 @@
       export VISUAL=nvim
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
-      export TERM=xterm-256color
+      export TERM=screen-256color
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
       export PGDATA=$HOME/pgdata

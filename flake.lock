@@ -289,7 +289,6 @@
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "nerd-commenter": "nerd-commenter",
-        "nerd-tree": "nerd-tree",
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": [
           "nixpkgs"
@@ -298,6 +297,7 @@
         "nvim-cmp": "nvim-cmp",
         "nvim-lsp-ts-utils": "nvim-lsp-ts-utils",
         "nvim-lspconfig": "nvim-lspconfig",
+        "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "plenary": "plenary",
         "telescope": "telescope",
@@ -313,11 +313,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1658687234,
-        "narHash": "sha256-dARiAJJtivuam+gzfbwoHYYNMnDbPvoQ4c+7j9JDqto=",
+        "lastModified": 1658714295,
+        "narHash": "sha256-d48084HCZH4752NMOsfGrs4NlEDVqFQknrmhd8gebIY=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "f40f1f8815b8cc4a471f1571af15c5438940deb5",
+        "rev": "938cfc4db5f0bbd3f42bde83257ddf13fd8d1355",
         "type": "github"
       },
       "original": {
@@ -340,22 +340,6 @@
       "original": {
         "owner": "preservim",
         "repo": "nerdcommenter",
-        "type": "github"
-      }
-    },
-    "nerd-tree": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1655115046,
-        "narHash": "sha256-8e+PlvG+x3lPqbhP4YpGtXcO0bPJC4EVJ3t6AjMU4ws=",
-        "owner": "preservim",
-        "repo": "nerdtree",
-        "rev": "fc85a6f07c2cd694be93496ffad75be126240068",
-        "type": "github"
-      },
-      "original": {
-        "owner": "preservim",
-        "repo": "nerdtree",
         "type": "github"
       }
     },
@@ -476,6 +460,22 @@
       "original": {
         "owner": "neovim",
         "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
+    "nvim-tree": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1658477458,
+        "narHash": "sha256-pRT1O2ImzrcDqdXwB795KyZHYFnrmpsyiyUB5Q+rSKU=",
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "rev": "d927e89aa9b8a88dba5c58bfbf67586de01ed8dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
         "type": "github"
       }
     },
