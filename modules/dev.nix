@@ -9,15 +9,14 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
-    nodePackages.prettier
     nodePackages.eslint_d
+    nodePackages.prettier
     ripgrep
     fd
     tree-sitter
     rnix-lsp
     gopls
     prettierd # From node-modules-flake
-    postgresql
     google-cloud-sdk
     minikube
     gopls
