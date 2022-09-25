@@ -42,7 +42,7 @@
           mosh-flake.overlay.${system}
           node-modules-flake.overlay.${system}
         ];
-	inherit system;
+        inherit system;
       };
 
     in
@@ -55,21 +55,21 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-	    pkgs = nixpkgs.legacyPackages.${system};
-	    modules = [
-                ./modules/cli.nix
-                ./modules/git.nix
-                ./modules/scripts.nix
-                ./modules/rust.nix
-                ./modules/dev.nix
-		{
-		  home = {
-		    username = "andrew";
-		    homeDirectory = "/home/andrew";
-		    stateVersion = "22.11";
-		  };
-		}
-	    ];
+            pkgs = pkgsConfig;
+            modules = [
+              ./modules/cli.nix
+              ./modules/git.nix
+              ./modules/scripts.nix
+              ./modules/rust.nix
+              ./modules/dev.nix
+              {
+                home = {
+                  username = "andrew";
+                  homeDirectory = "/home/andrew";
+                  stateVersion = "22.11";
+                };
+              }
+            ];
           };
         darwin-m1 =
           let
@@ -77,21 +77,21 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-	    pkgs = pkgConfig;
-	    modules = [
-                ./modules/cli.nix
-                ./modules/git.nix
-                ./modules/scripts.nix
-                ./modules/rust.nix
-                ./modules/dev.nix
-		{
-		  home = {
-		    username = "andrew";
-		    homeDirectory = "/Users/andrew";
-		    stateVersion = "22.11";
-		  };
-		}
-	    ];
+            pkgs = pkgConfig;
+            modules = [
+              ./modules/cli.nix
+              ./modules/git.nix
+              ./modules/scripts.nix
+              ./modules/rust.nix
+              ./modules/dev.nix
+              {
+                home = {
+                  username = "andrew";
+                  homeDirectory = "/Users/andrew";
+                  stateVersion = "22.11";
+                };
+              }
+            ];
           };
       };
       darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
