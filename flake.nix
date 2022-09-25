@@ -55,7 +55,7 @@
             pkgConfig = pkgs system;
           in
           home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgsConfig;
+            pkgs = pkgConfig;
             modules = [
               ./modules/cli.nix
               ./modules/git.nix
