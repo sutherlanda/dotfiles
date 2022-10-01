@@ -54,6 +54,7 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
       ZSH_THEME="powerlevel10k/powerlevel10k"
+      DISABLE_AUTO_TITLE="true"
 
       eval "$(direnv hook zsh)"
 

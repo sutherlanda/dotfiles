@@ -20,6 +20,7 @@
     google-cloud-sdk
     minikube
     gopls
+    postgresql
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
