@@ -5,6 +5,7 @@
     silver-searcher
     jq
     yarn
+    nodejs-16_x
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
