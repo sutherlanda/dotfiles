@@ -22,6 +22,8 @@
     minikube
     gopls
     postgresql
+    python2
+    ghc
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";

@@ -12,8 +12,6 @@
     # Neovim
     neovim-flake = {
       url = "github:sutherlanda/flakes?dir=neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     # Mosh
