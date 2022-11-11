@@ -23,6 +23,7 @@
     gopls
     postgresql
     python2
+    python39Packages.autopep8
     ghc
   ];
 
