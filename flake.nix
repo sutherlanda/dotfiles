@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs";
 
     # System management
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager?rev=f520832a47dbc24d1e2c4e4b9a3dbe910777d1a2";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Neovim
