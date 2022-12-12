@@ -24,6 +24,9 @@
     python39Packages.autopep8
     ghc
     gdb
+    edgedb
+    stack
+    haskell-language-server
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";

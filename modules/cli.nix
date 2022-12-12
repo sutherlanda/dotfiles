@@ -13,6 +13,7 @@
     tmux
     tree
     gnused
+    kitty
     kubectl
     kubectx
     k9s

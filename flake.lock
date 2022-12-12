@@ -64,6 +64,22 @@
         "type": "github"
       }
     },
+    "edgedb-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666800460,
+        "narHash": "sha256-B+QoPTX/NwZfi8bVnSSlLli9qc12PyGUDMg4UYxpUgQ=",
+        "owner": "edgedb",
+        "repo": "edgedb-vim",
+        "rev": "a888b285a30ede6f5fcb03617733b3974356c450",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edgedb",
+        "repo": "edgedb-vim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -308,6 +324,7 @@
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-path": "cmp-path",
+        "edgedb-vim": "edgedb-vim",
         "flake-utils": "flake-utils_2",
         "formatter-nvim": "formatter-nvim",
         "fugitive": "fugitive",
@@ -341,11 +358,11 @@
       },
       "locked": {
         "dir": "neovim",
-        "lastModified": 1668907762,
-        "narHash": "sha256-Dh3z+G6iKwi7pdhNTkpzGoOmV4ewzNuvVyVzAjc24tU=",
+        "lastModified": 1669518280,
+        "narHash": "sha256-lt2R+wH7Ff5JJTXEUMntPYCE9twWIBCxseGKgPb1tk0=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "5fbcdd480888f53a67842da3822071cf52801de7",
+        "rev": "730fa1c71b34cc22f423cf2691514fe1e2a498cb",
         "type": "github"
       },
       "original": {
