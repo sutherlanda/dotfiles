@@ -20,10 +20,10 @@
     prettierd # From node-modules-flake
     google-cloud-sdk
     postgresql
-    python2
-    python39Packages.autopep8
+    coreutils
+    #python2
+    #python39Packages.autopep8
     ghc
-    gdb
     edgedb
     stack
     haskell-language-server
