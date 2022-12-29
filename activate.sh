@@ -2,7 +2,7 @@
 
 case "$1" in
   "darwin-m1") nix run --impure .#darwin-m1 "$@";;
-  "debian") nix run .#debian "$@";;
+  "debian") nix run --impure .#debian "$@";;
   *)
     "usage: activate {darwin-m1,debian}"
     exit 1;;
