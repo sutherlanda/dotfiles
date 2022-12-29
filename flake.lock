@@ -269,11 +269,11 @@
       },
       "locked": {
         "dir": "mosh",
-        "lastModified": 1670900456,
-        "narHash": "sha256-X8fXM6Om3md/El7K9FHihu8Yi2jVhP9r5Lqg7qAavHw=",
+        "lastModified": 1672337267,
+        "narHash": "sha256-TyWMsjskqVGACIVvA+O/7QrUox+YTliABNfdjBlkVtQ=",
         "owner": "sutherlanda",
         "repo": "flakes",
-        "rev": "183ca6f5bebfd95f377896c6b7d8e8647b5f1601",
+        "rev": "aad8816f6e3cdd831927b95669c06ede2425cdd5",
         "type": "github"
       },
       "original": {
@@ -286,11 +286,11 @@
     "mosh-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1639170468,
-        "narHash": "sha256-LJssBMrICVgaZtTvZTO6bYMFO4fQ330lIUkWzDSyf7o=",
+        "lastModified": 1668996413,
+        "narHash": "sha256-CGk1LcWM3Yu1wv0kQvgNdoza8hCW8NRg9DE64WdQWiY=",
         "owner": "mobile-shell",
         "repo": "mosh",
-        "rev": "378dfa6aa5778cf168646ada7f52b6f4a8ec8e41",
+        "rev": "c516fb42561e5e537266e1d350a76d5105f93aff",
         "type": "github"
       },
       "original": {
