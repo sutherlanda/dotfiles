@@ -1,7 +1,7 @@
 #!/bin/bash
 
 case "$1" in
-  "darwin-m1") nix run .#darwin-m1 "$@";;
+  "darwin-m1") nix run --impure .#darwin-m1 "$@";;
   "debian") nix run .#debian "$@";;
   *)
     "usage: activate {darwin-m1,debian}"

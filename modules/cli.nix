@@ -18,6 +18,7 @@
     kubectx
     k9s
     cloud-sql-proxy
+    eternal-terminal
   ];
 
   programs.direnv = {
@@ -39,6 +40,7 @@
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
       export PGDATA=$HOME/pgdata
+      export NIXPKGS_ALLOW_BROKEN=1
       plugins=(git fzf)
       HISTFILESIZE=500000
       HISTSIZE=500000
