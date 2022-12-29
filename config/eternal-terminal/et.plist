@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
+  <dict>
     <key>Label</key>
-    <string>eternal.terminal.server</string>
+    <string>eternal-server</string>
     <key>ProgramArguments</key>
     <array>
-        <string>etserver</string>
-        <string>--daemon</string>
+      <string>etserver</string>
+      <string>--daemon</string>
     </array>
-    <key>KeepAlive</key>
-    <true/>
     <key>RunAtLoad</key>
     <true/>
-</dict>
+    <key>KeepAlive</key>
+    <false/>
+    <key>WorkingDirectory</key>
+    <string>/usr/local</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/et_err</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/et_err</string>
+    <key>HardResourceLimits</key>
+    <dict>
+      <key>NumberOfFiles</key>
+      <integer>4096</integer>
+    </dict>
+    <key>SoftResourceLimits</key>
+    <dict>
+      <key>NumberOfFiles</key>
+      <integer>4096</integer>
+    </dict>
+  </dict>
 </plist>
