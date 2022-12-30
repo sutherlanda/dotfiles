@@ -78,10 +78,6 @@
       if [ -f $HOME/zesty.zsh ]; then
         source $HOME/zesty.zsh
       fi
-
-      if [[ `uname` == "Darwin" ]]; then
-        launchctl load ~/.config/eternal-terminal/et.plist
-      fi
     '';
   };
 
@@ -93,5 +89,4 @@
     export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
   '';
   home.file.".alacritty.yml".source = ../config/alacritty/alacritty.yml;
-  home.file.".config/eternal-terminal/et.plist".source = ../config/eternal-terminal/et.plist;
 }
