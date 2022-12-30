@@ -18,7 +18,6 @@
     kubectx
     k9s
     cloud-sql-proxy
-    eternal-terminal
   ];
 
   programs.direnv = {
