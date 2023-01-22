@@ -10,18 +10,18 @@
 
     # Neovim
     neovim-flake = {
-      url = "github:sutherlanda/flakes?dir=neovim";
+      url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
     };
 
     # Mosh
     mosh-flake = {
-      url = "github:sutherlanda/flakes?dir=mosh";
+      url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Node modules
     node-modules-flake = {
-      url = "github:sutherlanda/flakes?dir=node_modules";
+      url = "github:sutherlanda/dotfiles?dir=flakes/node_modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
