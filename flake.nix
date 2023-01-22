@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs";
 
     # System management
-    home-manager.url = "github:nix-community/home-manager?rev=f520832a47dbc24d1e2c4e4b9a3dbe910777d1a2";
+    home-manager.url = "github:nix-community/home-manager";
 
     # Neovim
     neovim-flake = {
@@ -17,18 +17,14 @@
     mosh-flake = {
       url = "github:sutherlanda/flakes?dir=mosh";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     # Node modules
     node-modules-flake = {
       url = "github:sutherlanda/flakes?dir=node_modules";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
-    # Other
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, node-modules-flake, ... }:

@@ -21,12 +21,9 @@
     google-cloud-sdk
     postgresql
     coreutils
-    #python2
-    #python39Packages.autopep8
     ghc
     edgedb
     stack
-    haskell-language-server
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
