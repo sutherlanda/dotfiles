@@ -88,4 +88,6 @@
     export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
   '';
   home.file.".alacritty.yml".source = ../config/alacritty/alacritty.yml;
+  home.file.".kitty.conf".source = ../config/kitty/kitty.conf;
+  home.file.".config/kitty".source = ../config/kitty;
 }
