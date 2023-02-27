@@ -77,6 +77,8 @@
       if [ -f $HOME/zesty.zsh ]; then
         source $HOME/zesty.zsh
       fi
+
+      source $HOME/.zprofile
     '';
   };
 

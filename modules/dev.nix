@@ -18,12 +18,12 @@
     rnix-lsp
     gopls
     prettierd # From node-modules-flake
-    google-cloud-sdk
     postgresql
     coreutils
     ghc
     edgedb
     stack
+    jre8
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
