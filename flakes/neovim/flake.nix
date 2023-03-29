@@ -46,6 +46,7 @@
 
     # Git
     gitsigns = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    copilot = { url = "github:zbirenbaum/copilot.lua"; flake = false; };
 
     # Misc
     lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
@@ -65,9 +66,6 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          #overlays = [
-          #inputs.neovim-nightly-overlay.overlay
-          #];
         };
 
         buildPlugin = name: pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -97,6 +95,7 @@
           "cmp-buffer"
           "cmp-cmdline"
           "gitsigns"
+          "copilot"
           "luasnip"
           "lualine-nvim"
           "vim-rooter"

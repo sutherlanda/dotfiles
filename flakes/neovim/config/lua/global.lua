@@ -83,3 +83,6 @@ vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
 require('nvim-tree').setup()
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>tf', '<cmd>NvimTreeFocus<CR>', opts)
+
+-- GH Copilot
+require('copilot').setup({})
