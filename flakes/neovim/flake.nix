@@ -43,11 +43,10 @@
     cmp-buffer = { url = "github:hrsh7th/cmp-buffer"; flake = false; };
     cmp-cmdline = { url = "github:hrsh7th/cmp-cmdline"; flake = false; };
     luasnip = { url = "github:L3MON4D3/LuaSnip"; flake = false; };
-    nvim-autopairs = { url = "github:windwp/nvim-autopairs"; flake = false; };
 
     # Git
     gitsigns = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
-    copilot = { url = "github:zbirenbaum/copilot.lua"; flake = false; };
+    copilot = { url = "github:github/copilot.vim"; flake = false; };
 
     # Misc
     lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
@@ -98,7 +97,6 @@
           "gitsigns"
           "copilot"
           "luasnip"
-          "nvim-autopairs"
           "lualine-nvim"
           "vim-rooter"
           "vim-surround"
