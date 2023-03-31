@@ -67,16 +67,16 @@
     "copilot": {
       "flake": false,
       "locked": {
-        "lastModified": 1680027228,
-        "narHash": "sha256-3u+2azMRm24mp5iOrxwYg9QrM2xJHnSjGsldIDRS6HQ=",
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "rev": "f0b41fb89ef2ed7ab4e8cd5208a30755aa638fc4",
+        "lastModified": 1679956930,
+        "narHash": "sha256-EA9SNPRIIBG9eoV299h+5/AcF/NJYS8izsurLEW31bc=",
+        "owner": "github",
+        "repo": "copilot.vim",
+        "rev": "b6e5624351ba735e25eb8864d7d22819aad00606",
         "type": "github"
       },
       "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
+        "owner": "github",
+        "repo": "copilot.vim",
         "type": "github"
       }
     },
@@ -368,11 +368,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1680237985,
-        "narHash": "sha256-4ZClU4EpLuWhYfxe2lqJvIIhiHMBTKQK0ewTIAbnxCU=",
+        "lastModified": 1680239207,
+        "narHash": "sha256-Fe4kIRqfP5IVv/ZTvZxYfqy1Vemi2WZoBlBcIRhKOfk=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "532b84ee335f3e2fd3a7becd3a39ef9a55c24f9b",
+        "rev": "e09c1b887ea6d8f2e50e903928403589a9fa1a09",
         "type": "github"
       },
       "original": {

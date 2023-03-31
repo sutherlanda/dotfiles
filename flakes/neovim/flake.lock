@@ -67,16 +67,16 @@
     "copilot": {
       "flake": false,
       "locked": {
-        "lastModified": 1680027228,
-        "narHash": "sha256-3u+2azMRm24mp5iOrxwYg9QrM2xJHnSjGsldIDRS6HQ=",
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "rev": "f0b41fb89ef2ed7ab4e8cd5208a30755aa638fc4",
+        "lastModified": 1679956930,
+        "narHash": "sha256-EA9SNPRIIBG9eoV299h+5/AcF/NJYS8izsurLEW31bc=",
+        "owner": "github",
+        "repo": "copilot.vim",
+        "rev": "b6e5624351ba735e25eb8864d7d22819aad00606",
         "type": "github"
       },
       "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
+        "owner": "github",
+        "repo": "copilot.vim",
         "type": "github"
       }
     },
@@ -362,22 +362,6 @@
         "type": "github"
       }
     },
-    "nvim-autopairs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1679861399,
-        "narHash": "sha256-G5D07KozNj48CxzcMevf1+ZqJEMXQql7VfWUseg6Rzc=",
-        "owner": "windwp",
-        "repo": "nvim-autopairs",
-        "rev": "0fd6519d44eac3a6736aafdb3fe9da916c3701d4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "windwp",
-        "repo": "nvim-autopairs",
-        "type": "github"
-      }
-    },
     "nvim-cmp": {
       "flake": false,
       "locked": {
@@ -494,7 +478,6 @@
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs_2",
         "null-ls": "null-ls",
-        "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-tree": "nvim-tree",
