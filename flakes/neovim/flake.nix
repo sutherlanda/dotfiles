@@ -47,7 +47,6 @@
     # Git
     gitsigns = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
     copilot = { url = "github:zbirenbaum/copilot.lua"; flake = false; };
-    cmp-tabnine = { url = "github:tzachar/cmp-tabnine"; flake = false; };
 
     # Misc
     lualine-nvim = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
@@ -97,7 +96,6 @@
           "cmp-cmdline"
           "gitsigns"
           "copilot"
-          "cmp-tabnine"
           "luasnip"
           "lualine-nvim"
           "vim-rooter"

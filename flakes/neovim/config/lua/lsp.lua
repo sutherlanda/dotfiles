@@ -114,6 +114,28 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 vim.o.completeopt = 'menuone,noselect,noinsert'
 local luasnip = require 'luasnip'
 
+-- TabNine configuration
+vim.g.tabnine_install_binary = 1
+vim.g.completion_enable_auto_popup = 1
+vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+vim.api.nvim_set_keymap('i', '<C-Space>', 'v:lua.tab_nine()', {expr = true})
+
+function tab_nine()
+    local tabnine = require('cmp_tabnine.config')
+    tabnine:setup({
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+    })
+    require('cmp').setup({
+        sources = {
+            { name = 'tabnine' },
+            { name = 'nvim_lua' },
+            { name = 'buffer' },
+        },
+    })
+end
+
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -201,3 +223,6 @@ nvim_lsp.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
+
+
+

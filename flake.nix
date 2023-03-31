@@ -35,6 +35,7 @@
           mosh-flake.overlay.${system}
           node-modules-flake.overlay.${system}
         ];
+        config.allowUnfree = true;
         inherit system;
       };
 
