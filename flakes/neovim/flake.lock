@@ -64,22 +64,6 @@
         "type": "github"
       }
     },
-    "cmp-tabnine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1679388983,
-        "narHash": "sha256-kFR3vSZSP7uy4AllDiROYN4RUx+k9C83Hjw6OJp816c=",
-        "owner": "tzachar",
-        "repo": "cmp-tabnine",
-        "rev": "4c8a0db92e75c848fb066edd280072389db80d24",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tzachar",
-        "repo": "cmp-tabnine",
-        "type": "github"
-      }
-    },
     "copilot": {
       "flake": false,
       "locked": {
@@ -480,7 +464,6 @@
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-path": "cmp-path",
-        "cmp-tabnine": "cmp-tabnine",
         "copilot": "copilot",
         "edgedb-vim": "edgedb-vim",
         "flake-utils": "flake-utils",

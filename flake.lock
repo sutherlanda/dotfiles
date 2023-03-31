@@ -64,22 +64,6 @@
         "type": "github"
       }
     },
-    "cmp-tabnine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1679388983,
-        "narHash": "sha256-kFR3vSZSP7uy4AllDiROYN4RUx+k9C83Hjw6OJp816c=",
-        "owner": "tzachar",
-        "repo": "cmp-tabnine",
-        "rev": "4c8a0db92e75c848fb066edd280072389db80d24",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tzachar",
-        "repo": "cmp-tabnine",
-        "type": "github"
-      }
-    },
     "copilot": {
       "flake": false,
       "locked": {
@@ -350,7 +334,6 @@
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-path": "cmp-path",
-        "cmp-tabnine": "cmp-tabnine",
         "copilot": "copilot",
         "edgedb-vim": "edgedb-vim",
         "flake-utils": "flake-utils_2",
@@ -385,11 +368,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1680234555,
-        "narHash": "sha256-fLtj0H0r35Z02ejIdO2ME65EYDM5FVwGzlIlq52ixMA=",
+        "lastModified": 1680237985,
+        "narHash": "sha256-4ZClU4EpLuWhYfxe2lqJvIIhiHMBTKQK0ewTIAbnxCU=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "5288e190986df64adb0d07e83f89d92be0145818",
+        "rev": "532b84ee335f3e2fd3a7becd3a39ef9a55c24f9b",
         "type": "github"
       },
       "original": {

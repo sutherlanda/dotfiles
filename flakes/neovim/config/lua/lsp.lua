@@ -115,32 +115,26 @@ vim.o.completeopt = 'menuone,noselect,noinsert'
 local luasnip = require 'luasnip'
 
 -- TabNine configuration
-vim.g.tabnine_install_binary = 1
-vim.g.completion_enable_auto_popup = 1
-vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
-vim.api.nvim_set_keymap('i', '<C-Space>', 'v:lua.tab_nine()', {expr = true})
-
-function tab_nine()
-    local tabnine = require('cmp_tabnine.config')
-    tabnine:setup({
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-    })
-    require('cmp').setup({
-        sources = {
-            { name = 'tabnine' },
-            { name = 'nvim_lua' },
-            { name = 'buffer' },
-        },
-    })
+-- -- Install TabNine
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/tabnine'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/tzachar/cmp-tabnine', install_path})
+  vim.api.nvim_command('packadd tabnine')
 end
 
-local cmp = require 'cmp'
-cmp.setup {
+-- Set up TabNine configuration
+local cmp = require('cmp')
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+  max_lines = 1000;
+  max_num_results = 20;
+  sort = true;
+})
+cmp.setup({
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      -- For `vsnip` user.
+      vim.fn['vsnip#anonymous'](args.body)
     end,
   },
   mapping = {
@@ -148,7 +142,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    --['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -157,9 +151,58 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+    { name = 'cmp_tabnine' },
+    { name = 'calc' },
+    { name = 'emoji' },
   },
-}
+})
+
+-- Set up Copilot configuration
+require('nvim-autopairs.completion.cmp').setup({
+  map_cr = true, -- automatically map <CR> to enter
+  map_complete = true, -- automatically map <C-Space> to autocomplete
+  auto_select = true, -- automatically select the first completion item
+  insert = false, -- use the insert completion menu
+  sources = {
+    { name = 'buffer' },
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'copilot' }, -- add Copilot as a completion source
+  },
+})
+
+-- Set up Copilot keybindings
+vim.api.nvim_set_keymap('i', '<C-Space>', 'cmp#complete()', { noremap = true, silent = true, expr = true })
+vim.api.nvim_set_keymap('i', '<CR>', "pumvisible() ? cmp#confirm('<CR>') : '<CR>'", { noremap = true, silent = true, expr = true })
+
+
+--local cmp = require 'cmp'
+--cmp.setup {
+  --snippet = {
+    --expand = function(args)
+      --require('luasnip').lsp_expand(args.body)
+    --end,
+  --},
+  --mapping = {
+    --['<C-p>'] = cmp.mapping.select_prev_item(),
+    --['<C-n>'] = cmp.mapping.select_next_item(),
+    --['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    --['<C-f>'] = cmp.mapping.scroll_docs(4),
+    --['<C-Space>'] = cmp.mapping.complete(),
+    --['<C-e>'] = cmp.mapping.close(),
+    --['<CR>'] = cmp.mapping.confirm {
+      --behavior = cmp.ConfirmBehavior.Replace,
+      --select = true,
+    --}
+  --},
+  --sources = {
+    --{ name = 'nvim_lsp' },
+    --{ name = 'luasnip' },
+  --},
+--}
 
 -- Load language servers and override on_attach.
 local nvim_lsp = require('lspconfig')
