@@ -1,6 +1,5 @@
 {
   description = "Home-manager configuration";
-
   inputs = {
     # Package sets
     nixpkgs.url = "github:nixos/nixpkgs";
