@@ -9,29 +9,23 @@
 
     # Neovim
     neovim-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
-    };
-
-    # Mosh
-    mosh-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
+      url = "path:./flakes/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Node modules
     node-modules-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/node_modules";
+      url = "path:./flakes/node_modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, node-modules-flake, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, neovim-flake, node-modules-flake, ... }:
     let
       pkgs = system: import nixpkgs {
         overlays = [
-          neovim-flake.overlay.${system}
-          mosh-flake.overlay.${system}
+          neovim-flake.outputs.overlay.${system}
           node-modules-flake.overlay.${system}
         ];
         config.allowUnfree = true;
