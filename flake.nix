@@ -17,22 +17,14 @@
       url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Node modules
-    node-modules-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/node_modules";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, node-modules-flake, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, mosh-flake, neovim-flake, ... }:
     let
       pkgs = system: import nixpkgs {
         overlays = [
           neovim-flake.overlay.${system}
           mosh-flake.overlay.${system}
-          node-modules-flake.overlay.${system}
         ];
         config.allowUnfree = true;
         inherit system;

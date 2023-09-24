@@ -5,23 +5,21 @@
     silver-searcher
     jq
     yarn
-    nodejs-16_x
+    nodejs-18_x
     nodePackages.pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
     nodePackages.eslint_d
-    nodePackages.prettier
+    nodePackages.prettier_d_slim
     ripgrep
     fd
     tree-sitter
     rnix-lsp
     gopls
-    prettierd # From node-modules-flake
     postgresql
     coreutils
     ghc
-    edgedb
     stack
     jre8
   ];
