@@ -22,6 +22,7 @@
     ghc
     stack
     jre8
+    bun
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
