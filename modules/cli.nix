@@ -87,7 +87,7 @@
   home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
   home.file.".zshenv".text = ''
-    export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$PATH
+    export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$HOME/.bun/bin:$PATH
   '';
   home.file.".alacritty.yml".source = ../config/alacritty/alacritty.yml;
   home.file.".kitty.conf".source = ../config/kitty/kitty.conf;

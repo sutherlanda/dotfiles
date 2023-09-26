@@ -11,7 +11,6 @@
     nodePackages.bash-language-server
     nodePackages.node2nix
     nodePackages.eslint_d
-    nodePackages.prettier_d_slim
     ripgrep
     fd
     tree-sitter
@@ -22,7 +21,7 @@
     ghc
     stack
     jre8
-    bun
+    prettierd
   ];
 
   xdg.configFile."nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
