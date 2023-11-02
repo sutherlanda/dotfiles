@@ -199,6 +199,15 @@ require('conform').setup({
   }
 })
 
+local null_ls = require('null-ls')
+null_ls.setup({
+  debug = true,
+  on_attach = on_attach,
+  sources = {
+    null_ls.builtins.diagnostics.eslint_d
+  }
+})
+
 nvim_lsp.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
