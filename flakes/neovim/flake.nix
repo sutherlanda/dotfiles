@@ -24,6 +24,7 @@
 
     # Formatting
     formatter-nvim = { url = "github:mhartington/formatter.nvim"; flake = false; };
+    conform-nvim = { url = "github:stevearc/conform.nvim"; flake = false; };
 
     # Themes
     tokyonight-nvim = { url = "github:folke/tokyonight.nvim"; flake = false; };
@@ -68,7 +69,7 @@
           inherit system;
         };
 
-        buildPlugin = name: pkgs.vimUtils.buildVimPluginFrom2Nix {
+        buildPlugin = name: pkgs.vimUtils.buildVimPlugin {
           pname = name;
           version = "master";
           src = builtins.getAttr name inputs;
@@ -84,6 +85,7 @@
           "vim-glsl"
           "nvim-treesitter"
           "formatter-nvim"
+          "conform-nvim"
           "tokyonight-nvim"
           "nightfox-nvim"
           "gruvbox-nvim"

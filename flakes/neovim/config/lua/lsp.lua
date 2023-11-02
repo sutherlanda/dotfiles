@@ -26,7 +26,12 @@ local on_attach = function(client, bufnr)
   end
 
   -- Format on save.
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function(args)
+      require("conform").format({ bufnr = args.buf })
+    end
+  })
 
   -- Set up language server keybindings.
   -- Goto definition/declaration
@@ -184,15 +189,13 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities
 })
 
-local null_ls = require('null-ls')
-null_ls.setup({
-  debug = true,
+require('conform').setup({
   on_attach = on_attach,
-  sources = {
-    null_ls.builtins.formatting.prettierd,
-    null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.diagnostics.eslint_d
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "autopep8" },
+    javascript = {  "prettierd" },
+    typescript = {  "prettierd" },
   }
 })
 
