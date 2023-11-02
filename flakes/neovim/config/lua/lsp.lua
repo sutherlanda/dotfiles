@@ -194,8 +194,8 @@ require('conform').setup({
   formatters_by_ft = {
     lua = { "stylua" },
     python = { "autopep8" },
-    javascript = {  "prettierd" },
-    typescript = {  "prettierd" },
+    javascript = {  "eslint_d", "prettierd" },
+    typescript = {  "eslint_d", "prettierd" },
   }
 })
 
