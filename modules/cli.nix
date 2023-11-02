@@ -17,7 +17,6 @@
     kubectl
     kubectx
     k9s
-    cloud-sql-proxy
   ];
 
   programs.direnv = {
