@@ -17,6 +17,7 @@
     kubectl
     kubectx
     k9s
+    google-cloud-sql-proxy
   ];
 
   programs.direnv = {
