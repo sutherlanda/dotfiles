@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_create_autocmd("BufWrite", {
     pattern = "*.hs",
     callback = function(args)
-      :Autoformat
+      vim.cmd(":Autoformat")
     end
   })
 
