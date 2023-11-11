@@ -30,6 +30,10 @@
       url = "github:edgedb/edgedb-vim";
       flake = false;
     };
+    haskell-tools = {
+      url = "github:mrcjkb/haskell-tools.nvim";
+      flake = false;
+    };
 
     # Syntax highlighting
     vim-nix = {
@@ -183,6 +187,7 @@
         "nvim-typescript"
         "null-ls"
         "edgedb-vim"
+        "haskell-tools"
         "rust-tools"
         "vim-nix"
         "vim-glsl"

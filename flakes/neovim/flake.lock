@@ -270,6 +270,22 @@
         "type": "github"
       }
     },
+    "haskell-tools": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699463758,
+        "narHash": "sha256-4a2YFaa+xFD1fzIy0Vg8RZKKJrDaVLl/Fvo9KnvNCyg=",
+        "owner": "mrcjkb",
+        "repo": "haskell-tools.nvim",
+        "rev": "4ba45b6a820bd87328c44f7053a00d243a3ff8f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrcjkb",
+        "repo": "haskell-tools.nvim",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -560,6 +576,7 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
+        "haskell-tools": "haskell-tools",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
