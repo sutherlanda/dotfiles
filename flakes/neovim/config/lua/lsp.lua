@@ -34,6 +34,14 @@ local on_attach = function(client, bufnr)
     end
   })
 
+  vim.api.nvim_create_autocmd("BufWrite", {
+    pattern = "*.hs",
+    callback = function(args)
+      vim.cmd("silent !ormolu " .. args.bufname)
+      vim.cmd("silent edit")
+    end
+  })
+
   -- Set up language server keybindings.
   -- Goto definition/declaration
   buf_set_keymap('n', '<leader>ag', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
