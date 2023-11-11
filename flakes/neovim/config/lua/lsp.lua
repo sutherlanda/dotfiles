@@ -198,6 +198,7 @@ require('conform').setup({
     javascript = {  "eslint_d", "prettierd" },
     typescript = {  "eslint_d", "prettierd" },
     nix = { "alejandra" },
+    rust = { "rustfmt" },
   }
 })
 

@@ -16,6 +16,7 @@
     nodePackages.node2nix
     python311Packages.autopep8
     alejandra
+    rustfmt
     stylua
     eslint_d
     ripgrep
