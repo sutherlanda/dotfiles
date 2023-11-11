@@ -37,8 +37,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_create_autocmd("BufWrite", {
     pattern = "*.hs",
     callback = function(args)
-      vim.cmd("silent !ormolu " .. args.bufname)
-      vim.cmd("silent edit")
+      :Autoformat
     end
   })
 

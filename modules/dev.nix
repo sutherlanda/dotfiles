@@ -19,6 +19,7 @@
     rustfmt
     stylua
     eslint_d
+    prettierd
     ripgrep
     fd
     tree-sitter
@@ -29,6 +30,5 @@
     ghc
     stack
     jre8
-    prettierd
   ];
 }

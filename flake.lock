@@ -290,6 +290,22 @@
         "type": "github"
       }
     },
+    "haskell-tools": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699463758,
+        "narHash": "sha256-4a2YFaa+xFD1fzIy0Vg8RZKKJrDaVLl/Fvo9KnvNCyg=",
+        "owner": "mrcjkb",
+        "repo": "haskell-tools.nvim",
+        "rev": "4ba45b6a820bd87328c44f7053a00d243a3ff8f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrcjkb",
+        "repo": "haskell-tools.nvim",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -420,6 +436,7 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
+        "haskell-tools": "haskell-tools",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
@@ -434,6 +451,7 @@
         "nvim-typescript": "nvim-typescript",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
+        "stylish-haskell": "stylish-haskell",
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
         "tokyonight-nvim": "tokyonight-nvim",
@@ -447,11 +465,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1699675545,
-        "narHash": "sha256-5U0kOOzMkHbnXfxdJ7IjLrQoXdmn2dJAvJg8InZJwk8=",
+        "lastModified": 1699678156,
+        "narHash": "sha256-yx3Iah+7cnqDjGqz8XtRzF9DqRB5FlV/ch9OMOSCRUU=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "a9818173806d7d16548c8a53de3981dca60d785a",
+        "rev": "ee690ca87da0e44e55531c0c52ff22b1649cdca7",
         "type": "github"
       },
       "original": {
@@ -737,6 +755,22 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
+    "stylish-haskell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688108678,
+        "narHash": "sha256-EAIg38Ug7g5HXPBatz4k6hQPwMihue8DJrH0b+RNm+0=",
+        "owner": "haskell",
+        "repo": "stylish-haskell",
+        "rev": "5503e2726545b79ab9af960999efb538ef35a4e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haskell",
+        "repo": "stylish-haskell",
         "type": "github"
       }
     },
