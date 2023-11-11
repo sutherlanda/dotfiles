@@ -34,18 +34,6 @@ local on_attach = function(client, bufnr)
     end
   })
 
-  vim.api.nvim_exec([[
-  autocmd BufWrite *.hs lua require('haskell_formatting').autoformat_hs()
-  autocmd FileType haskell let b:autoformat_autoindent=0
-  ]], false)
-
-  -- Define a Lua function for autoformatting Haskell files
-  _G.haskell_formatting = {}
-
-  function haskell_formatting.autoformat_hs()
-    vim.fn["neoformat#format"]()
-  end
-
   -- Set up language server keybindings.
   -- Goto definition/declaration
   buf_set_keymap('n', '<leader>ag', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -211,6 +199,7 @@ require('conform').setup({
     typescript = {  "eslint_d", "prettierd" },
     nix = { "alejandra" },
     rust = { "rustfmt" },
+    haskell = { "stylish-haskell" },
   }
 })
 
