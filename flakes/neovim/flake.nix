@@ -58,6 +58,10 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
+    stylish-haskell = {
+      url = "github:haskell/stylish-haskell";
+      flake = false;
+    };
 
     # Themes
     tokyonight-nvim = {
@@ -194,6 +198,7 @@
         "nvim-treesitter"
         "formatter-nvim"
         "conform-nvim"
+        "stylish-haskell"
         "tokyonight-nvim"
         "nightfox-nvim"
         "gruvbox-nvim"

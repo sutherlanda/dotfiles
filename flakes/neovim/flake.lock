@@ -591,6 +591,7 @@
         "nvim-typescript": "nvim-typescript",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
+        "stylish-haskell": "stylish-haskell",
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
         "tokyonight-nvim": "tokyonight-nvim",
@@ -616,6 +617,22 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
+    "stylish-haskell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688108678,
+        "narHash": "sha256-EAIg38Ug7g5HXPBatz4k6hQPwMihue8DJrH0b+RNm+0=",
+        "owner": "haskell",
+        "repo": "stylish-haskell",
+        "rev": "5503e2726545b79ab9af960999efb538ef35a4e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haskell",
+        "repo": "stylish-haskell",
         "type": "github"
       }
     },
