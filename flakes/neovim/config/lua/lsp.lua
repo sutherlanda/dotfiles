@@ -199,7 +199,6 @@ require('conform').setup({
     typescript = {  "eslint_d", "prettierd" },
     nix = { "alejandra" },
     rust = { "rustfmt" },
-    haskell = { "stylish-haskell" },
   }
 })
 

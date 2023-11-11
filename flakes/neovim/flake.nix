@@ -76,6 +76,10 @@
       url = "github:ellisonleao/gruvbox.nvim";
       flake = false;
     };
+    vim-stylish-haskell = {
+      url = "github:nbouscal/vim-stylish-haskell";
+      flake = false;
+    };
 
     # NERD
     nerd-commenter = {
@@ -202,6 +206,7 @@
         "tokyonight-nvim"
         "nightfox-nvim"
         "gruvbox-nvim"
+        "vim-stylish-haskell"
         "nerd-commenter"
         "nvim-tree"
         "nvim-cmp"

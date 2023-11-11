@@ -517,11 +517,11 @@
     "nvim-treesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1699661292,
-        "narHash": "sha256-a/GG1Y1TSyPI4hqJnlXX5Y2BJ2YI82P1k+VOFfDxxMM=",
+        "lastModified": 1699694083,
+        "narHash": "sha256-MBSjwHmh4JCwa4mNuADcWaBgMhPnroDxz93eBE9ifOY=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "c543ffae1c34a92fb647505f2165b35f68c113c4",
+        "rev": "075a64addc33390028ea124a1046a43497f05cd1",
         "type": "github"
       },
       "original": {
@@ -601,6 +601,7 @@
         "vim-rooter": "vim-rooter",
         "vim-rzip": "vim-rzip",
         "vim-sensible": "vim-sensible",
+        "vim-stylish-haskell": "vim-stylish-haskell",
         "vim-surround": "vim-surround"
       }
     },
@@ -807,6 +808,22 @@
       "original": {
         "owner": "tpope",
         "repo": "vim-sensible",
+        "type": "github"
+      }
+    },
+    "vim-stylish-haskell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659950635,
+        "narHash": "sha256-51RENZp53McViY5ZOeuB1A8B7FW9TFO5FEEUIvPEEWM=",
+        "owner": "nbouscal",
+        "repo": "vim-stylish-haskell",
+        "rev": "60a59fd767956c40372b5aeab2d68a0a953ebb2b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nbouscal",
+        "repo": "vim-stylish-haskell",
         "type": "github"
       }
     },
