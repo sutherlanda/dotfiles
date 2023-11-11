@@ -34,12 +34,17 @@ local on_attach = function(client, bufnr)
     end
   })
 
-  vim.api.nvim_create_autocmd("BufWrite", {
-    pattern = "*.hs",
-    callback = function(args)
-      vim.cmd(":Autoformat")
-    end
-  })
+  vim.api.nvim_exec([[
+  autocmd BufWrite *.hs lua require('haskell_formatting').autoformat_hs()
+  autocmd FileType haskell let b:autoformat_autoindent=0
+  ]], false)
+
+  -- Define a Lua function for autoformatting Haskell files
+  _G.haskell_formatting = {}
+
+  function haskell_formatting.autoformat_hs()
+    vim.fn["neoformat#format"]()
+  end
 
   -- Set up language server keybindings.
   -- Goto definition/declaration
