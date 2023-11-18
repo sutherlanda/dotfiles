@@ -16,6 +16,12 @@ vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
 
+require('neoscroll').setup({
+  --mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>', 'zt', 'zz', 'zb'},
+  --hide_cursor = true,
+  --easing_function = 'cubic'
+})
+
 -- Lualine
 require'lualine'.setup({
   options = {

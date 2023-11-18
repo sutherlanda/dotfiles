@@ -574,6 +574,7 @@
         "nvim-typescript": "nvim-typescript",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
+        "smooth-scroll": "smooth-scroll",
         "stylish-haskell": "stylish-haskell",
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
@@ -601,6 +602,22 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
+    "smooth-scroll": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699653006,
+        "narHash": "sha256-1IvaqX3oCJ2XPphSjL+As0futYe7DeDOFmUNBuvMlU4=",
+        "owner": "karb94",
+        "repo": "neoscroll.nvim",
+        "rev": "e85740d1a54ab0f10127b08c67a291053bc3acfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "karb94",
+        "repo": "neoscroll.nvim",
         "type": "github"
       }
     },

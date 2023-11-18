@@ -166,6 +166,10 @@
       url = "github:sansyrox/vim-python-virtualenv";
       flake = false;
     };
+    smooth-scroll = {
+      url = "github:karb94/neoscroll.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -222,6 +226,7 @@
         "plenary"
         "vim-rzip"
         "vim-python-virtualenv"
+        "smooth-scroll"
       ];
 
       neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
