@@ -290,22 +290,6 @@
         "type": "github"
       }
     },
-    "haskell-tools": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1699463758,
-        "narHash": "sha256-4a2YFaa+xFD1fzIy0Vg8RZKKJrDaVLl/Fvo9KnvNCyg=",
-        "owner": "mrcjkb",
-        "repo": "haskell-tools.nvim",
-        "rev": "4ba45b6a820bd87328c44f7053a00d243a3ff8f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrcjkb",
-        "repo": "haskell-tools.nvim",
-        "type": "github"
-      }
-    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -436,7 +420,6 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
-        "haskell-tools": "haskell-tools",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
@@ -451,6 +434,7 @@
         "nvim-typescript": "nvim-typescript",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
+        "smooth-scroll": "smooth-scroll",
         "stylish-haskell": "stylish-haskell",
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
@@ -466,11 +450,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1699714041,
-        "narHash": "sha256-FejOLDT7BS9u67n1f8pcNqBwCm7KXKbWTv66/QNhLCE=",
+        "lastModified": 1700276098,
+        "narHash": "sha256-Zp/msZmUMmje6XLN9tQN5iPDLiB82WXXmlipOPw9eJ8=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "1305a8442011224785d5885e4b2b5157060dc7d8",
+        "rev": "e2970ae43e54aecb0e82656b5b53c651f17d6a20",
         "type": "github"
       },
       "original": {
@@ -756,6 +740,22 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
+        "type": "github"
+      }
+    },
+    "smooth-scroll": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699653006,
+        "narHash": "sha256-1IvaqX3oCJ2XPphSjL+As0futYe7DeDOFmUNBuvMlU4=",
+        "owner": "karb94",
+        "repo": "neoscroll.nvim",
+        "rev": "e85740d1a54ab0f10127b08c67a291053bc3acfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "karb94",
+        "repo": "neoscroll.nvim",
         "type": "github"
       }
     },
