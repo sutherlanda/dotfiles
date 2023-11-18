@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alpha-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694714586,
+        "narHash": "sha256-rXCibNJlNcF+p9PF7EoQM4/pnA1C+KGf7RrIyCY3OJY=",
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "rev": "234822140b265ec4ba3203e3e0be0e0bb826dff5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -408,6 +424,7 @@
     },
     "neovim-flake": {
       "inputs": {
+        "alpha-nvim": "alpha-nvim",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
@@ -432,6 +449,7 @@
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-typescript": "nvim-typescript",
+        "nvim-web-devicons": "nvim-web-devicons",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
         "smooth-scroll": "smooth-scroll",
@@ -450,11 +468,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1700276098,
-        "narHash": "sha256-Zp/msZmUMmje6XLN9tQN5iPDLiB82WXXmlipOPw9eJ8=",
+        "lastModified": 1700278529,
+        "narHash": "sha256-Ckpu1oNf3ljddw7P5P0CkQmN2d8xyt47lUBbxzHfZ7g=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "e2970ae43e54aecb0e82656b5b53c651f17d6a20",
+        "rev": "41280e3386ef89c8c5f4f58b6ffbd860b6bdea54",
         "type": "github"
       },
       "original": {
@@ -699,6 +717,22 @@
       "original": {
         "owner": "jose-elias-alvarez",
         "repo": "typescript.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700125697,
+        "narHash": "sha256-nOCGW5Hq7evYRT5JU7OSguxPKYQMHyZrk++kDl3dzFM=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "3523d6e6d40ab11fd66c1b2732b3d6b60affa951",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
         "type": "github"
       }
     },
