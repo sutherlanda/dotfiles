@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alpha-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694714586,
+        "narHash": "sha256-rXCibNJlNcF+p9PF7EoQM4/pnA1C+KGf7RrIyCY3OJY=",
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "rev": "234822140b265ec4ba3203e3e0be0e0bb826dff5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -530,6 +546,22 @@
         "type": "github"
       }
     },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700125697,
+        "narHash": "sha256-nOCGW5Hq7evYRT5JU7OSguxPKYQMHyZrk++kDl3dzFM=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "3523d6e6d40ab11fd66c1b2732b3d6b60affa951",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
     "plenary": {
       "flake": false,
       "locked": {
@@ -548,6 +580,7 @@
     },
     "root": {
       "inputs": {
+        "alpha-nvim": "alpha-nvim",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
@@ -572,6 +605,7 @@
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-typescript": "nvim-typescript",
+        "nvim-web-devicons": "nvim-web-devicons",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
         "smooth-scroll": "smooth-scroll",

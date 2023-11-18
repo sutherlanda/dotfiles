@@ -58,6 +58,10 @@
       url = "github:haskell/stylish-haskell";
       flake = false;
     };
+    vim-stylish-haskell = {
+      url = "github:nbouscal/vim-stylish-haskell";
+      flake = false;
+    };
 
     # Themes
     tokyonight-nvim = {
@@ -72,8 +76,8 @@
       url = "github:ellisonleao/gruvbox.nvim";
       flake = false;
     };
-    vim-stylish-haskell = {
-      url = "github:nbouscal/vim-stylish-haskell";
+    nvim-web-devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
 
@@ -170,6 +174,10 @@
       url = "github:karb94/neoscroll.nvim";
       flake = false;
     };
+    alpha-nvim = {
+      url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -205,6 +213,7 @@
         "tokyonight-nvim"
         "nightfox-nvim"
         "gruvbox-nvim"
+        "nvim-web-devicons"
         "vim-stylish-haskell"
         "nerd-commenter"
         "nvim-tree"
@@ -227,6 +236,7 @@
         "vim-rzip"
         "vim-python-virtualenv"
         "smooth-scroll"
+        "alpha-nvim"
       ];
 
       neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
