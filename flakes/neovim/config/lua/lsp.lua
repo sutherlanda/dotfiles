@@ -197,6 +197,8 @@ require('conform').setup({
     python = { "autopep8" },
     javascript = {  "eslint_d", "prettierd" },
     typescript = {  "eslint_d", "prettierd" },
+    tsx = { "eslint_d", "prettierd" },
+    jsx = { "eslint_d", "prettierd" },
     json = { "prettierd" },
     nix = { "alejandra" },
     rust = { "rustfmt" },
