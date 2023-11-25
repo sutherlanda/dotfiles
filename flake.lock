@@ -468,11 +468,11 @@
       },
       "locked": {
         "dir": "flakes/neovim",
-        "lastModified": 1700278529,
-        "narHash": "sha256-Ckpu1oNf3ljddw7P5P0CkQmN2d8xyt47lUBbxzHfZ7g=",
+        "lastModified": 1700947764,
+        "narHash": "sha256-AnEGmX4/E684G+0EmzAEAJfTPvQzA6M2ffdSY8YN6Bg=",
         "owner": "sutherlanda",
         "repo": "dotfiles",
-        "rev": "41280e3386ef89c8c5f4f58b6ffbd860b6bdea54",
+        "rev": "677661482d7b15bbc5f985ef808a28f771461cd0",
         "type": "github"
       },
       "original": {
