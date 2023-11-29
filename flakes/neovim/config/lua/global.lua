@@ -15,6 +15,7 @@ vim.g.rooter_patterns = {'.git', '.git/', 'shell.sh', 'shell.nix'}
 vim.g.rooter_silent_chdir = 1
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
+vim.g.loaded_ruby_provider = 0
 
 require('alpha').setup(require('alpha.themes.startify').opts)
 
