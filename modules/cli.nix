@@ -92,4 +92,5 @@
   '';
   home.file.".kitty.conf".source = ../config/kitty/kitty.conf;
   home.file.".config/kitty".source = ../config/kitty;
+  home.file.".config/nvim/init.vim".text = "";
 }
