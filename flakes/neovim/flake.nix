@@ -239,7 +239,23 @@
         "alpha-nvim"
       ];
 
-      neovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
+      nvim-plugintree = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+        p.c
+        p.lua
+        p.nix
+        p.bash
+        p.cpp
+        p.json
+        p.python
+        p.markdown
+      ]);
+
+      treesitter-parsers = pkgs.symlinkJoin {
+        name = "treesitter-parsers";
+        paths = nvim-plugintree.dependencies;
+      };
+
+      neovim = pkgs.neovim.override {
         vimAlias = true;
         configure = {
           customRC = ''
@@ -247,7 +263,11 @@
             luafile ${config/lua/lsp.lua}
           '';
           packages.myVimPackage = {
-            start = map buildPlugin plugins;
+            start =
+              map buildPlugin plugins
+              ++ [
+                nvim-plugintree
+              ];
           };
         };
       };
