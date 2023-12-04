@@ -29,8 +29,6 @@
     gopls
     postgresql
     coreutils
-    ghc
-    stack
     jre8
   ];
 }
