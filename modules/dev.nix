@@ -14,9 +14,9 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
-    python310
-    python310Packages.autopep8
-    python310Packages.pynvim
+    python311
+    python311Packages.autopep8
+    python311Packages.pynvim
     alejandra
     rustfmt
     stylua
