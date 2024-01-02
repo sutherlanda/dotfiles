@@ -218,3 +218,7 @@ nvim_lsp.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.vimdoc = nil
+
