@@ -31,5 +31,6 @@
     coreutils
     jre8
     ripgrep
+    yq
   ];
 }
