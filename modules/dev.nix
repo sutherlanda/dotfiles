@@ -30,5 +30,6 @@
     postgresql
     coreutils
     jre8
+    ripgrep
   ];
 }
