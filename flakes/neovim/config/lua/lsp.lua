@@ -1,100 +1,97 @@
 -- Executed when language server has been attached.
 local opts = { noremap = true, silent = true }
 local on_attach = function(client, bufnr)
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
 
+	local function buf_set_option(...)
+		vim.api.nvim_buf_set_option(bufnr, ...)
+	end
 
-  local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+	-- Customize diagnostic handling.
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		underline = true,
+	})
 
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
-  end
+	-- Customize the LSP diagnostic gutter signs
+	local signs = { Error = ">>", Warn = ">", Hint = "*", Info = "*" }
+	for type, icon in pairs(signs) do
+		local name = "DiagnosticSign" .. type
+		vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+	end
 
-  -- Customize diagnostic handling.
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        underline = true,
-      }
-    )
+	-- Format on save.
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*",
+		callback = function(args)
+			require("conform").format({ bufnr = args.buf })
+		end,
+	})
 
-  -- Customize the LSP diagnostic gutter signs
-  local signs = { Error = ">>", Warn = ">", Hint = "*", Info = "*" }
-  for type, icon in pairs(signs) do
-    local name = "DiagnosticSign" .. type
-    vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-  end
+	-- Set up language server keybindings.
+	-- Goto definition/declaration
+	buf_set_keymap("n", "<leader>ag", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	buf_set_keymap("n", "<leader>aG", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 
-  -- Format on save.
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-      require("conform").format({ bufnr = args.buf })
-    end
-  })
+	-- References
+	buf_set_keymap("n", "<leader>ar", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 
-  -- Set up language server keybindings.
-  -- Goto definition/declaration
-  buf_set_keymap('n', '<leader>ag', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>aG', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+	-- Hover
+	buf_set_keymap("n", "<leader>ah", "<cmd>lua vim.lsp.buf.hover({focusable=false})<CR>", opts)
 
-  -- References
-  buf_set_keymap('n', '<leader>ar', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+	-- Rename
+	buf_set_keymap("n", "<leader>an", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
-  -- Hover
-  buf_set_keymap('n', '<leader>ah', '<cmd>lua vim.lsp.buf.hover({focusable=false})<CR>', opts)
+	-- Diagnostics
+	buf_set_keymap("n", "<C-j>", "<cmd>lua vim.diagnostic.goto_next({enable_popup=false})<CR>", opts)
+	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.diagnostic.goto_prev({enable_popup=false})<CR>", opts)
+	buf_set_keymap("n", "<leader>ak", "<cmd>lua vim.diagnostic.show_line_diagnostics({focusable=false})<CR>", opts)
 
-  -- Rename
-  buf_set_keymap('n', '<leader>an', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+	-- Diagnostics in preview window
+	buf_set_keymap("n", "<leader>ad", "<cmd>lua PrintDiagnostics()<CR>", opts)
 
-  -- Diagnostics
-  buf_set_keymap('n', '<C-j>', '<cmd>lua vim.diagnostic.goto_next({enable_popup=false})<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.diagnostic.goto_prev({enable_popup=false})<CR>', opts)
-  buf_set_keymap('n', '<leader>ak', '<cmd>lua vim.diagnostic.show_line_diagnostics({focusable=false})<CR>', opts)
+	-- Location list
+	buf_set_keymap("n", "<leader>lo", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
+	buf_set_keymap("n", "<leader>lc", "<cmd>lclose<CR>", opts)
+	buf_set_keymap("n", "<leader>lp", "<cmd>lprevious<CR>", opts)
+	buf_set_keymap("n", "<leader>ln", "<cmd>lnext<CR>", opts)
 
-  -- Diagnostics in preview window
-  buf_set_keymap('n', '<leader>ad', '<cmd>lua PrintDiagnostics()<CR>', opts)
+	-- Quickfix window
+	buf_set_keymap("n", "<leader>qo", "<cmd>copen<CR>", opts)
+	buf_set_keymap("n", "<leader>qc", "<cmd>cclose<CR>", opts)
+	buf_set_keymap("n", "<leader>qp", "<cmd>cprevious<CR>", opts)
+	buf_set_keymap("n", "<leader>qn", "<cmd>cnext<CR>", opts)
 
-  -- Location list
-  buf_set_keymap('n', '<leader>lo', '<cmd>lua vim.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>lc', '<cmd>lclose<CR>', opts)
-  buf_set_keymap('n', '<leader>lp', '<cmd>lprevious<CR>', opts)
-  buf_set_keymap('n', '<leader>ln', '<cmd>lnext<CR>', opts)
-
-  -- Quickfix window
-  buf_set_keymap('n', '<leader>qo', '<cmd>copen<CR>', opts)
-  buf_set_keymap('n', '<leader>qc', '<cmd>cclose<CR>', opts)
-  buf_set_keymap('n', '<leader>qp', '<cmd>cprevious<CR>', opts)
-  buf_set_keymap('n', '<leader>qn', '<cmd>cnext<CR>', opts)
-
-  -- Format
-  buf_set_keymap('n', '<leader>af', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+	-- Format
+	buf_set_keymap("n", "<leader>af", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
-
 
 -- Print the diagnostics under the cursor to the Preview Window
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
-  opts = opts or {}
-  bufnr = bufnr or 0
-  line_nr = line_nr or (vim.api.nvim_win_get_cursor(bufnr)[1] - 1)
+	opts = opts or {}
+	bufnr = bufnr or 0
+	line_nr = line_nr or (vim.api.nvim_win_get_cursor(bufnr)[1] - 1)
 
-  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
-  if vim.tbl_isempty(line_diagnostics) then return end
+	local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
+	if vim.tbl_isempty(line_diagnostics) then
+		return
+	end
 
-  local lines = {}
-  for i, diagnostic in ipairs(line_diagnostics) do
-    local str = diagnostic.message
-    for s in str:gmatch("[^\r\n]+") do
-      table.insert(lines, s)
-    end
-  end
-  ShowInPreview(lines)
+	local lines = {}
+	for i, diagnostic in ipairs(line_diagnostics) do
+		local str = diagnostic.message
+		for s in str:gmatch("[^\r\n]+") do
+			table.insert(lines, s)
+		end
+	end
+	ShowInPreview(lines)
 end
 
 -- Opens the Preview Window and displays the given diagnostic table.
 function ShowInPreview(lines)
-  vim.cmd([[
+	vim.cmd([[
     pclose
     keepalt new +setlocal\ previewwindow|setlocal\ buftype=nofile|setlocal\ noswapfile|setlocal\ wrap [Document]
     setl bufhidden=wipe
@@ -104,9 +101,9 @@ function ShowInPreview(lines)
     setl conceallevel=0
     setl nofoldenable
   ]])
-  vim.api.nvim_buf_set_lines(0, 0, -1, 0, lines)
-  vim.cmd('exe "normal! z" .' .. #lines .. '. "\\<cr>"')
-  vim.cmd([[
+	vim.api.nvim_buf_set_lines(0, 0, -1, 0, lines)
+	vim.cmd('exe "normal! z" .' .. #lines .. '. "\\<cr>"')
+	vim.cmd([[
     exe "normal! gg"
     wincmd p
   ]])
@@ -115,114 +112,112 @@ end
 -- Autocomplete and snippet configuration
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-vim.o.completeopt = 'menuone,noselect,noinsert'
-local luasnip = require 'luasnip'
+vim.o.completeopt = "menuone,noselect,noinsert"
+local luasnip = require("luasnip")
 
-local cmp = require 'cmp'
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	mapping = {
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-e>"] = cmp.mapping.close(),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+	},
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	},
+})
 
 -- Load language servers and override on_attach.
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = require("lspconfig")
 
 nvim_lsp.rust_analyzer.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  checkOnSave = {
-    command = "clippy"
-  }
+	on_attach = on_attach,
+	capabilities = capabilities,
+	checkOnSave = {
+		command = "clippy",
+	},
 })
 
 nvim_lsp.hls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
-
 nvim_lsp.rnix.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 nvim_lsp.bashls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 nvim_lsp.gopls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 nvim_lsp.tsserver.setup({
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    },
-  },
-  on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+	on_attach = function(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+		on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
 })
 
-require('conform').setup({
-  on_attach = on_attach,
-  formatters_by_ft = {
-    lua = { "stylua" },
-    python = { "autopep8" },
-    javascript = {  "eslint_d", "prettierd" },
-    typescript = {  "eslint_d", "prettierd" },
-    typescriptreact = { "eslint_d", "prettierd" },
-    javascriptreact = { "eslint_d", "prettierd" },
-    json = { "fixjson" },
-    nix = { "alejandra" },
-    rust = { "rustfmt" },
-  },
-  format_on_save = {
-    lsp_fallback = true,
-    timeout_ms = 3000
-  }
+require("conform").setup({
+	on_attach = on_attach,
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "autopep8" },
+		javascript = { "eslint_d", "prettierd" },
+		typescript = { "eslint_d", "prettierd" },
+		typescriptreact = { "eslint_d", "prettierd" },
+		javascriptreact = { "eslint_d", "prettierd" },
+		json = { "prettierd" },
+		nix = { "alejandra" },
+		rust = { "rustfmt" },
+	},
+	format_on_save = {
+		lsp_fallback = true,
+		timeout_ms = 3000,
+	},
 })
 
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 null_ls.setup({
-  debug = true,
-  on_attach = on_attach,
-  sources = {
-    null_ls.builtins.diagnostics.eslint_d
-  }
+	debug = true,
+	on_attach = on_attach,
+	sources = {
+		null_ls.builtins.diagnostics.eslint_d,
+	},
 })
 
 nvim_lsp.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.vimdoc = nil
-
