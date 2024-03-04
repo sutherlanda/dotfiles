@@ -202,6 +202,10 @@ require('conform').setup({
     json = { "prettierd" },
     nix = { "alejandra" },
     rust = { "rustfmt" },
+  },
+  format_on_save = {
+    lsp_fallback = true,
+    timeout_ms = 3000
   }
 })
 
