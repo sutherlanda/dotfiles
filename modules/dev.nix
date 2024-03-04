@@ -14,6 +14,7 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
+    nodePackages.fixjson
     python311
     python311Packages.autopep8
     python311Packages.pynvim
