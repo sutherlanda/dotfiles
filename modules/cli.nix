@@ -30,6 +30,7 @@
     enable = true;
     enableCompletion = false;
     initExtraFirst = ''
+      export TERM=xterm-256color
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       export FZF_BASE=${pkgs.fzf}/share/fzf
       export EDITOR=nvim
