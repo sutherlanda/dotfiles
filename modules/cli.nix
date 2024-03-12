@@ -55,19 +55,12 @@
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
-      ZSH_THEME="powerlevel10k/powerlevel10k"
       DISABLE_AUTO_TITLE="true"
 
       eval "$(direnv hook zsh)"
 
       eval "$(keychain --eval id_rsa_github_personal -q --noask)"
       eval "$(keychain --eval id_rsa_github_zesty -q --noask)"
-
-      alias t-start='sudo systemctl start transmission-daemon.service'
-      alias t-stop='sudo systemctl stop transmission-daemon.service'
-      alias t-list='transmission-remote -n 'transmission:transmission' -l'
-      alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
-      alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
 
       alias pg-start='pg_ctl -D $HOME/pgdata -l logfile start'
       alias pg-stop='pg_ctl stop'
@@ -77,8 +70,6 @@
       if [ -f $HOME/.zesty.zsh ]; then
         source $HOME/.zesty.zsh
       fi
-
-      source $HOME/.zprofile
     '';
   };
 
