@@ -41,8 +41,6 @@
       export PGDATA=$HOME/pgdata
       export NIXPKGS_ALLOW_BROKEN=1
       plugins=(git fzf)
-      HISTFILESIZE=500000
-      HISTSIZE=500000
       setopt SHARE_HISTORY
       setopt HIST_IGNORE_ALL_DUPS
       setopt HIST_IGNORE_DUPS
@@ -56,20 +54,6 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
       DISABLE_AUTO_TITLE="true"
-
-      eval "$(direnv hook zsh)"
-
-      eval "$(keychain --eval id_rsa_github_personal -q --noask)"
-      eval "$(keychain --eval id_rsa_github_zesty -q --noask)"
-
-      alias pg-start='pg_ctl -D $HOME/pgdata -l logfile start'
-      alias pg-stop='pg_ctl stop'
-
-      alias myip='curl https://ipinfo.io/ip'
-
-      if [ -f $HOME/.zesty.zsh ]; then
-        source $HOME/.zesty.zsh
-      fi
     '';
   };
 
