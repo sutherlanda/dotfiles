@@ -149,10 +149,6 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
-    vim-rzip = {
-      url = "github:lbrayner/vim-rzip";
-      flake = false;
-    };
     vim-python-virtualenv = {
       url = "github:sansyrox/vim-python-virtualenv";
       flake = false;
@@ -217,7 +213,6 @@
         "telescope"
         "telescope-fzy-native"
         "plenary"
-        "vim-rzip"
         "vim-python-virtualenv"
         "smooth-scroll"
         "alpha-nvim"
