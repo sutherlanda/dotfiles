@@ -390,19 +390,14 @@
         ]
       },
       "locked": {
-        "dir": "flakes/mosh",
-        "lastModified": 1704829758,
-        "narHash": "sha256-FR8TAe1nu/eQR6o66eq9hT+1TlxT725tVGSJWuY3AH8=",
-        "owner": "sutherlanda",
-        "repo": "dotfiles",
-        "rev": "bed2f4cc1abb96e8c54f31e413e1bf268e3299f5",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-NK7kdOlYd4wHvuWAcxdA/BEvrl6DgU1gy75k8P0mjwU=",
+        "path": "./flakes/mosh",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/mosh",
-        "owner": "sutherlanda",
-        "repo": "dotfiles",
-        "type": "github"
+        "path": "./flakes/mosh",
+        "type": "path"
       }
     },
     "mosh-src": {
@@ -467,19 +462,14 @@
         "vim-surround": "vim-surround"
       },
       "locked": {
-        "dir": "flakes/neovim",
-        "lastModified": 1709566026,
-        "narHash": "sha256-+YzoEPpd11SEdTZTP+gPHj7nfTRH4IR4PCn9e/9utj4=",
-        "owner": "sutherlanda",
-        "repo": "dotfiles",
-        "rev": "72a0c1bad758b0d3aa90f42a810afd2f91987810",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-Ows+QwMx2+KNB7FpjFm0JZs6Xvhd5gB+5ZXPZvYFXbE=",
+        "path": "./flakes/neovim",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/neovim",
-        "owner": "sutherlanda",
-        "repo": "dotfiles",
-        "type": "github"
+        "path": "./flakes/neovim",
+        "type": "path"
       }
     },
     "neovim-flake_2": {

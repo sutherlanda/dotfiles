@@ -13,19 +13,27 @@
 
     # Neovim
     neovim-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
+      url = "path:./flakes/neovim";
     };
 
     # Mosh
     mosh-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
+      url = "path:./flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, mosh-flake, neovim-flake, ... }:
-    let
-      pkgs = system: import nixpkgs {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    mosh-flake,
+    neovim-flake,
+    ...
+  }: let
+    pkgs = system:
+      import nixpkgs {
         overlays = [
           neovim-flake.overlay.${system}
           mosh-flake.overlay.${system}
@@ -34,7 +42,8 @@
         inherit system;
       };
 
-      unstable-pkgs = system: import nixpkgs-unstable {
+    unstable-pkgs = system:
+      import nixpkgs-unstable {
         overlays = [
           neovim-flake.overlay.${system}
           mosh-flake.overlay.${system}
@@ -42,59 +51,54 @@
         config.allowUnfree = true;
         inherit system;
       };
-
-    in
-
-    {
-      homeConfigurations = {
-        debian =
-          let
-            system = "x86_64-linux";
-            pkgConfig = pkgs system;
-            unstablePkgConfig = unstable-pkgs system;
-          in
-          home-manager.lib.homeManagerConfiguration {
-            pkgs = unstablePkgConfig;
-            modules = [
-              ./modules/cli.nix
-              ./modules/git.nix
-              ./modules/scripts.nix
-              ./modules/rust.nix
-              ./modules/dev.nix
-              {
-                home = {
-                  username = "andrew";
-                  homeDirectory = "/home/andrew";
-                  stateVersion = "22.11";
-                };
-              }
-            ];
-          };
-        darwin-m1 =
-          let
-            system = "aarch64-darwin";
-            pkgConfig = pkgs system;
-            unstablePkgConfig = unstable-pkgs system;
-          in
-          home-manager.lib.homeManagerConfiguration {
-            pkgs = unstablePkgConfig;
-            modules = [
-              ./modules/cli.nix
-              ./modules/git.nix
-              ./modules/scripts.nix
-              ./modules/rust.nix
-              ./modules/dev.nix
-              {
-                home = {
-                  username = "andrew";
-                  homeDirectory = "/Users/andrew";
-                  stateVersion = "23.05";
-                };
-              }
-            ];
-          };
-      };
-      darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
-      debian = self.homeConfigurations.debian.activationPackage;
+  in {
+    homeConfigurations = {
+      debian = let
+        system = "x86_64-linux";
+        pkgConfig = pkgs system;
+        unstablePkgConfig = unstable-pkgs system;
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = unstablePkgConfig;
+          modules = [
+            ./modules/cli.nix
+            ./modules/git.nix
+            ./modules/scripts.nix
+            ./modules/rust.nix
+            ./modules/dev.nix
+            {
+              home = {
+                username = "andrew";
+                homeDirectory = "/home/andrew";
+                stateVersion = "22.11";
+              };
+            }
+          ];
+        };
+      darwin-m1 = let
+        system = "aarch64-darwin";
+        pkgConfig = pkgs system;
+        unstablePkgConfig = unstable-pkgs system;
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = unstablePkgConfig;
+          modules = [
+            ./modules/cli.nix
+            ./modules/git.nix
+            ./modules/scripts.nix
+            ./modules/rust.nix
+            ./modules/dev.nix
+            {
+              home = {
+                username = "andrew";
+                homeDirectory = "/Users/andrew";
+                stateVersion = "23.05";
+              };
+            }
+          ];
+        };
     };
+    darwin-m1 = self.homeConfigurations.darwin-m1.activationPackage;
+    debian = self.homeConfigurations.debian.activationPackage;
+  };
 }
