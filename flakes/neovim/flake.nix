@@ -13,10 +13,6 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
-    nvim-typescript = {
-      url = "github:jose-elias-alvarez/typescript.nvim";
-      flake = false;
-    };
     null-ls = {
       url = "github:jose-elias-alvarez/null-ls.nvim";
       flake = false;
@@ -25,18 +21,10 @@
       url = "github:simrat39/rust-tools.nvim";
       flake = false;
     };
-    edgedb-vim = {
-      url = "github:edgedb/edgedb-vim";
-      flake = false;
-    };
 
     # Syntax highlighting
     vim-nix = {
       url = "github:LnL7/vim-nix";
-      flake = false;
-    };
-    vim-glsl = {
-      url = "github:tikhomirov/vim-glsl";
       flake = false;
     };
     nvim-treesitter = {
@@ -199,12 +187,9 @@
 
       plugins = [
         "nvim-lspconfig"
-        "nvim-typescript"
         "null-ls"
-        "edgedb-vim"
         "rust-tools"
         "vim-nix"
-        "vim-glsl"
         "nvim-treesitter"
         "formatter-nvim"
         "conform-nvim"

@@ -112,22 +112,6 @@
         "type": "github"
       }
     },
-    "edgedb-vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1685141077,
-        "narHash": "sha256-yn6/0UfoGeFEJ+fiIHKCvpzymMkjv0PheTsyhRY46sM=",
-        "owner": "edgedb",
-        "repo": "edgedb-vim",
-        "rev": "7f2516bec3a5ad137347fb703d0b2c88f1478f5b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edgedb",
-        "repo": "edgedb-vim",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -370,22 +354,6 @@
         "type": "github"
       }
     },
-    "nvim-typescript": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1691810579,
-        "narHash": "sha256-tStomym4qd7IXj/ohYAc3akImNsOJdC7nQL+CkdMomc=",
-        "owner": "jose-elias-alvarez",
-        "repo": "typescript.nvim",
-        "rev": "4de85ef699d7e6010528dcfbddc2ed4c2c421467",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jose-elias-alvarez",
-        "repo": "typescript.nvim",
-        "type": "github"
-      }
-    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -427,7 +395,6 @@
         "cmp-path": "cmp-path",
         "conform-nvim": "conform-nvim",
         "copilot": "copilot",
-        "edgedb-vim": "edgedb-vim",
         "flake-utils": "flake-utils",
         "formatter-nvim": "formatter-nvim",
         "fugitive": "fugitive",
@@ -443,7 +410,6 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
-        "nvim-typescript": "nvim-typescript",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary": "plenary",
         "rust-tools": "rust-tools",
@@ -452,7 +418,6 @@
         "telescope": "telescope",
         "telescope-fzy-native": "telescope-fzy-native",
         "tokyonight-nvim": "tokyonight-nvim",
-        "vim-glsl": "vim-glsl",
         "vim-nix": "vim-nix",
         "vim-python-virtualenv": "vim-python-virtualenv",
         "vim-rooter": "vim-rooter",
@@ -570,22 +535,6 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
-        "type": "github"
-      }
-    },
-    "vim-glsl": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1652211403,
-        "narHash": "sha256-dpdvjEtDnD72Sn+9wGrsKa0X8HcMsY1j5eAXWEt6F1s=",
-        "owner": "tikhomirov",
-        "repo": "vim-glsl",
-        "rev": "bfd330a271933c3372fcfa8ce052970746c8e9dd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tikhomirov",
-        "repo": "vim-glsl",
         "type": "github"
       }
     },
