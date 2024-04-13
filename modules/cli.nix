@@ -19,6 +19,7 @@
     kubectx
     k9s
     google-cloud-sql-proxy
+    xclip
   ];
 
   programs.direnv = {
