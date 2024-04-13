@@ -172,6 +172,11 @@ nvim_lsp.gopls.setup({
 	capabilities = capabilities,
 })
 
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 nvim_lsp.tsserver.setup({
 	init_options = {
 		preferences = {
@@ -212,11 +217,6 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.eslint_d,
 	},
-})
-
-nvim_lsp.pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
 })
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
