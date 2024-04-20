@@ -14,9 +14,6 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
-    python311
-    python311Packages.autopep8
-    python311Packages.pynvim
     alejandra
     rustfmt
     stylua
@@ -32,5 +29,6 @@
     jre8
     ripgrep
     yq
+    zlib
   ];
 }
