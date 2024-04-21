@@ -22,7 +22,6 @@
     ripgrep
     fd
     tree-sitter
-    rnix-lsp
     gopls
     postgresql
     coreutils
