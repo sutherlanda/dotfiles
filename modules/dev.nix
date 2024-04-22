@@ -14,9 +14,6 @@
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
-    python311
-    python311Packages.autopep8
-    python311Packages.pynvim
     alejandra
     rustfmt
     stylua
@@ -25,12 +22,12 @@
     ripgrep
     fd
     tree-sitter
-    rnix-lsp
     gopls
     postgresql
     coreutils
     jre8
     ripgrep
     yq
+    zlib
   ];
 }

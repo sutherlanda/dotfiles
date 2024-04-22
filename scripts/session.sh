@@ -6,19 +6,25 @@
 # Usage
 # $ session
 # $ session session-name
-# $ session session-name session-directory window-name
-session_name="${1:-new}"
-session_dir=${2:-~/}
-session_window="${3:-main}"
+SESSION_NAME="${1:-new}"
+SESSION_DIR=${2}
+
+# Check if the session directory exists
+if [ ! -d "$SESSION_DIR" ]
+then
+  echo "Directory does not exist: $SESSION_DIR"
+  exit 1
+fi
 
 # Check if there is an existing session
-tmux has-session -t $session_name 2> /dev/null
+tmux has-session -t $SESSION_NAME 2> /dev/null
 
 # Create a new session if one was not found
 if [ $? != 0 ]
 then
-  tmux new-session -d -s ${session_name} -c ${session_dir} -n ${session_window}  "direnv exec . $SHELL"
+  echo "Creating new session: $SESSION_NAME"
+  tmux new-session -d -s $SESSION_NAME -c $SESSION_DIR -n "main" "direnv exec . $SHELL"
 fi
 
-tmux attach-session -t ${session_name}
+tmux attach-session -t $SESSION_NAME
 

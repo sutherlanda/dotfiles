@@ -19,6 +19,8 @@
     kubectx
     k9s
     google-cloud-sql-proxy
+    xclip
+    bat
   ];
 
   programs.direnv = {
@@ -33,8 +35,8 @@
       export TERM=xterm-256color
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       export FZF_BASE=${pkgs.fzf}/share/fzf
-      export EDITOR=nvim
-      export VISUAL=nvim
+      export EDITOR=nvimvenv
+      export VISUAL=nvimvenv
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -62,8 +64,10 @@
   home.file.".config/tmux".source = ../config/tmux;
   home.file.".config/ranger/rifle.conf".source = ../config/ranger/rifle.conf;
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
+  home.file.".config/ranger/scope.sh".source = ../config/ranger/scope.sh;
   home.file.".zshenv".text = ''
-    export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$HOME/.bun/bin:$PATH
+    export PATH=$VIRTUAL_ENV/bin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$HOME/.bun/bin:$PATH
+    alias nvim=nvimvenv
   '';
   home.file.".kitty.conf".source = ../config/kitty/kitty.conf;
   home.file.".config/kitty".source = ../config/kitty;
