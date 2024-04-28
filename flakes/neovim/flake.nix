@@ -1,6 +1,5 @@
 {
   description = "Andrew Sutherland's custom neovim.";
-
   inputs = {
     # Package sets
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -161,6 +160,10 @@
       url = "github:goolord/alpha-nvim";
       flake = false;
     };
+    lsp-lines = {
+      url = "github:maan2003/lsp_lines.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -216,6 +219,7 @@
         "vim-python-virtualenv"
         "smooth-scroll"
         "alpha-nvim"
+        "lsp-lines"
       ];
 
       nvim-plugintree = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [

@@ -157,11 +157,6 @@ nvim_lsp.hls.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.rnix.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 nvim_lsp.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -189,6 +184,12 @@ nvim_lsp.tsserver.setup({
 		on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
+})
+
+require("lsp_lines").setup()
+vim.diagnostic.config({
+	virtual_text = false,
+	virtual_lines = true,
 })
 
 require("conform").setup({
