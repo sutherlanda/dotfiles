@@ -232,6 +232,22 @@
         "type": "github"
       }
     },
+    "lsp-lines": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659553852,
+        "narHash": "sha256-c+MrWKK7ZIcj2XrPruiQLQ1sr3SJWQfzAR+JM5g+kLE=",
+        "owner": "maan2003",
+        "repo": "lsp_lines.nvim",
+        "rev": "dbfd8e96ec2696e1ceedcd23fd70e842256e3dea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "maan2003",
+        "repo": "lsp_lines.nvim",
+        "type": "github"
+      }
+    },
     "lualine-nvim": {
       "flake": false,
       "locked": {
@@ -314,12 +330,14 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
+        "lsp-lines": "lsp-lines",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "nerd-commenter": "nerd-commenter",
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs",
         "null-ls": "null-ls",
+        "nvim-biscuits": "nvim-biscuits",
         "nvim-cmp": "nvim-cmp",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-tree": "nvim-tree",
@@ -341,7 +359,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-RDJfki65dN4YlL3/MAKIQwSwoTRr3kf5pMNssCG5E1I=",
+        "narHash": "sha256-qNsiuotTziYtzXGnv/SazFr1s/jFYy1+jvjRBo8VyUs=",
         "path": "./flakes/neovim",
         "type": "path"
       },
@@ -442,6 +460,22 @@
       "original": {
         "owner": "jose-elias-alvarez",
         "repo": "null-ls.nvim",
+        "type": "github"
+      }
+    },
+    "nvim-biscuits": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713653326,
+        "narHash": "sha256-9RYhPZT1Jx380fAugZUlQeDz2vy579V8uC13K8bbu6E=",
+        "owner": "code-biscuits",
+        "repo": "nvim-biscuits",
+        "rev": "ff1d12c8b47cd28723da593b2cfa2e98391d439a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "code-biscuits",
+        "repo": "nvim-biscuits",
         "type": "github"
       }
     },
