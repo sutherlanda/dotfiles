@@ -13,11 +13,13 @@
 
     # Neovim
     neovim-flake = {
+      #url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
       url = "path:./flakes/neovim";
     };
 
     # Mosh
     mosh-flake = {
+      #url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
       url = "path:./flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
