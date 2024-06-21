@@ -10,7 +10,7 @@
     jq
     yarn
     nodejs-18_x
-    nodePackages.pyright
+    pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix

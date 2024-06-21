@@ -157,11 +157,6 @@ nvim_lsp.hls.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.rnix.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 nvim_lsp.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
