@@ -306,22 +306,6 @@
         "type": "github"
       }
     },
-    "nvim-biscuits": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713653326,
-        "narHash": "sha256-9RYhPZT1Jx380fAugZUlQeDz2vy579V8uC13K8bbu6E=",
-        "owner": "code-biscuits",
-        "repo": "nvim-biscuits",
-        "rev": "ff1d12c8b47cd28723da593b2cfa2e98391d439a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "code-biscuits",
-        "repo": "nvim-biscuits",
-        "type": "github"
-      }
-    },
     "nvim-cmp": {
       "flake": false,
       "locked": {
@@ -439,7 +423,6 @@
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs",
         "null-ls": "null-ls",
-        "nvim-biscuits": "nvim-biscuits",
         "nvim-cmp": "nvim-cmp",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-tree": "nvim-tree",

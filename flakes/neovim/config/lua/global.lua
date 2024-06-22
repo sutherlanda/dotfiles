@@ -90,11 +90,12 @@ vim.api.nvim_set_keymap("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>NvimTreeFocus<CR>", opts)
 
 vim.opt.clipboard = "unnamedplus"
-if vim.fn.has("wsl") == 1 then
+if vim.fn.has("unix") == 1 then
 	vim.api.nvim_create_autocmd("TextYankPost", {
 		group = vim.api.nvim_create_augroup("Yank", { clear = true }),
 		callback = function()
-			vim.fn.system("clip.exe", vim.fn.getreg('"'))
+			local text = vim.fn.getreg('"')
+			vim.fn.system("xclip -selection clipboard", text)
 		end,
 	})
 end
