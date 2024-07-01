@@ -274,7 +274,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-BCQc0bTw8SY0uGa5QT5LZHU4Op6jA3ZHWqyFCLn4U3k=",
+        "narHash": "sha256-voRMQlwFqGxVf1lsZHsd0h7/d07s8tG77UyCkJXs6Hw=",
         "path": "./flakes/mosh",
         "type": "path"
       },
