@@ -186,12 +186,6 @@ nvim_lsp.tsserver.setup({
 	capabilities = capabilities,
 })
 
-require("lsp_lines").setup()
-vim.diagnostic.config({
-	virtual_text = false,
-	virtual_lines = true,
-})
-
 require("conform").setup({
 	on_attach = on_attach,
 	formatters_by_ft = {

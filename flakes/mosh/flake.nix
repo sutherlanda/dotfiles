@@ -8,7 +8,7 @@
 
     # Mosh
     mosh-src = {
-      url = "github:mobile-shell/mosh?ref=master";
+      url = "github:blinksh/mosh-server?ref=master";
       flake = false;
     };
   };

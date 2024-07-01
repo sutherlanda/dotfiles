@@ -23,15 +23,15 @@
       "locked": {
         "lastModified": 1691460706,
         "narHash": "sha256-1djIUK6mgkIt9ZSugkBkz37yCWc0iBB+snyDUYZnUmY=",
-        "owner": "mobile-shell",
-        "repo": "mosh",
+        "owner": "blinksh",
+        "repo": "mosh-server",
         "rev": "1105d481bb9143dad43adf768f58da7b029fd39c",
         "type": "github"
       },
       "original": {
-        "owner": "mobile-shell",
+        "owner": "blinksh",
         "ref": "master",
-        "repo": "mosh",
+        "repo": "mosh-server",
         "type": "github"
       }
     },

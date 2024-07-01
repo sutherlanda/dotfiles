@@ -194,22 +194,6 @@
         "type": "github"
       }
     },
-    "lsp-lines": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1659553852,
-        "narHash": "sha256-c+MrWKK7ZIcj2XrPruiQLQ1sr3SJWQfzAR+JM5g+kLE=",
-        "owner": "maan2003",
-        "repo": "lsp_lines.nvim",
-        "rev": "dbfd8e96ec2696e1ceedcd23fd70e842256e3dea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "maan2003",
-        "repo": "lsp_lines.nvim",
-        "type": "github"
-      }
-    },
     "lualine-nvim": {
       "flake": false,
       "locked": {
@@ -416,7 +400,6 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
-        "lsp-lines": "lsp-lines",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "nerd-commenter": "nerd-commenter",

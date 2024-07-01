@@ -232,22 +232,6 @@
         "type": "github"
       }
     },
-    "lsp-lines": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1659553852,
-        "narHash": "sha256-c+MrWKK7ZIcj2XrPruiQLQ1sr3SJWQfzAR+JM5g+kLE=",
-        "owner": "maan2003",
-        "repo": "lsp_lines.nvim",
-        "rev": "dbfd8e96ec2696e1ceedcd23fd70e842256e3dea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "maan2003",
-        "repo": "lsp_lines.nvim",
-        "type": "github"
-      }
-    },
     "lualine-nvim": {
       "flake": false,
       "locked": {
@@ -290,7 +274,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Ii9ispevd88hVk/A3gUp2pyLnLyEvf1nbps6ocKlOiY=",
+        "narHash": "sha256-BCQc0bTw8SY0uGa5QT5LZHU4Op6jA3ZHWqyFCLn4U3k=",
         "path": "./flakes/mosh",
         "type": "path"
       },
@@ -304,15 +288,15 @@
       "locked": {
         "lastModified": 1691460706,
         "narHash": "sha256-1djIUK6mgkIt9ZSugkBkz37yCWc0iBB+snyDUYZnUmY=",
-        "owner": "mobile-shell",
-        "repo": "mosh",
+        "owner": "blinksh",
+        "repo": "mosh-server",
         "rev": "1105d481bb9143dad43adf768f58da7b029fd39c",
         "type": "github"
       },
       "original": {
-        "owner": "mobile-shell",
+        "owner": "blinksh",
         "ref": "master",
-        "repo": "mosh",
+        "repo": "mosh-server",
         "type": "github"
       }
     },
@@ -330,7 +314,6 @@
         "fugitive": "fugitive",
         "gitsigns": "gitsigns",
         "gruvbox-nvim": "gruvbox-nvim",
-        "lsp-lines": "lsp-lines",
         "lualine-nvim": "lualine-nvim",
         "luasnip": "luasnip",
         "nerd-commenter": "nerd-commenter",
@@ -358,7 +341,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-KB7aR1gyxCIWupG/3pHHkAScc4BSOpLyOX0YZxXwzjc=",
+        "narHash": "sha256-qIVg9G5uSo/1LTb0MTNLDiAIOn6zuPGCKfhNO4kEY7I=",
         "path": "./flakes/neovim",
         "type": "path"
       },
