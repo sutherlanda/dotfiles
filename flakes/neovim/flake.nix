@@ -160,6 +160,10 @@
       url = "github:goolord/alpha-nvim";
       flake = false;
     };
+    jsregexp = {
+      url = "github:kmarius/jsregexp";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -215,6 +219,7 @@
         "vim-python-virtualenv"
         "smooth-scroll"
         "alpha-nvim"
+        "jsregexp"
       ];
 
       nvim-plugintree = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [

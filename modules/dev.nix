@@ -29,5 +29,9 @@
     ripgrep
     yq
     zlib
+    luajit
+    luajitPackages.jsregexp
+    python3
+    python311Packages.autopep8
   ];
 }
