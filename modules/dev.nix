@@ -10,7 +10,7 @@
     jq
     yarn
     nodejs-18_x
-    nodePackages.pyright
+    pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
     nodePackages.node2nix
@@ -30,5 +30,9 @@
     ripgrep
     yq
     zlib
+    luajit
+    luajitPackages.jsregexp
+    python3
+    python311Packages.autopep8
   ];
 }

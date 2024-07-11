@@ -160,8 +160,8 @@
       url = "github:goolord/alpha-nvim";
       flake = false;
     };
-    lsp-lines = {
-      url = "github:maan2003/lsp_lines.nvim";
+    jsregexp = {
+      url = "github:kmarius/jsregexp";
       flake = false;
     };
   };
@@ -219,7 +219,7 @@
         "vim-python-virtualenv"
         "smooth-scroll"
         "alpha-nvim"
-        "lsp-lines"
+        "jsregexp"
       ];
 
       nvim-plugintree = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [

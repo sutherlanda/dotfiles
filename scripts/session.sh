@@ -23,8 +23,8 @@ tmux has-session -t $SESSION_NAME 2> /dev/null
 if [ $? != 0 ]
 then
   echo "Creating new session: $SESSION_NAME"
-  tmux new-session -d -s $SESSION_NAME -c $SESSION_DIR -n "main" "direnv exec . $SHELL"
+  tmux -u new-session -d -s $SESSION_NAME -c $SESSION_DIR -n "main" "direnv exec . $SHELL"
 fi
 
-tmux attach-session -t $SESSION_NAME
+tmux -u attach-session -t $SESSION_NAME
 

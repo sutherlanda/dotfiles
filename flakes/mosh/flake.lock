@@ -23,25 +23,25 @@
       "locked": {
         "lastModified": 1691460706,
         "narHash": "sha256-1djIUK6mgkIt9ZSugkBkz37yCWc0iBB+snyDUYZnUmY=",
-        "owner": "mobile-shell",
-        "repo": "mosh",
+        "owner": "blinksh",
+        "repo": "mosh-server",
         "rev": "1105d481bb9143dad43adf768f58da7b029fd39c",
         "type": "github"
       },
       "original": {
-        "owner": "mobile-shell",
+        "owner": "blinksh",
         "ref": "master",
-        "repo": "mosh",
+        "repo": "mosh-server",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1711655175,
-        "narHash": "sha256-1xiaYhC3ul4y+i3eicYxeERk8ZkrNjLkrFSb/UW36Zw=",
+        "lastModified": 1720338227,
+        "narHash": "sha256-PlL/yXNX/C87S2N8lF/HfOJhHForf/l7E6lVWZ4jMrw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "64c81edb4b97a51c5bbc54c191763ac71a6517ee",
+        "rev": "b60793b86201040d9dee019a05089a9150d08b5b",
         "type": "github"
       },
       "original": {
