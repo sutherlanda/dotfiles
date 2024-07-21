@@ -13,13 +13,11 @@
 
     # Neovim
     neovim-flake = {
-      #url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
       url = "path:./flakes/neovim";
     };
 
     # Mosh
     mosh-flake = {
-      #url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
       url = "path:./flakes/mosh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -57,7 +55,7 @@
     homeConfigurations = {
       debian = let
         system = "x86_64-linux";
-        pkgConfig = pkgs system;
+        pkgConfig = unstable-pkgs system;
         unstablePkgConfig = unstable-pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
@@ -79,7 +77,7 @@
         };
       darwin-m1 = let
         system = "aarch64-darwin";
-        pkgConfig = pkgs system;
+        pkgConfig = unstable-pkgs system;
         unstablePkgConfig = unstable-pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {

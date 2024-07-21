@@ -66,7 +66,7 @@
   home.file.".config/ranger/rc.conf".source = ../config/ranger/rc.conf;
   home.file.".config/ranger/scope.sh".source = ../config/ranger/scope.sh;
   home.file.".zshenv".text = ''
-    export PATH=$VIRTUAL_ENV/bin:$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$HOME/.bun/bin:$PATH
+    export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:$PATH
     alias nvim=nvimvenv
   '';
   home.file.".kitty.conf".source = ../config/kitty/kitty.conf;
