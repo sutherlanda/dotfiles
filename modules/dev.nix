@@ -31,5 +31,6 @@
     yq
     zlib
     luajit
+    hurl
   ];
 }

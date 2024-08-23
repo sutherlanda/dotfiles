@@ -55,11 +55,11 @@
     homeConfigurations = {
       debian = let
         system = "x86_64-linux";
-        pkgConfig = unstable-pkgs system;
-        unstablePkgConfig = unstable-pkgs system;
+        pkgConfig = pkgs system;
+        unstablePkgConfig = pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
-          pkgs = unstablePkgConfig;
+	  pkgs = unstablePkgConfig;
           modules = [
             ./modules/cli.nix
             ./modules/git.nix
