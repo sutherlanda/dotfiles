@@ -32,5 +32,6 @@
     zlib
     luajit
     hurl
+    jdt-language-server
   ];
 }

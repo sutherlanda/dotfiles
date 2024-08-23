@@ -187,6 +187,11 @@ nvim_lsp.tsserver.setup({
 	capabilities = capabilities,
 })
 
+nvim_lsp.jdtls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 require("conform").setup({
 	on_attach = on_attach,
 	formatters_by_ft = {
