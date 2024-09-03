@@ -59,7 +59,7 @@
         unstablePkgConfig = pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
-	  pkgs = unstablePkgConfig;
+          pkgs = unstablePkgConfig;
           modules = [
             ./modules/cli.nix
             ./modules/git.nix
@@ -68,9 +68,9 @@
             ./modules/dev.nix
             {
               home = {
-                username = "andrew";
-                homeDirectory = "/home/andrew";
-                stateVersion = "22.11";
+                username = builtins.getEnv "USER";
+                homeDirectory = builtins.getEnv "HOME";
+                stateVersion = "24.05";
               };
             }
           ];
@@ -81,7 +81,7 @@
         unstablePkgConfig = unstable-pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
-          pkgs = unstablePkgConfig;
+          pkgs = pkgConfig;
           modules = [
             ./modules/cli.nix
             ./modules/git.nix
@@ -90,9 +90,9 @@
             ./modules/dev.nix
             {
               home = {
-                username = "andrew";
-                homeDirectory = "/Users/andrew";
-                stateVersion = "23.05";
+                username = builtins.getEnv "USER";
+                homeDirectory = builtins.getEnv "HOME";
+                stateVersion = "24.05";
               };
             }
           ];
