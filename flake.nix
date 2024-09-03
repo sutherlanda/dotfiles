@@ -77,7 +77,7 @@
         };
       darwin-m1 = let
         system = "aarch64-darwin";
-        pkgConfig = unstable-pkgs system;
+        pkgConfig = pkgs system;
         unstablePkgConfig = unstable-pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
