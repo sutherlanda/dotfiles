@@ -57,6 +57,10 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/config/p10k-lean.zsh
       DISABLE_AUTO_TITLE="true"
+      if [ -f "$HOME/.zesty" ]; then
+          source "$HOME/.zesty"
+      fi
+
     '';
   };
 
