@@ -59,7 +59,7 @@
         unstablePkgConfig = pkgs system;
       in
         home-manager.lib.homeManagerConfiguration {
-          pkgs = unstablePkgConfig;
+          pkgs = pkgConfig;
           modules = [
             ./modules/cli.nix
             ./modules/git.nix
