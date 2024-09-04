@@ -9,16 +9,15 @@
     silver-searcher
     jq
     yarn
-    nodejs-18_x
+    nodejs_20
     pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
-    nodePackages.node2nix
     nodePackages.nodemon
+    eslint_d
     alejandra
     rustfmt
     stylua
-    eslint_d
     prettierd
     ripgrep
     fd

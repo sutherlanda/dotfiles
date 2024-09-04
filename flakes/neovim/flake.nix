@@ -12,8 +12,12 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
-    null-ls = {
-      url = "github:jose-elias-alvarez/null-ls.nvim";
+    none-ls = {
+      url = "github:nvimtools/none-ls.nvim";
+      flake = false;
+    };
+    none-ls-extras = {
+      url = "github:nvimtools/none-ls-extras.nvim";
       flake = false;
     };
     rust-tools = {
@@ -186,7 +190,8 @@
 
       plugins = [
         "nvim-lspconfig"
-        "null-ls"
+        "none-ls"
+        "none-ls-extras"
         "rust-tools"
         "vim-nix"
         "nvim-treesitter"

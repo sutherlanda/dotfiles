@@ -336,7 +336,8 @@
         "nerd-commenter": "nerd-commenter",
         "nightfox-nvim": "nightfox-nvim",
         "nixpkgs": "nixpkgs",
-        "null-ls": "null-ls",
+        "none-ls": "none-ls",
+        "none-ls-extras": "none-ls-extras",
         "nvim-cmp": "nvim-cmp",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-tree": "nvim-tree",
@@ -358,7 +359,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-csQtvJ7axv7qke4qBT4YedwvX4myI339XpfpRZAM0zk=",
+        "narHash": "sha256-ZK98RIE5wZt4G0XdhBNDbNlZbN/iS2x8FbJgS6yt8o4=",
         "path": "./flakes/neovim",
         "type": "path"
       },
@@ -433,11 +434,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1725375196,
-        "narHash": "sha256-DWkQv8566OlM20Fahql5BfKIlXOAyA4QK+p1Zv6HCTM=",
+        "lastModified": 1725383335,
+        "narHash": "sha256-lO0wdrS1OevvkLWoHynhEBLV/QiRTGbp3ceCZ7ildQo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "10300f75540fe496b96ae3c1b84bdb2d468f4f65",
+        "rev": "9685d9f2977bd00a985c779235f5a2e2e77d8325",
         "type": "github"
       },
       "original": {
@@ -446,19 +447,35 @@
         "type": "github"
       }
     },
-    "null-ls": {
+    "none-ls": {
       "flake": false,
       "locked": {
-        "lastModified": 1691810493,
-        "narHash": "sha256-cWA0rzkOp/ekVKaFee7iea1lhnqKtWUIU+fW5M950wI=",
-        "owner": "jose-elias-alvarez",
-        "repo": "null-ls.nvim",
-        "rev": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7",
+        "lastModified": 1725194181,
+        "narHash": "sha256-cL2BRTzxizzPV+FJyWX1286Al39em1eHKdbXTazUlFI=",
+        "owner": "nvimtools",
+        "repo": "none-ls.nvim",
+        "rev": "9b98991e15dce8fc502993e23caac2528b8b667f",
         "type": "github"
       },
       "original": {
-        "owner": "jose-elias-alvarez",
-        "repo": "null-ls.nvim",
+        "owner": "nvimtools",
+        "repo": "none-ls.nvim",
+        "type": "github"
+      }
+    },
+    "none-ls-extras": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723884684,
+        "narHash": "sha256-T5UE6eBpmfU2y9/c4dtSR9Ngbssjg4GlmYL/xYpXOhA=",
+        "owner": "nvimtools",
+        "repo": "none-ls-extras.nvim",
+        "rev": "dfdc998a8c7bb728abab156942bd43ed2345845a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvimtools",
+        "repo": "none-ls-extras.nvim",
         "type": "github"
       }
     },

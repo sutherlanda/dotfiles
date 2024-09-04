@@ -216,7 +216,7 @@ null_ls.setup({
 	debug = true,
 	on_attach = on_attach,
 	sources = {
-		null_ls.builtins.diagnostics.eslint_d,
+		require("none-ls.diagnostics.eslint_d"),
 	},
 })
 
