@@ -173,7 +173,7 @@ nvim_lsp.pyright.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.tsserver.setup({
+nvim_lsp.ts_ls.setup({
 	init_options = {
 		preferences = {
 			disableSuggestions = true,
