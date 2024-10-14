@@ -15,12 +15,6 @@
     neovim-flake = {
       url = "github:sutherlanda/dotfiles?dir=flakes/neovim";
     };
-
-    # Mosh
-    mosh-flake = {
-      url = "github:sutherlanda/dotfiles?dir=flakes/mosh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -28,7 +22,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    mosh-flake,
     neovim-flake,
     ...
   }: let
@@ -36,7 +29,6 @@
       import nixpkgs {
         overlays = [
           neovim-flake.overlay.${system}
-          mosh-flake.overlay.${system}
         ];
         config.allowUnfree = true;
         inherit system;
@@ -46,7 +38,6 @@
       import nixpkgs-unstable {
         overlays = [
           neovim-flake.overlay.${system}
-          mosh-flake.overlay.${system}
         ];
         config.allowUnfree = true;
         inherit system;

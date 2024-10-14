@@ -9,7 +9,6 @@
     fira-code
     keychain
     meslo-lgs-nf
-    mosh
     ranger
     tmux
     tree
