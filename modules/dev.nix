@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     neovim
     silver-searcher
-    jq
     yarn
     nodejs_20
     pyright
@@ -27,7 +26,6 @@
     coreutils
     jre8
     ripgrep
-    yq
     zlib
     luajit
     hurl
