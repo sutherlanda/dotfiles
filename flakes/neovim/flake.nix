@@ -188,7 +188,6 @@
         "nvim-lspconfig"
         "none-ls"
         "none-ls-extras"
-        "rust-tools"
         "vim-nix"
         "nvim-treesitter"
         "formatter-nvim"
