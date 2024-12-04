@@ -151,6 +151,14 @@ nvim_lsp.rust_analyzer.setup({
 	checkOnSave = {
 		command = "clippy",
 	},
+	-- Enable all features for better completions
+	cargo = {
+		allFeatures = true,
+	},
+	-- Enable proc macro support
+	procMacro = {
+		enable = true,
+	},
 })
 
 nvim_lsp.hls.setup({

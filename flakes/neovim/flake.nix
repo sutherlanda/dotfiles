@@ -20,10 +20,6 @@
       url = "github:nvimtools/none-ls-extras.nvim";
       flake = false;
     };
-    rust-tools = {
-      url = "github:simrat39/rust-tools.nvim";
-      flake = false;
-    };
 
     # Syntax highlighting
     vim-nix = {

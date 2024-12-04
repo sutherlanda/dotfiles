@@ -55,7 +55,6 @@
             ./modules/cli.nix
             ./modules/git.nix
             ./modules/scripts.nix
-            ./modules/rust.nix
             ./modules/dev.nix
             {
               home = {
@@ -77,7 +76,6 @@
             ./modules/cli.nix
             ./modules/git.nix
             ./modules/scripts.nix
-            ./modules/rust.nix
             ./modules/dev.nix
             {
               home = {

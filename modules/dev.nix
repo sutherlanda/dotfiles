@@ -30,5 +30,6 @@
     luajit
     hurl
     jdt-language-server
+    rust-analyzer
   ];
 }
