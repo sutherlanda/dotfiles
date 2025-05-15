@@ -9,7 +9,6 @@
     neovim
     silver-searcher
     yarn
-    nodejs_20
     pyright
     nodePackages.typescript-language-server
     nodePackages.bash-language-server
