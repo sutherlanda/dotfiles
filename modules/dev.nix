@@ -5,6 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    k6
     neovim
     silver-searcher
     yarn
