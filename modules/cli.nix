@@ -34,14 +34,14 @@
       export TERM=xterm-256color
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       export FZF_BASE=${pkgs.fzf}/share/fzf
-      export EDITOR=nvimvenv
-      export VISUAL=nvimvenv
       export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NIX_PATH=$HOME/.nix-defexpr/channels''${NIX_PATH:+:}$NIX_PATH
       export NVIM_TUI_ENABLE_TRUE_COLOR=1
       export XDG_CONFIG_HOME=$HOME/.config
       export PGDATA=$HOME/pgdata
       export NIXPKGS_ALLOW_BROKEN=1
+      export EDITOR=/usr/local/bin/nvim
+      export VISUAL=/usr/local/bin/nvim
       plugins=(git fzf)
       setopt SHARE_HISTORY
       setopt HIST_IGNORE_ALL_DUPS
@@ -70,9 +70,7 @@
   home.file.".config/ranger/scope.sh".source = ../config/ranger/scope.sh;
   home.file.".zshenv".text = ''
     export PATH=$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/go/bin:/usr/local/bin/google-cloud-sdk/bin:$PATH
-    alias nvim=nvimvenv
   '';
   home.file.".kitty.conf".source = ../config/kitty/kitty.conf;
   home.file.".config/kitty".source = ../config/kitty;
-  home.file.".config/nvim/init.vim".text = "";
 }

@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    neovim
+    #neovim
     silver-searcher
     yarn
     pyright
