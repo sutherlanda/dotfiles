@@ -1,5 +1,5 @@
 [core]
-  excludesfile = SUBSTITUTE_GITIGNORE
+  excludesfile = ~/.config/git/ignore
 [user]
   name = Andrew Sutherland
   email = sutherlanda@gmail.com
