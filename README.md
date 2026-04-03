@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles managed with [Nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Homebrew](https://brew.sh/).
 
 ## What's included
 
@@ -13,37 +13,35 @@ Personal dotfiles managed with [Nix](https://nixos.org/) and [home-manager](http
 
 ## Structure
 
+Each top-level directory is a Stow package. The paths inside mirror where they land relative to `$HOME`.
+
 ```
-flake.nix          # Nix flake entry point
-activate.sh        # Activation script (usage: ./activate.sh darwin-m1)
-modules/
-  cli.nix          # Shell, terminal, CLI tools
-  dev.nix          # Dev tools, LSPs, formatters
-  git.nix          # Git and GitHub CLI
-  scripts.nix      # Shell scripts wrapped as Nix derivations
-config/
-  git/             # gitconfig
-  kitty/           # kitty.conf and themes
-  tmux/            # tmux.conf and themes
-  ranger/          # rc.conf, rifle.conf, scope.sh
-scripts/           # Shell scripts (session management, VPN)
+Brewfile               # Homebrew packages
+install.sh             # Bootstrap script
+zsh/
+  .zshrc               # -> ~/.zshrc
+  .zshenv              # -> ~/.zshenv
+git/
+  .config/git/config   # -> ~/.config/git/config
+tmux/
+  .tmux.conf           # -> ~/.tmux.conf
+  .config/tmux/        # -> ~/.config/tmux/ (themes)
+kitty/
+  .config/kitty/       # -> ~/.config/kitty/ (config + themes)
+ranger/
+  .config/ranger/      # -> ~/.config/ranger/ (rc, rifle, scope)
+scripts/
+  .local/bin/          # -> ~/.local/bin/ (session, sessions, start-vpn, stop-vpn)
 ```
 
 ## Setup
 
-Requires [Nix](https://nixos.org/download.html) with flakes enabled.
-
 ```sh
-# macOS (Apple Silicon)
-./activate.sh darwin-m1
-
-# Linux (x86_64)
-./activate.sh debian
+./install.sh
 ```
 
-## Supported systems
-
-| Name | Architecture |
-|------|-------------|
-| `darwin-m1` | aarch64-darwin (macOS Apple Silicon) |
-| `debian` | x86_64-linux |
+This will:
+1. Install [Homebrew](https://brew.sh/) if missing
+2. Install [Oh My Zsh](https://ohmyz.sh/) if missing
+3. Install all packages from the `Brewfile`
+4. Symlink all configs to `$HOME` via Stow
