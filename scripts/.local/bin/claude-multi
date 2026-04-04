@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Run multiple Claude agents in parallel tmux windows.
+#
+# Usage:
+#   claude-multi "review auth module" "write tests for api/users.go" "find unused exports"
+#   claude-multi -d /path/to/project "task1" "task2"
+#
+# Each prompt gets its own named tmux window in a dedicated
+# "claude-agents" session. Flip between them with C-h / C-l.
+# Switch back to your main session with `tmux switch-client -l`.
+
+PROJECT_DIR="."
+
+# Parse optional -d flag for project directory
+if [[ "$1" == "-d" ]]; then
+  PROJECT_DIR="$2"
+  shift 2
+fi
+
+if [[ $# -eq 0 ]]; then
+  echo "Usage: claude-multi [-d project_dir] \"prompt1\" \"prompt2\" [\"prompt3\" ...]"
+  exit 1
+fi
+
+PROJECT_DIR=$(cd "$PROJECT_DIR" && pwd)
+
+SESSION="claude-agents"
+
+# Create the session if it doesn't exist (detached, so we don't jump into it yet)
+if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux new-session -d -s "$SESSION" -c "$PROJECT_DIR"
+fi
+
+FIRST_WINDOW=""
+for prompt in "$@"; do
+  # Derive window name from the prompt
+  WINDOW_NAME=$(echo "$prompt" | tr '[:upper:]' '[:lower:]' | tr -cs '[:alnum:]' '-' | cut -c1-20 | sed 's/-$//')
+  tmux new-window -t "$SESSION" -n "$WINDOW_NAME" -c "$PROJECT_DIR" \
+    "claude \"$prompt\""
+  [[ -z "$FIRST_WINDOW" ]] && FIRST_WINDOW="$WINDOW_NAME"
+done
+
+# Kill the default empty window if it was just created
+tmux kill-window -t "${SESSION}:1" 2>/dev/null
+
+# Focus the first agent window and switch to the session
+tmux select-window -t "${SESSION}:${FIRST_WINDOW}"
+tmux switch-client -t "$SESSION" 2>/dev/null || tmux attach-session -t "$SESSION"
