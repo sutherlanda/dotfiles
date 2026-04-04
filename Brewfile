@@ -35,6 +35,7 @@ brew "git-crypt"
 brew "gh"
 
 # Dev tools & LSPs
+brew "eslint_d"
 brew "fd"
 brew "gopls"
 brew "hurl"
@@ -50,6 +51,7 @@ brew "rustfmt"
 brew "stylua"
 brew "the_silver_searcher"
 brew "tree-sitter"
+brew "typescript-language-server"
 brew "yarn"
 
 # Taps needed for some formulae
