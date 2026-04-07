@@ -1,30 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Create and attach a new tmux session with optional name, path, and window.
-# defaults: session named 'new' in ${HOME} as working dir with window named 'shell'
+# Create and attach/switch to a tmux session.
+# Usage: session [name] [path]
 
-# Usage
-# $ session
-# $ session session-name
 SESSION_NAME="${1:-new}"
-SESSION_DIR=${2}
+SESSION_DIR="${2:-$HOME}"
 
-# Check if the session directory exists
-if [ ! -d "$SESSION_DIR" ]
-then
+if [ ! -d "$SESSION_DIR" ]; then
   echo "Directory does not exist: $SESSION_DIR"
   exit 1
 fi
 
-# Check if there is an existing session
-tmux has-session -t $SESSION_NAME 2> /dev/null
-
-# Create a new session if one was not found
-if [ $? != 0 ]
-then
-  echo "Creating new session: $SESSION_NAME"
-  tmux -u new-session -d -s $SESSION_NAME -c $SESSION_DIR -n "main" "direnv exec . $SHELL"
+if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux -u new-session -d -s "$SESSION_NAME" -c "$SESSION_DIR" -n "main"
 fi
 
-tmux -u attach-session -t $SESSION_NAME
-
+tmux -u switch-client -t "$SESSION_NAME" 2>/dev/null || exec tmux -u attach-session -t "$SESSION_NAME"

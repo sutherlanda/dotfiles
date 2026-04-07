@@ -53,6 +53,3 @@ brew "the_silver_searcher"
 brew "tree-sitter"
 brew "typescript-language-server"
 brew "yarn"
-
-# Taps needed for some formulae
-tap "homebrew/cask-fonts"

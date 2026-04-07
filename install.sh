@@ -28,6 +28,29 @@ echo "Linking dotfiles..."
 cd "$DOTFILES_DIR"
 for pkg in "${STOW_PACKAGES[@]}"; do
     echo "  Stowing $pkg..."
+    # Remove files/symlinks that would conflict with stow
+    while IFS= read -r file; do
+        rel="${file#"$DOTFILES_DIR/$pkg/"}"
+        target="$HOME/$rel"
+        # Check parent directories — if any is an external symlink (e.g. Nix),
+        # remove the symlink so stow can create the real directory
+        dir="$rel"
+        while dir="$(dirname "$dir")" && [ "$dir" != "." ]; do
+            parent="$HOME/$dir"
+            if [ -L "$parent" ] && ! readlink "$parent" | grep -q "$DOTFILES_DIR"; then
+                echo "  Removing external symlink: $dir => $(readlink "$parent")"
+                rm "$parent"
+                break
+            fi
+        done
+        if [ -L "$target" ] && ! readlink "$target" | grep -q "$DOTFILES_DIR"; then
+            echo "  Removing external symlink: $rel => $(readlink "$target")"
+            rm "$target"
+        elif [ -f "$target" ] && ! [ -L "$target" ]; then
+            echo "  Removing existing file: $rel"
+            rm "$target"
+        fi
+    done < <(find "$DOTFILES_DIR/$pkg" -type f)
     stow -v --target="$HOME" --restow "$pkg"
 done
 
