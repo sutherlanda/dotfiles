@@ -20,6 +20,18 @@ fi
 echo "Installing packages from Brewfile..."
 brew bundle --file="$DOTFILES_DIR/Brewfile" || echo "Warning: some packages failed to install (see above)"
 
+# Set up brew autoupdate (daily updates via launchd)
+echo "Configuring brew autoupdate..."
+brew tap homebrew/autoupdate 2>/dev/null || true
+brew autoupdate delete 2>/dev/null || true
+brew autoupdate start 86400 --upgrade --cleanup
+
+# Install Go tools (not available via Homebrew)
+if command -v go &>/dev/null; then
+    echo "Installing Go tools..."
+    go install golang.org/x/tools/cmd/goimports@latest
+fi
+
 # Create ~/.local/bin if it doesn't exist
 mkdir -p "$HOME/.local/bin"
 
