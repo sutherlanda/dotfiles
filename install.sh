@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-STOW_PACKAGES=(zsh git tmux kitty ranger scripts)
+STOW_PACKAGES=(zsh git tmux kitty ranger scripts claude)
 
 # Install Homebrew if missing
 if ! command -v brew &>/dev/null; then
