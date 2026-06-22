@@ -1,5 +1,4 @@
 {
-  "model": "claude-opus-4-8",
   "permissions": {
     "allow": [
       "Bash(cd:*)",
@@ -12,5 +11,10 @@
       "Bash(jq:*)",
       "Bash(echo:*)"
     ]
-  }
+  },
+  "model": "claude-opus-4-8",
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "tui": "fullscreen"
 }
