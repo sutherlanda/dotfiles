@@ -9,12 +9,17 @@
       "Bash(find:*)",
       "Bash(git:*)",
       "Bash(jq:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(export PATH=*)",
+      "Bash(npm run typecheck)",
+      "mcp__claude_ai_Atlassian__getJiraIssue"
     ]
   },
-  "model": "claude-opus-4-8",
+  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
   },
+  "effortLevel": "xhigh",
   "tui": "fullscreen"
 }
