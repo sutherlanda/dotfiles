@@ -12,8 +12,8 @@ brew "tmux"
 brew "tree"
 brew "xclip"
 
-# Terminal
-cask "kitty"
+# Terminal (casks are macOS-only; on WSL use Windows Terminal)
+cask "kitty" if OS.mac?
 
 # Kubernetes
 brew "kubectl"
@@ -25,9 +25,12 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "powerlevel10k"
 
-# Fonts
-cask "font-fira-code-nerd-font"
-cask "font-meslo-lg-nerd-font"
+# Fonts (on WSL, install MesloLGS NF on the Windows side:
+# https://github.com/romkatv/powerlevel10k#manual-font-installation)
+if OS.mac?
+  cask "font-fira-code-nerd-font"
+  cask "font-meslo-lg-nerd-font"
+end
 
 # Git
 brew "git"

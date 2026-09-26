@@ -8,7 +8,6 @@ STOW_PACKAGES=(zsh git tmux kitty ranger scripts claude)
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
     for brew_bin in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
         [ -x "$brew_bin" ] && eval "$("$brew_bin" shellenv)" && break
     done
@@ -24,11 +23,13 @@ fi
 echo "Installing packages from Brewfile..."
 brew bundle --file="$DOTFILES_DIR/Brewfile" || echo "Warning: some packages failed to install (see above)"
 
-# Set up brew autoupdate (daily updates via launchd)
-echo "Configuring brew autoupdate..."
-brew tap homebrew/autoupdate 2>/dev/null || true
-brew autoupdate delete 2>/dev/null || true
-brew autoupdate start 86400 --upgrade --cleanup
+# Set up brew autoupdate (daily updates via launchd, macOS only)
+if [ "$(uname)" = "Darwin" ]; then
+    echo "Configuring brew autoupdate..."
+    brew tap homebrew/autoupdate 2>/dev/null || true
+    brew autoupdate delete 2>/dev/null || true
+    brew autoupdate start 86400 --upgrade --cleanup
+fi
 
 # Install Go tools (not available via Homebrew)
 if command -v go &>/dev/null; then
