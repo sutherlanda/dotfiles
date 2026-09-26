@@ -8,6 +8,10 @@ STOW_PACKAGES=(zsh git tmux kitty ranger scripts claude)
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    for brew_bin in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+        [ -x "$brew_bin" ] && eval "$("$brew_bin" shellenv)" && break
+    done
 fi
 
 # Install Oh My Zsh if missing

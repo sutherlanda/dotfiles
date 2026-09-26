@@ -1,3 +1,6 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+for brew_bin in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [ -x "$brew_bin" ] && eval "$("$brew_bin" shellenv)" && break
+done
+unset brew_bin
 export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 unset TERMINFO
