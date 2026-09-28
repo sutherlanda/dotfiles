@@ -12,8 +12,8 @@
   setworkemail = "config user.email 'andrew.sutherland@zesty.ai'"
   setpersonalemail = "config user.email 'sutherlanda@gmail.com'"
   changeremotehost = !sh -c \"git remote -v | grep '$1.*fetch' | sed s/..fetch.// | sed s/$1/$2/ | xargs git remote set-url\"
-  switchwork = !sh -c \"git changeremotehost github.com github_zesty && git setworkemail\"
-  switchpersonal = !sh -c \"git changeremotehost github_zesty && git setpersonalemail\"
+  switchwork = "!f() { git remote set-url origin \"$(git remote get-url origin | sed -E 's/@github\\.com[^:]*:/@github.com-zestyai:/')\" && git setworkemail; }; f"
+  switchpersonal = "!f() { git remote set-url origin \"$(git remote get-url origin | sed -E 's/@github\\.com[^:]*:/@github.com-personal:/')\" && git setpersonalemail; }; f"
 [push]
   default = simple
   
