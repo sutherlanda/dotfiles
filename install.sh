@@ -68,7 +68,9 @@ for pkg in "${STOW_PACKAGES[@]}"; do
             rm "$target"
         fi
     done < <(find "$DOTFILES_DIR/$pkg" -type f)
-    stow -v --target="$HOME" --restow "$pkg"
+    # --no-folding: link files, not whole directories, so files apps write at
+    # runtime (e.g. ~/.claude credentials/history) stay out of the repo
+    stow -v --no-folding --target="$HOME" --restow "$pkg"
 done
 
 echo "Done!"
