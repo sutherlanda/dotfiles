@@ -21,6 +21,7 @@ install.sh             # Bootstrap script
 zsh/
   .zshrc               # -> ~/.zshrc
   .zshenv              # -> ~/.zshenv
+  .p10k.zsh            # -> ~/.p10k.zsh
 git/
   .config/git/config   # -> ~/.config/git/config
   .config/git/ignore   # -> ~/.config/git/ignore
