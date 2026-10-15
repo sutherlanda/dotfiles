@@ -40,6 +40,12 @@ fi
 # Create ~/.local/bin if it doesn't exist
 mkdir -p "$HOME/.local/bin"
 
+# Install Claude Code (native installer, self-updating, lands in ~/.local/bin)
+if [ ! -x "$HOME/.local/bin/claude" ]; then
+    echo "Installing Claude Code..."
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
+
 # Stow all packages
 echo "Linking dotfiles..."
 cd "$DOTFILES_DIR"

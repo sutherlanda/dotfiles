@@ -15,6 +15,12 @@ brew "xclip"
 # Terminal (casks are macOS-only; on WSL use Windows Terminal)
 cask "kitty" if OS.mac?
 
+# Apps (Docker Desktop's installer asks for sudo, so run install.sh interactively)
+cask "docker-desktop" if OS.mac?
+
+# Cloud
+cask "gcloud-cli" if OS.mac?
+
 # Kubernetes
 brew "kubectl"
 brew "kubectx"
@@ -64,4 +70,5 @@ brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "typescript-language-server"
 brew "universal-ctags"
+brew "uv"
 brew "yarn"
