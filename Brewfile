@@ -55,7 +55,7 @@ brew "hurl"
 brew "k6"
 brew "luajit"
 brew "neovim"
-brew "postgresql"
+brew "postgresql@18" # pinned: major upgrades need a pg_upgrade of $PGDATA
 brew "prettier"
 brew "prettierd"
 brew "pyright"
