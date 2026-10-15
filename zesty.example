@@ -1,0 +1,13 @@
+# ~/.zesty — machine-local shell config, sourced at the end of ~/.zshrc.
+#
+# Not tracked: put secrets and work-only settings here, never in this repo.
+# Anything that works on every machine (PATH, tool setup) belongs in
+# zsh/.zshenv or zsh/.zshrc instead.
+#
+#   cp ~/dotfiles/zesty.example ~/.zesty && chmod 600 ~/.zesty
+#
+# Examples (uncomment and fill in as needed):
+
+# export GITHUB_TOKEN=
+# export NPM_TOKEN=
+# export ANTHROPIC_API_KEY=
