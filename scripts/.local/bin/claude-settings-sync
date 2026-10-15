@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Merge the shared Claude Code settings (~/.claude/settings.base.json, stowed
+# from the claude package) into this machine's ~/.claude/settings.json.
+#
+# settings.json is a plain per-machine file that Claude Code writes to itself
+# (/model, /config, plugins, auto mode), so it stays out of git and can't
+# conflict across machines. Merge rules:
+#   - objects merge deeply; for any other value this machine's setting wins
+#   - permission lists (allow/deny/ask/additionalDirectories) are combined
+# Entries removed from the base are not removed locally; edit the local file.
+#
+# If settings.json is still a symlink from the old setup, it is replaced with
+# a real file (keeping its contents when the target still exists).
+#
+# Usage: claude-settings-sync [--dry-run]
+
+BASE="$HOME/.claude/settings.base.json"
+LIVE="$HOME/.claude/settings.json"
+
+dry_run=false
+case "${1:-}" in
+  --dry-run) dry_run=true ;;
+  "") ;;
+  *) echo "Usage: claude-settings-sync [--dry-run]" >&2; exit 1 ;;
+esac
+
+if [ ! -f "$BASE" ]; then
+  echo "Missing $BASE — stow the claude package first." >&2
+  exit 1
+fi
+jq empty "$BASE" || { echo "Invalid JSON in $BASE" >&2; exit 1; }
+
+# Fall back to {} when there's no file yet or only a dangling symlink
+local_json='{}'
+if [ -f "$LIVE" ]; then
+  jq empty "$LIVE" || { echo "Invalid JSON in $LIVE — fix it first." >&2; exit 1; }
+  local_json="$(cat "$LIVE")"
+fi
+
+merged="$(jq -n --slurpfile base "$BASE" --argjson local "$local_json" '
+  def union(a; b):
+    reduce ((a // []) + (b // []))[] as $x ([]; if any(.[]; . == $x) then . else . + [$x] end);
+  $base[0] as $b
+  | ($b * $local)
+  | reduce ("allow", "deny", "ask", "additionalDirectories") as $k (.;
+      if ($b.permissions[$k] // $local.permissions[$k]) == null then .
+      else .permissions[$k] = union($b.permissions[$k]; $local.permissions[$k]) end)
+')"
+
+if $dry_run; then
+  echo "$merged"
+  exit 0
+fi
+
+if [ -f "$LIVE" ] && [ ! -L "$LIVE" ] && [ "$(jq -S . "$LIVE")" = "$(echo "$merged" | jq -S .)" ]; then
+  echo "Claude settings already up to date."
+  exit 0
+fi
+
+# Write to a temp file and rename, so a symlink is replaced rather than followed
+tmp="$(mktemp "$LIVE.XXXXXX")"
+echo "$merged" > "$tmp"
+mv "$tmp" "$LIVE"
+echo "Updated $LIVE"
