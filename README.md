@@ -19,6 +19,7 @@ Each top-level directory is a Stow package. The paths inside mirror where they l
 ```
 Brewfile               # Homebrew packages
 install.sh             # Bootstrap script
+macos.sh               # macOS preferences (also run by install.sh)
 zsh/
   .zshrc               # -> ~/.zshrc
   .zshenv              # -> ~/.zshenv
@@ -52,6 +53,7 @@ This will:
 2. Install [Oh My Zsh](https://ohmyz.sh/) if missing
 3. Install all packages from the `Brewfile`
 4. Symlink all configs to `$HOME` via Stow
+5. Apply macOS preferences from `macos.sh` (keyboard repeat, Finder, screenshots, Dock)
 
 Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
 
