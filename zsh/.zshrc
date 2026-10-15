@@ -47,6 +47,9 @@ eval "$(direnv hook zsh)"
 # Node (fnm; switches version on cd from .nvmrc / .node-version)
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
+# Google Cloud SDK completion (gcloud, bq, gsutil)
+[ -f "$BREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc" ] && source "$BREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"
+
 # Source work-specific config if present
 if [ -f "$HOME/.zesty" ]; then
     source "$HOME/.zesty"
