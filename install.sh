@@ -85,6 +85,10 @@ for pkg in "${STOW_PACKAGES[@]}"; do
     stow -v --no-folding --target="$HOME" --restow "$pkg"
 done
 
+# Claude Code writes to its own settings.json, so it's a per-machine file
+# seeded from the stowed settings.base.json rather than a symlink
+"$DOTFILES_DIR/scripts/.local/bin/claude-settings-sync"
+
 # macOS preferences (no-op elsewhere)
 "$DOTFILES_DIR/macos.sh"
 
