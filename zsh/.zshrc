@@ -44,6 +44,9 @@ source "$BREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 # Direnv
 eval "$(direnv hook zsh)"
 
+# Node (fnm; switches version on cd from .nvmrc / .node-version)
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
+
 # Source work-specific config if present
 if [ -f "$HOME/.zesty" ]; then
     source "$HOME/.zesty"

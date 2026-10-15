@@ -31,13 +31,6 @@ if [ "$(uname)" = "Darwin" ]; then
     brew autoupdate start 86400 --upgrade --cleanup
 fi
 
-# Install nvm (not supported via Homebrew). PROFILE=/dev/null stops it
-# appending to ~/.zshrc, which is a symlink into this repo.
-if [ ! -s "$HOME/.nvm/nvm.sh" ]; then
-    echo "Installing nvm..."
-    PROFILE=/dev/null bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh)"
-fi
-
 # Install Go tools (not available via Homebrew)
 if command -v go &>/dev/null; then
     echo "Installing Go tools..."
