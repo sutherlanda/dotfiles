@@ -31,6 +31,12 @@ if [ "$(uname)" = "Darwin" ]; then
     brew autoupdate start 86400 --upgrade --cleanup
 fi
 
+# Install the latest LTS Node as fnm's default
+if command -v fnm &>/dev/null && ! fnm list | grep -q default; then
+    echo "Installing Node LTS..."
+    fnm install --lts && fnm default lts-latest
+fi
+
 # Install Go tools (not available via Homebrew)
 if command -v go &>/dev/null; then
     echo "Installing Go tools..."
