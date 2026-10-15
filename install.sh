@@ -85,4 +85,7 @@ for pkg in "${STOW_PACKAGES[@]}"; do
     stow -v --no-folding --target="$HOME" --restow "$pkg"
 done
 
+# macOS preferences (no-op elsewhere)
+"$DOTFILES_DIR/macos.sh"
+
 echo "Done!"

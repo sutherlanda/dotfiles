@@ -5,12 +5,16 @@ brew "direnv"
 brew "fzf"
 brew "gnu-sed"
 brew "jq"
-brew "keychain"
 brew "ranger"
 brew "stow"
 brew "tmux"
 brew "tree"
-brew "xclip"
+
+# Linux/WSL only (macOS has pbcopy and its own ssh-agent keychain)
+if OS.linux?
+  brew "keychain"
+  brew "xclip"
+end
 
 # Terminal (casks are macOS-only; on WSL use Windows Terminal)
 cask "kitty" if OS.mac?
