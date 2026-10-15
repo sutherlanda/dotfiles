@@ -6,6 +6,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) an
 
 - **zsh** - Shell config with oh-my-zsh, powerlevel10k, autosuggestions, syntax highlighting
 - **git** - Aliases, work/personal email switching, remote host switching, global gitignore
+- **ssh** - `github.com-personal` / `github.com-zestyai` host aliases (keys are not tracked)
 - **tmux** - Prefix remapped to `C-f`, vim-style pane navigation, gruvbox theme
 - **kitty** - Terminal emulator config with MesloLGS NF font
 - **ranger** - File manager with custom rifle and scope configs
@@ -25,6 +26,8 @@ zsh/
 git/
   .config/git/config   # -> ~/.config/git/config
   .config/git/ignore   # -> ~/.config/git/ignore
+ssh/
+  .ssh/config          # -> ~/.ssh/config
 tmux/
   .tmux.conf           # -> ~/.tmux.conf
   .config/tmux/        # -> ~/.config/tmux/ (themes)
