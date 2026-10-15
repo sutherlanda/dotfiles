@@ -10,7 +10,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) an
 - **tmux** - Prefix remapped to `C-f`, vim-style pane navigation, gruvbox theme
 - **kitty** - Terminal emulator config with MesloLGS NF font
 - **ranger** - File manager with custom rifle and scope configs
-- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`
+- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `setup-github`
 
 ## Structure
 
@@ -37,7 +37,7 @@ kitty/
 ranger/
   .config/ranger/      # -> ~/.config/ranger/ (rc, rifle, scope)
 scripts/
-  .local/bin/          # -> ~/.local/bin/ (claude-multi, session, sessions, start-vpn, stop-vpn)
+  .local/bin/          # -> ~/.local/bin/ (claude-multi, session, sessions, setup-github, start-vpn, stop-vpn)
 ```
 
 ## Setup
@@ -52,3 +52,5 @@ This will:
 2. Install [Oh My Zsh](https://ohmyz.sh/) if missing
 3. Install all packages from the `Brewfile`
 4. Symlink all configs to `$HOME` via Stow
+
+Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
