@@ -26,6 +26,7 @@ zsh/
 git/
   .config/git/config   # -> ~/.config/git/config
   .config/git/ignore   # -> ~/.config/git/ignore
+  .config/git/work     # -> ~/.config/git/work (work email for ~/projects/zesty/)
 ssh/
   .ssh/config          # -> ~/.ssh/config
 tmux/
