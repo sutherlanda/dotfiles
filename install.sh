@@ -2,7 +2,7 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-STOW_PACKAGES=(zsh git tmux kitty ranger scripts claude)
+STOW_PACKAGES=(zsh git ssh tmux kitty ranger scripts claude)
 
 # Install Homebrew if missing
 if ! command -v brew &>/dev/null; then
@@ -31,6 +31,13 @@ if [ "$(uname)" = "Darwin" ]; then
     brew autoupdate start 86400 --upgrade --cleanup
 fi
 
+# Install nvm (not supported via Homebrew). PROFILE=/dev/null stops it
+# appending to ~/.zshrc, which is a symlink into this repo.
+if [ ! -s "$HOME/.nvm/nvm.sh" ]; then
+    echo "Installing nvm..."
+    PROFILE=/dev/null bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh)"
+fi
+
 # Install Go tools (not available via Homebrew)
 if command -v go &>/dev/null; then
     echo "Installing Go tools..."
@@ -39,6 +46,12 @@ fi
 
 # Create ~/.local/bin if it doesn't exist
 mkdir -p "$HOME/.local/bin"
+
+# Install Claude Code (native installer, self-updating, lands in ~/.local/bin)
+if [ ! -x "$HOME/.local/bin/claude" ]; then
+    echo "Installing Claude Code..."
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
 
 # Stow all packages
 echo "Linking dotfiles..."

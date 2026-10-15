@@ -15,11 +15,12 @@
       "mcp__claude_ai_Atlassian__getJiraIssue"
     ]
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus",
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "vercel@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "theme": "dark"
 }

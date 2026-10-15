@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# One-time GitHub setup for a new machine: SSH keys, gh logins and key uploads
+# for the personal and work accounts. Safe to re-run; finished steps are skipped.
+#
+# Pairs with ~/.ssh/config (ssh package), which maps github.com-personal and
+# github.com-zestyai to these keys.
+#
+# Usage: setup-github
+
+# alias:github-user:key-email
+ACCOUNTS=(
+  "personal:sutherlanda:sutherlanda@gmail.com"
+  "zestyai:asuthr-zesty:andrew.sutherland@zesty.ai"
+)
+SSO_ORG_ALIAS="zestyai"
+DOTFILES_DIR="$HOME/dotfiles"
+
+add_to_agent() {
+  if [ "$(uname)" = "Darwin" ]; then
+    ssh-add --apple-use-keychain "$1"
+  else
+    ssh-add "$1"
+  fi
+}
+
+prev_user=$(gh api user --jq .login 2>/dev/null || true)
+
+for entry in "${ACCOUNTS[@]}"; do
+  IFS=: read -r alias user email <<<"$entry"
+  key="$HOME/.ssh/id_ed25519_$alias"
+  echo
+  echo "== $alias ($user)"
+
+  # 1. Key
+  if [ ! -f "$key" ]; then
+    echo "Generating $key (choose a passphrase)..."
+    mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
+    ssh-keygen -t ed25519 -C "$email" -f "$key"
+  fi
+  ssh-add -l 2>/dev/null | grep -q "$(ssh-keygen -lf "$key.pub" | awk '{print $2}')" || add_to_agent "$key"
+
+  # 2. gh login
+  if ! gh auth status --hostname github.com 2>/dev/null | grep -q "account $user "; then
+    echo "Signing in to gh. In the browser, approve as $user."
+    gh auth login --hostname github.com --git-protocol ssh --skip-ssh-key --web --scopes admin:public_key
+  fi
+  gh auth switch --hostname github.com --user "$user" 2>/dev/null
+
+  # 3. Upload key
+  if gh ssh-key list 2>/dev/null | grep -qF "$(awk '{print $2}' "$key.pub")"; then
+    echo "Key already on $user."
+  else
+    gh ssh-key add "$key.pub" --title "$(scutil --get ComputerName 2>/dev/null || hostname) ($alias)"
+  fi
+
+  if [ "$alias" = "$SSO_ORG_ALIAS" ]; then
+    echo "If the org enforces SAML SSO, authorize this key: https://github.com/settings/keys -> Configure SSO"
+  fi
+
+  # 4. Test (ssh -T exits 1 even on success, so check the greeting instead)
+  greeting=$(ssh -o StrictHostKeyChecking=accept-new -T "git@github.com-$alias" 2>&1 || true)
+  if [[ "$greeting" == "Hi $user!"* ]]; then
+    echo "SSH ok: github.com-$alias -> $user"
+  else
+    echo "SSH test failed for github.com-$alias: $greeting"
+  fi
+done
+
+# Restore the previously active gh account, or default to the first one
+gh auth switch --hostname github.com --user "${prev_user:-$(echo "${ACCOUNTS[0]}" | cut -d: -f2)}" 2>/dev/null
+echo
+echo "Active gh account: $(gh api user --jq .login)"
+
+# Move the dotfiles remote from HTTPS to SSH
+if [ -d "$DOTFILES_DIR/.git" ] && git -C "$DOTFILES_DIR" remote get-url origin | grep -q '^https://github.com/'; then
+  git -C "$DOTFILES_DIR" remote set-url origin \
+    "$(git -C "$DOTFILES_DIR" remote get-url origin | sed -E 's#^https://github.com/#git@github.com-personal:#')"
+  echo
+  echo "dotfiles remote: $(git -C "$DOTFILES_DIR" remote get-url origin)"
+fi

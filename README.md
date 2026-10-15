@@ -6,10 +6,11 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) an
 
 - **zsh** - Shell config with oh-my-zsh, powerlevel10k, autosuggestions, syntax highlighting
 - **git** - Aliases, work/personal email switching, remote host switching, global gitignore
+- **ssh** - `github.com-personal` / `github.com-zestyai` host aliases (keys are not tracked)
 - **tmux** - Prefix remapped to `C-f`, vim-style pane navigation, gruvbox theme
 - **kitty** - Terminal emulator config with MesloLGS NF font
 - **ranger** - File manager with custom rifle and scope configs
-- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`
+- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `setup-github`
 
 ## Structure
 
@@ -21,9 +22,13 @@ install.sh             # Bootstrap script
 zsh/
   .zshrc               # -> ~/.zshrc
   .zshenv              # -> ~/.zshenv
+  .p10k.zsh            # -> ~/.p10k.zsh
 git/
   .config/git/config   # -> ~/.config/git/config
   .config/git/ignore   # -> ~/.config/git/ignore
+  .config/git/work     # -> ~/.config/git/work (work email for ~/projects/zesty/)
+ssh/
+  .ssh/config          # -> ~/.ssh/config
 tmux/
   .tmux.conf           # -> ~/.tmux.conf
   .config/tmux/        # -> ~/.config/tmux/ (themes)
@@ -32,7 +37,7 @@ kitty/
 ranger/
   .config/ranger/      # -> ~/.config/ranger/ (rc, rifle, scope)
 scripts/
-  .local/bin/          # -> ~/.local/bin/ (claude-multi, session, sessions, start-vpn, stop-vpn)
+  .local/bin/          # -> ~/.local/bin/ (claude-multi, session, sessions, setup-github, start-vpn, stop-vpn)
 ```
 
 ## Setup
@@ -47,3 +52,5 @@ This will:
 2. Install [Oh My Zsh](https://ohmyz.sh/) if missing
 3. Install all packages from the `Brewfile`
 4. Symlink all configs to `$HOME` via Stow
+
+Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
