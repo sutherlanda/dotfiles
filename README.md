@@ -54,3 +54,15 @@ This will:
 4. Symlink all configs to `$HOME` via Stow
 
 Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
+
+## Making changes
+
+Every config in `$HOME` is a symlink into this checkout, so whatever branch `~/dotfiles` has checked out is live. Switching branches here can briefly remove files a branch doesn't have (including `~/.ssh/config`, which git needs to reach GitHub). Keep `~/dotfiles` on `main` and do branch work in a worktree:
+
+```sh
+git -C ~/dotfiles worktree add ../dotfiles-wip -b some-change
+# edit, commit and push from ~/dotfiles-wip, merge the PR, then:
+git -C ~/dotfiles pull
+git -C ~/dotfiles worktree remove ../dotfiles-wip
+git -C ~/dotfiles branch -d some-change
+```
