@@ -36,8 +36,7 @@ defaults write com.apple.screencapture location -string "$HOME/Pictures/Screensh
 defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# Dock: autohide, no recent apps
-defaults write com.apple.dock autohide -bool true
+# Dock: no recent apps
 defaults write com.apple.dock show-recents -bool false
 
 killall Finder Dock SystemUIServer 2>/dev/null || true
