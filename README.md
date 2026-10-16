@@ -10,7 +10,8 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) an
 - **tmux** - Prefix remapped to `C-f`, vim-style pane navigation, gruvbox theme
 - **kitty** - Terminal emulator config with MesloLGS NF font
 - **ranger** - File manager with custom rifle and scope configs
-- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `setup-github`
+- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `claude-settings-sync`, `setup-github`
+- **claude** - Global Claude Code instructions and shared base settings
 
 ## Structure
 
@@ -38,7 +39,10 @@ kitty/
 ranger/
   .config/ranger/      # -> ~/.config/ranger/ (rc, rifle, scope)
 scripts/
-  .local/bin/          # -> ~/.local/bin/ (claude-multi, session, sessions, setup-github, start-vpn, stop-vpn)
+  .local/bin/          # -> ~/.local/bin/ (claude-multi, claude-settings-sync, session, sessions, setup-github, start-vpn, stop-vpn)
+claude/
+  .claude/CLAUDE.md            # -> ~/.claude/CLAUDE.md
+  .claude/settings.base.json   # -> ~/.claude/settings.base.json (merged into settings.json, see below)
 ```
 
 ## Setup
@@ -53,7 +57,8 @@ This will:
 2. Install [Oh My Zsh](https://ohmyz.sh/) if missing
 3. Install all packages from the `Brewfile`
 4. Symlink all configs to `$HOME` via Stow
-5. Apply macOS preferences from `macos.sh` (keyboard repeat, Finder, screenshots, Dock recents)
+5. Merge the shared Claude Code settings into `~/.claude/settings.json` (`claude-settings-sync`)
+6. Apply macOS preferences from `macos.sh` (keyboard repeat, Finder, screenshots, Dock recents)
 
 Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
 
@@ -68,3 +73,15 @@ git -C ~/dotfiles pull
 git -C ~/dotfiles worktree remove ../dotfiles-wip
 git -C ~/dotfiles branch -d some-change
 ```
+
+## Claude Code settings
+
+`~/.claude/settings.json` is **not** a symlink: Claude Code writes to it itself (`/model`, `/config`, plugins, auto mode), so a tracked copy conflicted on every machine. Instead, shared settings live in `claude/.claude/settings.base.json` and each machine keeps its own `settings.json`.
+
+After pulling a change to the base file, run:
+
+```sh
+claude-settings-sync            # or --dry-run to print the result without writing
+```
+
+Objects merge deeply, this machine's value wins for everything else, and permission lists (`allow`, `deny`, `ask`, `additionalDirectories`) are combined. Removing an entry from the base doesn't remove it locally; edit `~/.claude/settings.json` for that. To share a setting across machines, add it to the base file rather than relying on Claude Code's own write.
