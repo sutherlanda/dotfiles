@@ -20,6 +20,6 @@ if [ "$FORWARDED_PORT" != "Inactive" ]; then
  
   # Reconfigure firewall to remove last used port and add current one
   sudo ufw delete allow "$FORWARDED_PORT"
-  sudo transmission-remote -p $FORWARDED_PORT
-  sudo ufw allow $FORWARDED_PORT
+  sudo transmission-remote -p "$FORWARDED_PORT"
+  sudo ufw allow "$FORWARDED_PORT"
 fi
