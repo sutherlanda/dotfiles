@@ -16,6 +16,15 @@
   switchpersonal = "!f() { git remote set-url origin \"$(git remote get-url origin | sed -E 's/@github\\.com[^:]*:/@github.com-personal:/')\" && git setpersonalemail; }; f"
 [push]
   default = simple
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[pull]
+  ff = only
+[init]
+  defaultBranch = main
+[rerere]
+  enabled = true
 [includeIf "gitdir:~/projects/zesty/"]
   path = ~/.config/git/work
   
