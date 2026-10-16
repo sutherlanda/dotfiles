@@ -56,12 +56,18 @@ for entry in "${ACCOUNTS[@]}"; do
   else
     gh ssh-key add "$key.pub" --title "$title"
   fi
-  if gh ssh-key list 2>/dev/null | grep -F "$pub" | grep -q signing; then
+  # Public endpoint: works without the admin:ssh_signing_key scope
+  if gh api "users/$user/ssh_signing_keys" --jq '.[].key' 2>/dev/null | grep -qF "$pub"; then
     echo "Signing key already on $user."
   elif ! gh ssh-key add "$key.pub" --type signing --title "$title" 2>/dev/null; then
     echo "Granting gh permission to add signing keys. In the browser, approve as $user."
-    gh auth refresh --hostname github.com --scopes admin:ssh_signing_key
-    gh ssh-key add "$key.pub" --type signing --title "$title"
+    # Org SAML SSO can reject this approval (e.g. Google app_not_configured_for_user)
+    if ! { gh auth refresh --hostname github.com --scopes admin:ssh_signing_key \
+        && gh ssh-key add "$key.pub" --type signing --title "$title"; }; then
+      echo "Couldn't add the signing key with gh. Add it by hand as $user:"
+      echo "  https://github.com/settings/ssh/new  (Key type: Signing Key)"
+      echo "  $(cat "$key.pub")"
+    fi
   fi
 
   if [ "$alias" = "$SSO_ORG_ALIAS" ]; then
