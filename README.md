@@ -21,6 +21,7 @@ Each top-level directory is a Stow package. The paths inside mirror where they l
 Brewfile               # Homebrew packages
 install.sh             # Bootstrap script
 macos.sh               # macOS preferences (also run by install.sh)
+zesty.example          # Template for untracked ~/.zesty (secrets, work-only env)
 zsh/
   .zshrc               # -> ~/.zshrc
   .zshenv              # -> ~/.zshenv
@@ -59,6 +60,8 @@ This will:
 4. Symlink all configs to `$HOME` via Stow
 5. Merge the shared Claude Code settings into `~/.claude/settings.json` (`claude-settings-sync`)
 6. Apply macOS preferences from `macos.sh` (keyboard repeat, Finder, screenshots, Dock recents)
+
+Copy `zesty.example` to `~/.zesty` for machine-local secrets (it is sourced by `.zshrc` and never committed).
 
 Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
 
