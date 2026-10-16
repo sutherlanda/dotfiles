@@ -41,6 +41,13 @@ source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$BREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 
+# SSH keys: load passphrases from the macOS Keychain into the agent so commit
+# signing (ssh-keygen -Y sign) doesn't prompt after a reboot. Loading takes
+# ~0.4s, so only do it when the agent is empty (once per login)
+if [[ "$OSTYPE" == darwin* ]] && ! ssh-add -l >/dev/null 2>&1; then
+  ssh-add --apple-load-keychain -q 2>/dev/null
+fi
+
 # Direnv
 eval "$(direnv hook zsh)"
 
