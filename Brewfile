@@ -1,3 +1,6 @@
+# Taps
+tap "domt4/autoupdate" if OS.mac?
+
 # CLI tools
 brew "bat"
 brew "curl"

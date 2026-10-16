@@ -26,7 +26,10 @@ brew bundle --file="$DOTFILES_DIR/Brewfile" || echo "Warning: some packages fail
 # Set up brew autoupdate (daily updates via launchd, macOS only)
 if [ "$(uname)" = "Darwin" ]; then
     echo "Configuring brew autoupdate..."
-    brew tap homebrew/autoupdate 2>/dev/null || true
+    # Homebrew moved this tap to domt4/autoupdate and only loads commands from
+    # trusted third-party taps
+    brew tap domt4/autoupdate
+    brew trust --tap domt4/autoupdate
     brew autoupdate delete 2>/dev/null || true
     brew autoupdate start 86400 --upgrade --cleanup
 fi
