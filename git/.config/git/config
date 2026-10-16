@@ -3,6 +3,7 @@
 [user]
   name = Andrew Sutherland
   email = sutherlanda@gmail.com
+  signingkey = ~/.ssh/id_ed25519_personal.pub
 [alias]
   co = checkout
   br = branch
@@ -25,6 +26,12 @@
   defaultBranch = main
 [rerere]
   enabled = true
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
 [includeIf "gitdir:~/projects/zesty/"]
   path = ~/.config/git/work
   

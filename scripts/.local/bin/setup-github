@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # One-time GitHub setup for a new machine: SSH keys, gh logins and key uploads
-# for the personal and work accounts. Safe to re-run; finished steps are skipped.
+# (authentication and commit signing) for the personal and work accounts. Safe to re-run; finished steps are skipped.
 #
 # Pairs with ~/.ssh/config (ssh package), which maps github.com-personal and
 # github.com-zestyai to these keys.
@@ -44,15 +44,30 @@ for entry in "${ACCOUNTS[@]}"; do
   # 2. gh login
   if ! gh auth status --hostname github.com 2>/dev/null | grep -q "account $user "; then
     echo "Signing in to gh. In the browser, approve as $user."
-    gh auth login --hostname github.com --git-protocol ssh --skip-ssh-key --web --scopes admin:public_key
+    gh auth login --hostname github.com --git-protocol ssh --skip-ssh-key --web --scopes admin:public_key,admin:ssh_signing_key
   fi
   gh auth switch --hostname github.com --user "$user" 2>/dev/null
 
-  # 3. Upload key
-  if gh ssh-key list 2>/dev/null | grep -qF "$(awk '{print $2}' "$key.pub")"; then
-    echo "Key already on $user."
+  # 3. Upload key, for authentication and for commit signing
+  pub=$(awk '{print $2}' "$key.pub")
+  title="$(scutil --get ComputerName 2>/dev/null || hostname) ($alias)"
+  if gh ssh-key list 2>/dev/null | grep -F "$pub" | grep -q authentication; then
+    echo "Auth key already on $user."
   else
-    gh ssh-key add "$key.pub" --title "$(scutil --get ComputerName 2>/dev/null || hostname) ($alias)"
+    gh ssh-key add "$key.pub" --title "$title"
+  fi
+  # Public endpoint: works without the admin:ssh_signing_key scope
+  if gh api "users/$user/ssh_signing_keys" --jq '.[].key' 2>/dev/null | grep -qF "$pub"; then
+    echo "Signing key already on $user."
+  elif ! gh ssh-key add "$key.pub" --type signing --title "$title" 2>/dev/null; then
+    echo "Granting gh permission to add signing keys. In the browser, approve as $user."
+    # Org SAML SSO can reject this approval (e.g. Google app_not_configured_for_user)
+    if ! { gh auth refresh --hostname github.com --scopes admin:ssh_signing_key \
+        && gh ssh-key add "$key.pub" --type signing --title "$title"; }; then
+      echo "Couldn't add the signing key with gh. Add it by hand as $user:"
+      echo "  https://github.com/settings/ssh/new  (Key type: Signing Key)"
+      echo "  $(cat "$key.pub")"
+    fi
   fi
 
   if [ "$alias" = "$SSO_ORG_ALIAS" ]; then

@@ -1,3 +1,4 @@
 # Included for repos under ~/projects/zesty/ (see includeIf in config)
 [user]
   email = andrew.sutherland@zesty.ai
+  signingkey = ~/.ssh/id_ed25519_zestyai.pub
