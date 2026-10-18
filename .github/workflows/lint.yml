@@ -34,4 +34,4 @@ jobs:
           done
 
       - name: Brewfile syntax
-        run: ruby -c Brewfile
+        run: ruby -c Brewfile && ruby -c Brewfile.minimal

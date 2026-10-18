@@ -49,10 +49,10 @@ if [[ "$OSTYPE" == darwin* ]] && ! ssh-add -l >/dev/null 2>&1; then
 fi
 
 # Direnv
-eval "$(direnv hook zsh)"
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
 
 # Node (fnm; switches version on cd from .nvmrc / .node-version)
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
+command -v fnm >/dev/null && eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
 # Google Cloud SDK completion (gcloud, bq, gsutil)
 [ -f "$BREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc" ] && source "$BREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc"

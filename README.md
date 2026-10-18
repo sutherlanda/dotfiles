@@ -19,6 +19,7 @@ Each top-level directory is a Stow package. The paths inside mirror where they l
 
 ```
 Brewfile               # Homebrew packages
+Brewfile.minimal       # Packages for ./install.sh --minimal
 install.sh             # Bootstrap script
 macos.sh               # macOS preferences (also run by install.sh)
 zesty.example          # Template for untracked ~/.zesty (secrets, work-only env)
@@ -64,6 +65,16 @@ This will:
 Copy `zesty.example` to `~/.zesty` for machine-local secrets (it is sourced by `.zshrc` and never committed).
 
 Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
+
+### Minimal (servers)
+
+For a shell-only machine such as a home server:
+
+```sh
+./install.sh --minimal
+```
+
+This installs Homebrew and Oh My Zsh, installs only the packages in `Brewfile.minimal`, and stows only `zsh`, `git`, `tmux` and `scripts`. It skips brew autoupdate, the Node/Go/Claude Code installs, `claude-settings-sync` and `macos.sh`. The `ssh` package is left out so an existing `~/.ssh/config` (e.g. one with an OrbStack `Include`) isn't replaced.
 
 ## Making changes
 
