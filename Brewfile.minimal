@@ -1,0 +1,24 @@
+# Shell-only setup for servers (./install.sh --minimal)
+
+# CLI tools
+brew "bat"
+brew "fzf"
+brew "jq"
+brew "stow"
+brew "tmux"
+brew "tree"
+
+# Shell
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "powerlevel10k"
+
+# Git
+brew "git"
+
+# Dev tools
+brew "direnv"
+brew "fd"
+brew "fnm"
+brew "neovim"
+brew "ripgrep"

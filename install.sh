@@ -2,7 +2,24 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-STOW_PACKAGES=(zsh git ssh tmux kitty ranger scripts claude)
+
+# --minimal: shell-only setup for servers (Brewfile.minimal, no GUI/dev
+# tooling, no ssh config, no Claude Code, no macOS preferences)
+MINIMAL=false
+for arg in "$@"; do
+    case "$arg" in
+        --minimal) MINIMAL=true ;;
+        *) echo "Usage: $0 [--minimal]" >&2; exit 1 ;;
+    esac
+done
+
+if $MINIMAL; then
+    BREWFILE="$DOTFILES_DIR/Brewfile.minimal"
+    STOW_PACKAGES=(zsh git tmux scripts)
+else
+    BREWFILE="$DOTFILES_DIR/Brewfile"
+    STOW_PACKAGES=(zsh git ssh tmux kitty ranger scripts claude)
+fi
 
 # Install Homebrew if missing
 if ! command -v brew &>/dev/null; then
@@ -20,11 +37,11 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Install packages
-echo "Installing packages from Brewfile..."
-brew bundle --file="$DOTFILES_DIR/Brewfile" || echo "Warning: some packages failed to install (see above)"
+echo "Installing packages from $(basename "$BREWFILE")..."
+brew bundle --file="$BREWFILE" || echo "Warning: some packages failed to install (see above)"
 
 # Set up brew autoupdate (daily updates via launchd, macOS only)
-if [ "$(uname)" = "Darwin" ]; then
+if ! $MINIMAL && [ "$(uname)" = "Darwin" ]; then
     echo "Configuring brew autoupdate..."
     # Homebrew moved this tap to domt4/autoupdate and only loads commands from
     # trusted third-party taps
@@ -35,13 +52,13 @@ if [ "$(uname)" = "Darwin" ]; then
 fi
 
 # Install the latest LTS Node as fnm's default
-if command -v fnm &>/dev/null && ! fnm list | grep -q default; then
+if ! $MINIMAL && command -v fnm &>/dev/null && ! fnm list | grep -q default; then
     echo "Installing Node LTS..."
     fnm install --lts && fnm default lts-latest
 fi
 
 # Install Go tools (not available via Homebrew)
-if command -v go &>/dev/null; then
+if ! $MINIMAL && command -v go &>/dev/null; then
     echo "Installing Go tools..."
     go install golang.org/x/tools/cmd/goimports@latest
 fi
@@ -50,7 +67,7 @@ fi
 mkdir -p "$HOME/.local/bin"
 
 # Install Claude Code (native installer, self-updating, lands in ~/.local/bin)
-if [ ! -x "$HOME/.local/bin/claude" ]; then
+if ! $MINIMAL && [ ! -x "$HOME/.local/bin/claude" ]; then
     echo "Installing Claude Code..."
     curl -fsSL https://claude.ai/install.sh | bash
 fi
@@ -88,11 +105,13 @@ for pkg in "${STOW_PACKAGES[@]}"; do
     stow -v --no-folding --target="$HOME" --restow "$pkg"
 done
 
-# Claude Code writes to its own settings.json, so it's a per-machine file
-# seeded from the stowed settings.base.json rather than a symlink
-"$DOTFILES_DIR/scripts/.local/bin/claude-settings-sync"
+if ! $MINIMAL; then
+    # Claude Code writes to its own settings.json, so it's a per-machine file
+    # seeded from the stowed settings.base.json rather than a symlink
+    "$DOTFILES_DIR/scripts/.local/bin/claude-settings-sync"
 
-# macOS preferences (no-op elsewhere)
-"$DOTFILES_DIR/macos.sh"
+    # macOS preferences (no-op elsewhere)
+    "$DOTFILES_DIR/macos.sh"
+fi
 
 echo "Done!"
