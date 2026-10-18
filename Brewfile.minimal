@@ -17,8 +17,6 @@ brew "powerlevel10k"
 brew "git"
 
 # Dev tools
-brew "direnv"
 brew "fd"
-brew "fnm"
 brew "neovim"
 brew "ripgrep"
