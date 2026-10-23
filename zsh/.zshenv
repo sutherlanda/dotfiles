@@ -7,6 +7,8 @@ export PATH="$HOME/.local/bin:$HOME/go/bin:$PATH"
 [ -n "$HOMEBREW_PREFIX" ] && export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH"
 # Docker Desktop installs its CLI per-user
 [ -d "$HOME/.docker/bin" ] && export PATH="$HOME/.docker/bin:$PATH"
+# Shared Zesty tools (csp, missile, zsc) from zestyai/scripts, when cloned
+[ -d "$HOME/projects/zesty/scripts/platform/shared" ] && export PATH="$PATH:$HOME/projects/zesty/scripts/platform/shared"
 # Google Cloud SDK: pin Homebrew's Python (gcloud rejects the system 3.9)
 # and add the SDK's component bin dir
 if [ -d "$HOMEBREW_PREFIX/share/google-cloud-sdk" ]; then
