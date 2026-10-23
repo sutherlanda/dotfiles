@@ -27,6 +27,7 @@ cask "docker-desktop" if OS.mac?
 
 # Cloud
 cask "gcloud-cli" if OS.mac?
+brew "cloud-sql-proxy" # v2; used by csp in zestyai/scripts
 
 # Kubernetes
 brew "kubectl"
