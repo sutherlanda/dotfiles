@@ -19,5 +19,5 @@ These apply in every project (loaded at the start of every session, regardless o
 
 ## Cross-repo work
 
-- The repos under `~/projects/zesty/` (z-view, caribou, zauth-customer, puffin, infosec, api-documentation-website, pigeon, zlog, pika, scripts, cloudrun-services) are mutually granted file access via `additionalDirectories` in each repo's `.claude/settings.local.json`.
+- Every repo under `~/projects/zesty/` is mutually granted file access to the others via `additionalDirectories` in each repo's `.claude/settings.local.json`. Clone new work repos with `zesty-clone <repo>`, which keeps that access in sync (`zesty-clone --sync` re-syncs without cloning).
 - For git operations against another repo, use `git -C <path> …` rather than `cd` — avoids the shell cwd carrying over between commands and targeting the wrong repo.

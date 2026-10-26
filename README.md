@@ -10,7 +10,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) an
 - **tmux** - Prefix remapped to `C-f`, vim-style pane navigation, gruvbox theme
 - **kitty** - Terminal emulator config with MesloLGS NF font
 - **ranger** - File manager with custom rifle and scope configs
-- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `claude-settings-sync`, `setup-github`
+- **scripts** - tmux session management (`session`, `sessions`), VPN helpers, `claude-multi`, `claude-settings-sync`, `setup-github`, `zesty-clone`
 - **claude** - Global Claude Code instructions and shared base settings
 
 ## Structure
@@ -41,7 +41,7 @@ kitty/
 ranger/
   .config/ranger/      # -> ~/.config/ranger/ (rc, rifle, scope)
 scripts/
-  .local/bin/          # -> ~/.local/bin/ (claude-multi, claude-settings-sync, session, sessions, setup-github, start-vpn, stop-vpn)
+  .local/bin/          # -> ~/.local/bin/ (claude-multi, claude-settings-sync, session, sessions, setup-github, start-vpn, stop-vpn, zesty-clone)
 claude/
   .claude/CLAUDE.md            # -> ~/.claude/CLAUDE.md
   .claude/settings.base.json   # -> ~/.claude/settings.base.json (merged into settings.json, see below)
@@ -64,7 +64,7 @@ This will:
 
 Copy `zesty.example` to `~/.zesty` for machine-local secrets (it is sourced by `.zshrc` and never committed).
 
-Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH.
+Then run `setup-github` to create SSH keys, sign in to both GitHub accounts with `gh`, upload the keys, and switch this repo's remote to SSH. Clone work repos with `zesty-clone <repo>`.
 
 ### Minimal (servers)
 
