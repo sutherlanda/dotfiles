@@ -24,6 +24,7 @@ cask "kitty" if OS.mac?
 
 # Apps (Docker Desktop's installer asks for sudo, so run install.sh interactively)
 cask "docker-desktop" if OS.mac?
+cask "pgadmin4" if OS.mac?
 
 # Cloud
 cask "gcloud-cli" if OS.mac?
