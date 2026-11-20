@@ -18,6 +18,12 @@ These apply in every project (loaded at the start of every session, regardless o
 - Keep it signal, not noise: don't memorialize what the repo, git history, or a `CLAUDE.md` already records.
 - Note: auto-memory is scoped per git repo, so it does **not** carry across repos — these global preferences live here in user-level `CLAUDE.md` so they apply everywhere.
 
+## Session titles
+
+- In the Claude desktop app, once the task is clear, **set a descriptive session title** with the session-title tool (`set_session_title` on `self`), and update it if the work shifts to something else. Skip this where the tool isn't available (CLI, chat).
+- Format: ticket ID first when there is one, then the subject and what's being done — e.g. `ENG-14850 Gemfury migration – story breakdown`, `dotfiles – zesty-clone sync`. Keep it under ~60 characters.
+- Don't overwrite a title I set myself.
+
 ## Cross-repo work
 
 - Every repo under `~/projects/zesty/` is mutually granted file access to the others via `additionalDirectories` in each repo's `.claude/settings.local.json`. Clone new work repos with `zesty-clone <repo>`, which keeps that access in sync (`zesty-clone --sync` re-syncs without cloning).
