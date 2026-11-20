@@ -10,6 +10,7 @@ These apply in every project (loaded at the start of every session, regardless o
 ## Branches & PRs
 
 - **No slashes (`/`) in branch names or PR titles** — the CI/CD pipeline breaks on them. Use hyphens (e.g. `eng-1234-short-description`).
+- **Always assign PRs you create to me** (GitHub `asuthr-zesty`), e.g. `gh pr create --assignee asuthr-zesty …`.
 
 ## Memory & context
 
