@@ -11,6 +11,7 @@ These apply in every project (loaded at the start of every session, regardless o
 
 - **No slashes (`/`) in branch names or PR titles** — the CI/CD pipeline breaks on them. Use hyphens (e.g. `eng-1234-short-description`).
 - **Always assign PRs you create to me** (GitHub `asuthr-zesty`), e.g. `gh pr create --assignee asuthr-zesty …`.
+- **Branch from, and stay current with, the remote default branch.** Before creating a branch, `git fetch origin` and base it on `origin/main` (not the local `main`, which is often stale). Before pushing or opening a PR, fetch again and update the branch if it is behind, so CI only has to run once.
 
 ## Memory & context
 
